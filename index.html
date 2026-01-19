@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCDC Network | Dutch Caribbean Digital Competence Network</title>
+    <meta name="description" content="Building digital competence together across Aruba, Curaçao, and Sint Maarten.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header */
+        header {
+            padding: 48px 0 32px;
+            text-align: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2c5282, #4299e1);
+            border-radius: 12px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            color: #1a365d;
+            margin-bottom: 8px;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            color: #4a5568;
+        }
+        
+        /* Main content */
+        main {
+            padding: 48px 0;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .intro p {
+            font-size: 1.15rem;
+            color: #4a5568;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Islands section */
+        .islands {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .island {
+            text-align: center;
+            padding: 24px;
+            background: #f7fafc;
+            border-radius: 8px;
+            min-width: 160px;
+        }
+        
+        .island-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        
+        .island h3 {
+            font-size: 1rem;
+            color: #2d3748;
+        }
+        
+        .island p {
+            font-size: 0.875rem;
+            color: #718096;
+            margin-top: 4px;
+        }
+        
+        /* About section */
+        .about {
+            background: #f7fafc;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 48px 0;
+        }
+        
+        .about h2 {
+            font-size: 1.5rem;
+            color: #1a365d;
+            margin-bottom: 16px;
+        }
+        
+        .about p {
+            margin-bottom: 16px;
+            color: #4a5568;
+        }
+        
+        .about ul {
+            margin: 16px 0 16px 24px;
+            color: #4a5568;
+        }
+        
+        .about li {
+            margin-bottom: 8px;
+        }
+        
+        /* CTA section */
+        .cta {
+            text-align: center;
+            padding: 48px 0;
+            border-top: 1px solid #e5e5e5;
+            border-bottom: 1px solid #e5e5e5;
+            margin: 48px 0;
+        }
+        
+        .cta h2 {
+            font-size: 1.5rem;
+            color: #1a365d;
+            margin-bottom: 16px;
+        }
+        
+        .cta p {
+            color: #4a5568;
+            margin-bottom: 24px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #2c5282;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        
+        .btn:hover {
+            background: #1a365d;
+        }
+        
+        /* Partners section */
+        .partners {
+            text-align: center;
+            padding: 32px 0;
+        }
+        
+        .partners h2 {
+            font-size: 1.25rem;
+            color: #1a365d;
+            margin-bottom: 24px;
+        }
+        
+        .partner-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px 32px;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a365d;
+            color: #e2e8f0;
+            padding: 40px 0;
+            margin-top: 48px;
+        }
+        
+        footer .container {
+            text-align: center;
+        }
+        
+        footer h3 {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            color: white;
+        }
+        
+        footer p {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        
+        footer a {
+            color: #90cdf4;
+        }
+        
+        .funding {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #2d4a6d;
+            font-size: 0.875rem;
+            color: #a0aec0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .islands {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-placeholder">DC</div>
+            <h1>Dutch Caribbean Digital Competence Network</h1>
+            <p class="tagline">Building digital competence together across the Dutch Caribbean</p>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <section class="intro">
+                <p>The DCDC Network connects researchers, institutions, and professionals across Aruba, Curaçao, and Sint Maarten who share a commitment to open data, collaborative research, and building digital capacity in our region.</p>
+            </section>
+            
+            <section class="islands">
+                <div class="island">
+                    <div class="island-icon">🇦🇼</div>
+                    <h3>Aruba</h3>
+                    <p>University of Aruba</p>
+                </div>
+                <div class="island">
+                    <div class="island-icon">🇨🇼</div>
+                    <h3>Curaçao</h3>
+                    <p>University of Curaçao</p>
+                </div>
+                <div class="island">
+                    <div class="island-icon">🇸🇽</div>
+                    <h3>Sint Maarten</h3>
+                    <p>University of St. Martin</p>
+                </div>
+            </section>
+            
+            <section class="about">
+                <h2>What we do</h2>
+                <p>The DCDC Network aims to break down data silos between Caribbean research institutions and foster open, FAIR (Findable, Accessible, Interoperable, Reusable), and collaborative data practices.</p>
+                <p>Through the network, we:</p>
+                <ul>
+                    <li>Build digital competence via peer-to-peer exchange and training programs</li>
+                    <li>Facilitate strategic partnerships across islands and sectors</li>
+                    <li>Connect professionals with shared interests in open science and data management</li>
+                    <li>Develop a collective vision for knowledge sharing in the Dutch Caribbean</li>
+                </ul>
+                <p>Whether you're deeply experienced in open science or just beginning to explore these topics, you're welcome here.</p>
+            </section>
+            
+            <section class="cta">
+                <h2>Join the network</h2>
+                <p>We're building this network by listening first. Complete our onboarding survey to help shape our priorities and connect with peers across the region.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_obYe8c079DTDdow2aECU3gKCpv57DLrwBxlCyc6ZaWRCfw/viewform?usp=dialog" class="btn">Complete the onboarding survey</a>
+            </section>
+            
+            <section class="partners">
+                <h2>Partner institutions</h2>
+                <div class="partner-list">
+                    <span>University of Aruba</span>
+                    <span>University of Curaçao</span>
+                    <span>University of St. Martin</span>
+                    <span>Instituto Pedagógico Arubano</span>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <h3>Contact</h3>
+            <p>For questions about the DCDC Network, reach out to your local coordinator:</p>
+            <p><strong>Aruba:</strong> <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a></p>
+            <p><strong>Curaçao:</strong> <a href="mailto:irwin.korstjens@uoc.cw">irwin.korstjens@uoc.cw</a></p>
+            <p><strong>Sint Maarten:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
+            <p style="margin-top: 16px;"><strong>Network Facilitator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
+            
+            <div class="funding">
+                <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
