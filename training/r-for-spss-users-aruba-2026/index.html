@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to R for SPSS Users | DCDC Network Training</title>
+    <meta name="description" content="A hands-on workshop for researchers and students in Aruba ready to transition from SPSS to R. Free, open-source tools. No programming experience required.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header / Nav */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 16px 0;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .site-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .site-title span {
+            font-weight: 400;
+            color: #5a6a7a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #5a6a7a;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #2c3e50;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 16px 0 0;
+            font-size: 0.85rem;
+            color: #8a94a6;
+        }
+
+        .breadcrumb a {
+            color: #5a6a7a;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb .sep {
+            margin: 0 6px;
+        }
+
+        /* Course header */
+        .course-header {
+            padding: 32px 0 40px;
+        }
+
+        .course-meta-top {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .badge-upcoming { background: #e8f5e9; color: #2e7d32; }
+        .badge-location { background: #fff3e0; color: #e65100; }
+        .badge-free { background: #e8eaf6; color: #283593; }
+
+        .course-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a2533;
+            margin-bottom: 12px;
+        }
+
+        .course-header .lead {
+            font-size: 1.1rem;
+            color: #4a5568;
+            max-width: 720px;
+            line-height: 1.7;
+        }
+
+        /* Two-column layout */
+        .course-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 32px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .course-layout {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                order: -1;
+            }
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 24px;
+        }
+
+        .sidebar-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-card h3 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            color: #8a94a6;
+            margin-bottom: 16px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.9rem;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-row .label {
+            color: #5a6a7a;
+        }
+
+        .info-row .value {
+            color: #1a2533;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 14px 20px;
+            background: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background: #1a2533;
+        }
+
+        .cta-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #8a94a6;
+            margin-top: 8px;
+        }
+
+        .cost-highlight {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 6px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .cost-highlight .amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #166534;
+        }
+
+        .cost-highlight .compare {
+            font-size: 0.82rem;
+            color: #5a6a7a;
+            margin-top: 4px;
+        }
+
+        /* Main content sections */
+        .content-section {
+            margin-bottom: 40px;
+        }
+
+        .content-section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a2533;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .content-section p {
+            color: #4a5568;
+            font-size: 0.95rem;
+            line-height: 1.75;
+            margin-bottom: 12px;
+        }
+
+        .content-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Audience grid */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .audience-item {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 16px;
+        }
+
+        .audience-item strong {
+            display: block;
+            font-size: 0.9rem;
+            color: #1a2533;
+            margin-bottom: 4px;
+        }
+
+        .audience-item span {
+            font-size: 0.85rem;
+            color: #5a6a7a;
+        }
+
+        /* Learning objectives */
+        .objectives-list {
+            list-style: none;
+            margin-top: 12px;
+        }
+
+        .objectives-list li {
+            padding: 10px 0 10px 28px;
+            border-bottom: 1px solid #f5f5f5;
+            position: relative;
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+
+        .objectives-list li:last-child {
+            border-bottom: none;
+        }
+
+        .objectives-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2e7d32;
+            font-weight: 700;
+        }
+
+        /* Session blocks */
+        .session-block {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .session-header {
+            background: #f8f9fa;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .session-header h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1a2533;
+        }
+
+        .session-header .session-time {
+            font-size: 0.85rem;
+            color: #5a6a7a;
+            margin-top: 2px;
+        }
+
+        .session-body {
+            padding: 20px;
+        }
+
+        .session-topic {
+            margin-bottom: 16px;
+        }
+
+        .session-topic:last-child {
+            margin-bottom: 0;
+        }
+
+        .session-topic h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .session-topic p {
+            font-size: 0.88rem;
+            color: #5a6a7a;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .session-topic .duration {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: #8a94a6;
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-left: 8px;
+        }
+
+        /* Cost comparison */
+        .cost-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            font-size: 0.9rem;
+        }
+
+        .cost-table th {
+            text-align: left;
+            padding: 10px 12px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e0e0e0;
+            color: #5a6a7a;
+            font-weight: 600;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .cost-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #2c3e50;
+        }
+
+        .cost-table .highlight-row td {
+            background: #f0fdf4;
+            font-weight: 600;
+            color: #166534;
+        }
+
+        /* Pre-course section */
+        .pre-course-steps {
+            margin-top: 12px;
+        }
+
+        .step {
+            display: flex;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .step:last-child {
+            border-bottom: none;
+        }
+
+        .step-marker {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: #e8eaf6;
+            color: #283593;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .step-content strong {
+            display: block;
+            font-size: 0.9rem;
+            color: #1a2533;
+        }
+
+        .step-content span {
+            font-size: 0.85rem;
+            color: #5a6a7a;
+        }
+
+        /* Network context callout */
+        .callout {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            border-radius: 0 6px 6px 0;
+            padding: 20px 24px;
+            margin-top: 20px;
+        }
+
+        .callout p {
+            font-size: 0.9rem;
+            color: #4a5568;
+            margin-bottom: 0;
+        }
+
+        .callout strong {
+            color: #1a2533;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            padding: 32px 0;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: #8a94a6;
+        }
+
+        footer a {
+            color: #5a6a7a;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .funding-note {
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: #a0a8b4;
+        }
+
+        @media (max-width: 600px) {
+            .course-header h1 { font-size: 1.5rem; }
+            .sidebar-card { padding: 16px; }
+            .session-body { padding: 16px; }
+            .audience-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/" class="site-title">DCDC Network <span>| Dutch Caribbean Digital Competence</span></a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/training/" class="active">Training</a></li>
+                    <li><a href="mailto:rendell.dekort@ua.aw">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="breadcrumb">
+            <a href="/">Home</a><span class="sep">/</span>
+            <a href="/training/">Training</a><span class="sep">/</span>
+            Introduction to R for SPSS users
+        </div>
+
+        <div class="course-header">
+            <div class="course-meta-top">
+                <span class="badge badge-upcoming">Upcoming</span>
+                <span class="badge badge-location">Aruba</span>
+                <span class="badge badge-free">Free for participants</span>
+            </div>
+            <h1>Introduction to R for SPSS users</h1>
+            <p class="lead">A hands-on workshop that builds on what you already know from SPSS to get you productive in R. No programming experience required. By the end, you will be running analyses, creating publication-quality visualizations, and working in a fully reproducible workflow.</p>
+        </div>
+
+        <div class="course-layout">
+
+            <!-- Main content -->
+            <div class="main-content">
+
+                <div class="content-section">
+                    <h2>Who is this for?</h2>
+                    <p>This course is designed for anyone who currently uses SPSS and wants to transition to a free, more powerful alternative. You do not need any programming experience. If you understand basic statistical concepts like means, standard deviations, and hypothesis testing, you have everything you need to start.</p>
+                    <div class="audience-grid">
+                        <div class="audience-item">
+                            <strong>Students</strong>
+                            <span>Using SPSS for coursework or thesis research and looking for a cost-free alternative</span>
+                        </div>
+                        <div class="audience-item">
+                            <strong>Lecturers</strong>
+                            <span>Teaching research methods and interested in integrating open-source tools into courses</span>
+                        </div>
+                        <div class="audience-item">
+                            <strong>Researchers</strong>
+                            <span>Seeking reproducible analysis workflows and better visualization capabilities</span>
+                        </div>
+                        <div class="audience-item">
+                            <strong>Institutional analysts</strong>
+                            <span>Working with data in government, healthcare, or policy and paying for software licenses</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2>What you will learn</h2>
+                    <ul class="objectives-list">
+                        <li>Perform common statistical analyses in R that you currently do in SPSS</li>
+                        <li>Create publication-quality visualizations using ggplot2</li>
+                        <li>Import, clean, and manipulate data efficiently with tidyverse tools</li>
+                        <li>Understand the benefits of script-based analysis for reproducibility</li>
+                        <li>Use R Markdown to combine analysis and reporting in a single document</li>
+                        <li>Know where to find help and continue learning independently</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h2>Course structure</h2>
+                    <p>The course runs across two sessions in a single week, giving you time between sessions to practice and absorb. Each session combines short demonstrations with hands-on exercises using real data. Every SPSS operation is paired with its R equivalent, so you always have a clear reference point.</p>
+
+                    <div class="session-block">
+                        <div class="session-header">
+                            <h3>Session 1: Why R, and getting started</h3>
+                            <div class="session-time">5-6 hours (with breaks)</div>
+                        </div>
+                        <div class="session-body">
+                            <div class="session-topic">
+                                <h4>The case for switching <span class="duration">45 min</span></h4>
+                                <p>Live demonstration of what R can do that SPSS cannot. Cost comparison, reproducibility advantages, and career relevance. The goal is motivation before any coding begins.</p>
+                            </div>
+                            <div class="session-topic">
+                                <h4>Your first R session <span class="duration">90 min</span></h4>
+                                <p>Navigating RStudio, understanding the interface, running your first commands. Importing a dataset and performing basic operations you already know from SPSS: descriptive statistics, frequency tables, variable inspection.</p>
+                            </div>
+                            <div class="session-topic">
+                                <h4>Data manipulation <span class="duration">90 min</span></h4>
+                                <p>Filtering, sorting, recoding, and creating new variables. Every operation is shown side-by-side with its SPSS menu equivalent. Introduction to the tidyverse workflow for chaining operations together.</p>
+                            </div>
+                            <div class="session-topic">
+                                <h4>Your first visualization <span class="duration">60 min</span></h4>
+                                <p>Building charts with ggplot2. Starting from a basic plot and layering elements to produce something publication-ready. Comparison with SPSS chart builder output.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="session-block">
+                        <div class="session-header">
+                            <h3>Session 2: Analysis and reproducibility</h3>
+                            <div class="session-time">5-6 hours (with breaks)</div>
+                        </div>
+                        <div class="session-body">
+                            <div class="session-topic">
+                                <h4>Review and troubleshooting <span class="duration">30 min</span></h4>
+                                <p>Addressing questions from between-session practice. Common errors and how to read R error messages (a skill SPSS users rarely need).</p>
+                            </div>
+                            <div class="session-topic">
+                                <h4>Statistical analysis in R <span class="duration">120 min</span></h4>
+                                <p>Running the analyses participants use most: t-tests, ANOVA, correlation, regression. For each test, the SPSS dialog is shown alongside the R code. Interpreting output and extracting results.</p>
+                            </div>
+                            <div class="session-topic">
+                                <h4>Reproducible reporting <span class="duration">60 min</span></h4>
+                                <p>Introduction to R Markdown: combining narrative text, code, and output in a single document. Creating a report that updates automatically when data changes.</p>
+                            </div>
+                            <div class="session-topic">
+                                <h4>Where to go from here <span class="duration">45 min</span></h4>
+                                <p>Resources for continued learning. Community forums, package documentation, free online courses. Building a personal reference library of R scripts that replace your SPSS workflows.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2>Before the course</h2>
+                    <p>Participants receive preparation materials two weeks before the course starts. This ensures we spend instruction time learning R, not troubleshooting installations.</p>
+                    <div class="pre-course-steps">
+                        <div class="step">
+                            <div class="step-marker">1</div>
+                            <div class="step-content">
+                                <strong>Two weeks before</strong>
+                                <span>Installation instructions for R and RStudio sent to all participants, with screenshots and troubleshooting tips for common issues.</span>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-marker">2</div>
+                            <div class="step-content">
+                                <strong>One week before</strong>
+                                <span>Optional 30-minute online installation clinic. Bring your laptop, get help if anything went wrong, confirm your setup is ready.</span>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-marker">3</div>
+                            <div class="step-content">
+                                <strong>Pre-course survey</strong>
+                                <span>A short questionnaire about which SPSS analyses you use most. This helps tailor exercises to what participants actually need.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2>Why switch from SPSS to R?</h2>
+                    <p>The practical case for transitioning goes beyond cost savings, though those are significant. R gives you a reproducible workflow where every analysis step is documented in a script. You can share your exact analysis with a colleague, rerun it on new data, or return to it years later and know precisely what was done. SPSS point-and-click workflows cannot offer this.</p>
+                    <p>R also opens doors that SPSS keeps closed. Advanced visualization, text analysis, spatial data, machine learning, and automated reporting are all accessible through R's package ecosystem at no additional cost. And because R is the tool of choice in data science and increasingly in academic research, proficiency signals a modern skill set to employers and collaborators.</p>
+
+                    <table class="cost-table">
+                        <thead>
+                            <tr>
+                                <th>Tool</th>
+                                <th>Annual cost per user</th>
+                                <th>5-year cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SPSS (standard license)</td>
+                                <td>AWG 400+</td>
+                                <td>AWG 2,000+</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td>R + RStudio</td>
+                                <td>Free</td>
+                                <td>Free</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="callout">
+                        <p><strong>For institutions:</strong> Every SPSS license replaced by R proficiency is a recurring cost saved. For institutions facing budget pressure across the Dutch Caribbean, this represents tangible financial value. The course is designed to build on existing statistical knowledge rather than starting from scratch, meaning SPSS-fluent researchers can transition without losing productivity.</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2>Part of a regional program</h2>
+                    <p>This course is the first in the DCDC Network's training program. It pilots in Aruba and will be offered on other islands based on local interest and scheduling. All course materials are developed as open resources: slides, exercises, datasets, and facilitator notes will be available for any network member to reuse and adapt. The goal is not a one-time workshop but a transferable capability that stays in the region.</p>
+                    <p>Interested in bringing this course to your island or institution? <a href="mailto:rendell.dekort@ua.aw" style="color: #1565c0; font-weight: 500;">Get in touch</a>.</p>
+                </div>
+
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+
+                <div class="sidebar-card">
+                    <h3>Course details</h3>
+                    <div class="info-row">
+                        <span class="label">Location</span>
+                        <span class="value">University of Aruba</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Dates</span>
+                        <span class="value">2026 (TBA)</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Format</span>
+                        <span class="value">2 sessions, 1 week</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Total hours</span>
+                        <span class="value">10-12 hours</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Participants</span>
+                        <span class="value">15-20 max</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Language</span>
+                        <span class="value">English</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Prerequisites</span>
+                        <span class="value">Basic statistics</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Cost</h3>
+                    <div class="cost-highlight">
+                        <div class="amount">Free</div>
+                        <div class="compare">Funded by the DCDC Network through the NWO Open Science NL program</div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>What you need</h3>
+                    <div class="info-row">
+                        <span class="label">Laptop</span>
+                        <span class="value">Bring your own</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Software</span>
+                        <span class="value">R + RStudio (free)</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Experience</span>
+                        <span class="value">No coding needed</span>
+                    </div>
+
+                    <a href="mailto:rendell.dekort@ua.aw?subject=Interest%20in%20R%20for%20SPSS%20Users%20course" class="cta-button">Register your interest</a>
+                    <p class="cta-note">Dates will be confirmed soon. We will notify you when registration opens.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>
+                <a href="https://www.ua.aw" target="_blank" rel="noopener">University of Aruba</a> &middot;
+                <a href="https://www.uoc.cw" target="_blank" rel="noopener">University of Cura&ccedil;ao</a> &middot;
+                <a href="https://www.usm.sx" target="_blank" rel="noopener">University of Sint Maarten</a> &middot;
+                <a href="https://www.ipaaruba.com" target="_blank" rel="noopener">Instituto Pedag&oacute;gico Arubano</a>
+            </p>
+            <p class="funding-note">The DCDC Network is funded by NWO through the Open Science NL program.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
