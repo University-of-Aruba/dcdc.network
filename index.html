@@ -24,6 +24,37 @@
             margin: 0 auto;
             padding: 0 24px;
         }
+
+        /* Navigation bar */
+        .site-nav {
+            background: #fff;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 12px 0;
+        }
+
+        .site-nav .container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 24px;
+        }
+
+        .site-nav a {
+            color: #4a5568;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .site-nav a:hover {
+            color: #1a365d;
+        }
+
+        .site-nav a.current {
+            color: #1a365d;
+            border-bottom: 2px solid #2c5282;
+            padding-bottom: 2px;
+        }
         
         /* Header */
         header {
@@ -133,6 +164,72 @@
         
         .about li {
             margin-bottom: 8px;
+        }
+
+        /* Training highlight */
+        .training-highlight {
+            background: #fff;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 32px 40px;
+            margin: 48px 0;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .training-highlight-content {
+            flex: 1;
+        }
+
+        .training-highlight h2 {
+            font-size: 1.25rem;
+            color: #1a365d;
+            margin-bottom: 8px;
+        }
+
+        .training-highlight p {
+            color: #4a5568;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .training-highlight .btn-outline {
+            display: inline-block;
+            border: 2px solid #2c5282;
+            color: #2c5282;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .training-highlight .btn-outline:hover {
+            background: #2c5282;
+            color: #fff;
+        }
+
+        .training-badge {
+            background: #ebf8ff;
+            color: #2c5282;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 600px) {
+            .training-highlight {
+                flex-direction: column;
+                padding: 24px;
+                text-align: center;
+            }
         }
         
         /* CTA section */
@@ -247,6 +344,16 @@
     </style>
 </head>
 <body>
+
+    <!-- Navigation -->
+    <nav class="site-nav">
+        <div class="container">
+            <a href="/" class="current">Home</a>
+            <a href="/training/">Training</a>
+            <a href="mailto:rendell.dekort@ua.aw">Contact</a>
+        </div>
+    </nav>
+
     <header>
         <div class="container">
             <div class="logo-placeholder">DC</div>
@@ -290,6 +397,16 @@
                     <li>Develop a collective vision for knowledge sharing in the Dutch Caribbean</li>
                 </ul>
                 <p>Whether you're deeply experienced in open science or just beginning to explore these topics, you're welcome here.</p>
+            </section>
+
+            <!-- Training highlight -->
+            <section class="training-highlight">
+                <div class="training-highlight-content">
+                    <span class="training-badge">Upcoming course</span>
+                    <h2>Introduction to R for SPSS users</h2>
+                    <p>A free, hands-on workshop for researchers and students ready to switch from expensive SPSS licenses to a powerful open-source alternative. No programming experience required. Piloting at the University of Aruba in 2026.</p>
+                    <a href="/training/r-for-spss-users-aruba-2026/" class="btn-outline">View course details</a>
+                </div>
             </section>
             
             <section class="cta">
