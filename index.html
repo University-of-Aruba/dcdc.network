@@ -6,198 +6,133 @@
     <title>DCDC Network | Dutch Caribbean Digital Competence Network</title>
     <meta name="description" content="Building digital competence together across Aruba, Curaçao, and Sint Maarten.">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:   #091f38;
+            --teal:   #2e8894;
+            --purple: #2e3192;
+            --blue:   #1a66b1;
+            --light-teal: #e8f5f7;
+            --text:   #2d3748;
+            --muted:  #4a5568;
+            --border: #e2e8f0;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text);
             background: #fff;
         }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
 
-        /* Navigation bar */
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* Nav */
         .site-nav {
             background: #fff;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid var(--border);
             padding: 12px 0;
         }
-
-        .site-nav .container {
-            display: flex;
-            justify-content: flex-end;
-            gap: 24px;
-        }
-
+        .site-nav .container { display: flex; justify-content: flex-end; gap: 24px; }
         .site-nav a {
-            color: #4a5568;
+            color: var(--muted);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
             transition: color 0.2s;
         }
-
-        .site-nav a:hover {
-            color: #1a365d;
-        }
-
+        .site-nav a:hover { color: var(--navy); }
         .site-nav a.current {
-            color: #1a365d;
-            border-bottom: 2px solid #2c5282;
+            color: var(--navy);
+            border-bottom: 2px solid var(--teal);
             padding-bottom: 2px;
         }
-        
+
         /* Header */
         header {
-            padding: 48px 0 32px;
+            padding: 48px 0 36px;
             text-align: center;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid var(--border);
         }
-        
-        .logo-placeholder {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #2c5282, #4299e1);
-            border-radius: 12px;
-            margin: 0 auto 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 24px;
-        }
-        
-        h1 {
-            font-size: 2rem;
-            color: #1a365d;
-            margin-bottom: 8px;
-        }
-        
-        .tagline {
-            font-size: 1.1rem;
-            color: #4a5568;
-        }
-        
-        /* Main content */
-        main {
-            padding: 48px 0;
-        }
-        
-        .intro {
-            text-align: center;
-            margin-bottom: 48px;
-        }
-        
+        .logo-wrap { margin: 0 auto 20px; display: flex; justify-content: center; }
+        .logo-wrap img { height: 90px; width: auto; display: block; }
+
+        h1 { font-size: 1.85rem; color: var(--navy); margin-bottom: 8px; }
+        .tagline { font-size: 1.05rem; color: var(--muted); }
+
+        /* Main */
+        main { padding: 48px 0; }
+
+        .intro { text-align: center; margin-bottom: 48px; }
         .intro p {
-            font-size: 1.15rem;
-            color: #4a5568;
-            max-width: 700px;
+            font-size: 1.1rem;
+            color: var(--muted);
+            max-width: 680px;
             margin: 0 auto;
         }
-        
-        /* Islands section */
+
+        /* Islands */
         .islands {
             display: flex;
             justify-content: center;
-            gap: 32px;
+            gap: 20px;
             margin: 40px 0;
             flex-wrap: wrap;
         }
-        
         .island {
             text-align: center;
-            padding: 24px;
-            background: #f7fafc;
-            border-radius: 8px;
-            min-width: 160px;
+            padding: 20px 24px;
+            background: var(--light-teal);
+            border-radius: 10px;
+            min-width: 150px;
+            border-top: 3px solid var(--teal);
         }
-        
-        .island-icon {
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
-        
-        .island h3 {
-            font-size: 1rem;
-            color: #2d3748;
-        }
-        
-        .island p {
-            font-size: 0.875rem;
-            color: #718096;
-            margin-top: 4px;
-        }
-        
-        /* About section */
+        .island.curacao { border-top-color: var(--purple); }
+        .island.bonaire  { border-top-color: var(--blue); }
+        .island-icon { font-size: 1.8rem; margin-bottom: 6px; }
+        .island h3 { font-size: 0.95rem; color: var(--navy); font-weight: 600; }
+        .island p  { font-size: 0.82rem; color: var(--muted); margin-top: 3px; }
+
+        /* About */
         .about {
-            background: #f7fafc;
+            background: var(--light-teal);
             padding: 40px;
             border-radius: 12px;
             margin: 48px 0;
+            border-left: 4px solid var(--teal);
         }
-        
-        .about h2 {
-            font-size: 1.5rem;
-            color: #1a365d;
-            margin-bottom: 16px;
-        }
-        
-        .about p {
-            margin-bottom: 16px;
-            color: #4a5568;
-        }
-        
-        .about ul {
-            margin: 16px 0 16px 24px;
-            color: #4a5568;
-        }
-        
-        .about li {
-            margin-bottom: 8px;
-        }
+        .about h2 { font-size: 1.4rem; color: var(--navy); margin-bottom: 14px; }
+        .about p  { margin-bottom: 14px; color: var(--muted); }
+        .about ul { margin: 12px 0 14px 22px; color: var(--muted); }
+        .about li { margin-bottom: 7px; }
 
         /* Training highlight */
         .training-highlight {
             background: #fff;
-            border: 2px solid #e2e8f0;
+            border: 2px solid var(--border);
             border-radius: 12px;
             padding: 32px 40px;
             margin: 48px 0;
-            display: flex;
-            align-items: center;
-            gap: 32px;
         }
-
-        .training-highlight-content {
-            flex: 1;
-        }
-
-        .training-highlight h2 {
-            font-size: 1.25rem;
-            color: #1a365d;
-            margin-bottom: 8px;
-        }
-
-        .training-highlight p {
-            color: #4a5568;
-            font-size: 0.95rem;
-            margin-bottom: 16px;
-        }
-
-        .training-highlight .btn-outline {
+        .training-highlight h2 { font-size: 1.2rem; color: var(--navy); margin-bottom: 8px; }
+        .training-highlight p  { color: var(--muted); font-size: 0.95rem; margin-bottom: 16px; }
+        .training-badge {
+            background: var(--light-teal);
+            color: var(--teal);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding: 4px 10px;
+            border-radius: 4px;
             display: inline-block;
-            border: 2px solid #2c5282;
-            color: #2c5282;
+            margin-bottom: 10px;
+        }
+        .btn-outline {
+            display: inline-block;
+            border: 2px solid var(--teal);
+            color: var(--teal);
             padding: 10px 24px;
             border-radius: 6px;
             text-decoration: none;
@@ -205,147 +140,89 @@
             font-size: 0.9rem;
             transition: background 0.2s, color 0.2s;
         }
+        .btn-outline:hover { background: var(--teal); color: #fff; }
 
-        .training-highlight .btn-outline:hover {
-            background: #2c5282;
-            color: #fff;
-        }
-
-        .training-badge {
-            background: #ebf8ff;
-            color: #2c5282;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 4px 10px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-
-        @media (max-width: 600px) {
-            .training-highlight {
-                flex-direction: column;
-                padding: 24px;
-                text-align: center;
-            }
-        }
-        
-        /* CTA section */
+        /* CTA */
         .cta {
             text-align: center;
             padding: 48px 0;
-            border-top: 1px solid #e5e5e5;
-            border-bottom: 1px solid #e5e5e5;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
             margin: 48px 0;
         }
-        
-        .cta h2 {
-            font-size: 1.5rem;
-            color: #1a365d;
-            margin-bottom: 16px;
-        }
-        
+        .cta h2 { font-size: 1.4rem; color: var(--navy); margin-bottom: 14px; }
         .cta p {
-            color: #4a5568;
+            color: var(--muted);
             margin-bottom: 24px;
             max-width: 500px;
             margin-left: auto;
             margin-right: auto;
         }
-        
         .btn {
             display: inline-block;
-            background: #2c5282;
+            background: var(--teal);
             color: white;
             padding: 14px 32px;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: background 0.2s;
         }
-        
-        .btn:hover {
-            background: #1a365d;
-        }
-        
-        /* Partners section */
-        .partners {
-            text-align: center;
-            padding: 32px 0;
-        }
-        
-        .partners h2 {
-            font-size: 1.25rem;
-            color: #1a365d;
-            margin-bottom: 24px;
-        }
-        
+        .btn:hover { background: var(--navy); }
+
+        /* Partners */
+        .partners { text-align: center; padding: 32px 0; }
+        .partners h2 { font-size: 1.2rem; color: var(--navy); margin-bottom: 20px; }
         .partner-list {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 16px 32px;
-            color: #4a5568;
-            font-size: 0.95rem;
+            gap: 12px 28px;
+            color: var(--muted);
+            font-size: 0.92rem;
         }
-        
+
         /* Footer */
         footer {
-            background: #1a365d;
+            background: var(--navy);
             color: #e2e8f0;
             padding: 40px 0;
             margin-top: 48px;
         }
-        
-        footer .container {
-            text-align: center;
-        }
-        
-        footer h3 {
-            font-size: 1.1rem;
-            margin-bottom: 16px;
-            color: white;
-        }
-        
-        footer p {
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-        }
-        
-        footer a {
-            color: #90cdf4;
-        }
-        
+        footer .container { text-align: center; }
+        footer h3 { font-size: 1.05rem; margin-bottom: 14px; color: white; }
+        footer p  { margin-bottom: 7px; font-size: 0.92rem; }
+        footer a  { color: #7dd3dc; }
         .funding {
-            margin-top: 32px;
-            padding-top: 24px;
-            border-top: 1px solid #2d4a6d;
-            font-size: 0.875rem;
-            color: #a0aec0;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid #1e3a5a;
+            font-size: 0.85rem;
+            color: #94a3b8;
         }
-        
-        /* Responsive */
+
+        /* Island dot accent strip */
+        .island-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0 0;
+        }
+        .dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
         @media (max-width: 600px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            
-            .islands {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .about {
-                padding: 24px;
-            }
+            h1 { font-size: 1.4rem; }
+            .islands { flex-direction: column; align-items: center; }
+            .about, .training-highlight { padding: 24px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
     <nav class="site-nav">
         <div class="container">
             <a href="/" class="current">Home</a>
@@ -357,25 +234,36 @@
 
     <header>
         <div class="container">
-            <div class="logo-placeholder">DC</div>
+            <div class="logo-wrap">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC Network logo">
+            </div>
             <h1>Dutch Caribbean Digital Competence Network</h1>
             <p class="tagline">Building digital competence together across the Dutch Caribbean</p>
+            <div class="island-dots">
+                <span class="dot" style="background:#2e8894;" title="Aruba"></span>
+                <span class="dot" style="background:#2e8894;" title="Sint Maarten"></span>
+                <span class="dot" style="background:#2e8894;" title="Sint Eustatius"></span>
+                <span class="dot" style="background:#2e8894;" title="Saba"></span>
+                <span class="dot" style="background:#2e3192;" title="Curaçao"></span>
+                <span class="dot" style="background:#1a66b1;" title="Bonaire"></span>
+            </div>
         </div>
     </header>
-    
+
     <main>
         <div class="container">
+
             <section class="intro">
                 <p>The DCDC Network connects researchers, institutions, and professionals across Aruba, Curaçao, and Sint Maarten who share a commitment to open data, collaborative research, and building digital capacity in our region.</p>
             </section>
-            
+
             <section class="islands">
                 <div class="island">
                     <div class="island-icon">🇦🇼</div>
                     <h3>Aruba</h3>
                     <p>University of Aruba</p>
                 </div>
-                <div class="island">
+                <div class="island curacao">
                     <div class="island-icon">🇨🇼</div>
                     <h3>Curaçao</h3>
                     <p>University of Curaçao</p>
@@ -386,7 +274,7 @@
                     <p>University of St. Martin</p>
                 </div>
             </section>
-            
+
             <section class="about">
                 <h2>What we do</h2>
                 <p>The DCDC Network aims to break down data silos between Caribbean research institutions and foster open, FAIR (Findable, Accessible, Interoperable, Reusable), and collaborative data practices.</p>
@@ -400,22 +288,19 @@
                 <p>Whether you're deeply experienced in open science or just beginning to explore these topics, you're welcome here.</p>
             </section>
 
-            <!-- Training highlight -->
             <section class="training-highlight">
-                <div class="training-highlight-content">
-                    <span class="training-badge">Upcoming course</span>
-                    <h2>Introduction to R for SPSS users</h2>
-                    <p>A free, hands-on workshop for researchers and students ready to switch from expensive SPSS licenses to a powerful open-source alternative. No programming experience required. Piloting at the University of Aruba in 2026.</p>
-                    <a href="/training/r-for-spss-users-aruba-2026/" class="btn-outline">View course details</a>
-                </div>
+                <span class="training-badge">Upcoming course</span>
+                <h2>Introduction to R for SPSS users</h2>
+                <p>A free, hands-on workshop for researchers and students ready to switch from expensive SPSS licenses to a powerful open-source alternative. No programming experience required. Piloting at the University of Aruba in 2026.</p>
+                <a href="/training/r-for-spss-users-aruba-2026/" class="btn-outline">View course details</a>
             </section>
-            
+
             <section class="cta">
                 <h2>Join the network</h2>
                 <p>We're building this network by listening first. Complete our onboarding survey to help shape our priorities and connect with peers across the region.</p>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLScfqYjSIMjTNzeMU-L9vjHe5W_07rXM49Lpqxl3RJwlydzgyA/viewform?usp=header" class="btn">Complete the onboarding survey</a>
             </section>
-            
+
             <section class="partners">
                 <h2>Partner institutions</h2>
                 <div class="partner-list">
@@ -425,9 +310,10 @@
                     <span>Instituto Pedagogico Arubano</span>
                 </div>
             </section>
+
         </div>
     </main>
-    
+
     <footer>
         <div class="container">
             <h3>Contact</h3>
@@ -435,12 +321,12 @@
             <p><strong>Aruba:</strong> <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a></p>
             <p><strong>Curaçao:</strong> <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></p>
             <p><strong>Sint Maarten:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
-            <p style="margin-top: 16px;"><strong>Network Facilitator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
-            
+            <p style="margin-top: 14px;"><strong>Network Facilitator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
             <div class="funding">
                 <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
             </div>
         </div>
     </footer>
+
 </body>
 </html>
