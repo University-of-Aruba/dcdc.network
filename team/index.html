@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Team | DCDC Network</title>
-    <meta name="description" content="Meet the people behind the Dutch Caribbean Digital Competence Network.">
+    <meta name="description" content="The people behind the Dutch Caribbean Digital Competence Network.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -12,7 +12,6 @@
             --navy:       #091f38;
             --teal:       #2e8894;
             --purple:     #2e3192;
-            --blue:       #1a66b1;
             --light-teal: #e8f5f7;
             --text:       #2d3748;
             --muted:      #4a5568;
@@ -20,7 +19,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: var(--text);
             background: #fff;
@@ -49,154 +48,190 @@
             padding-bottom: 2px;
         }
 
-        /* Page header */
-        .page-header {
+        /* Header */
+        header {
             padding: 48px 0 36px;
+            text-align: center;
             border-bottom: 1px solid var(--border);
         }
-        .page-header .logo-wrap {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
+        .logo-wrap { margin: 0 auto 20px; display: flex; justify-content: center; }
+        .logo-wrap img { height: 70px; width: auto; display: block; }
+        h1 { font-size: 1.85rem; color: var(--navy); margin-bottom: 8px; }
+        .tagline { font-size: 1.05rem; color: var(--muted); }
+
+        /* Page intro */
+        .page-intro {
+            text-align: center;
+            padding: 48px 0 36px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 56px;
         }
-        .page-header .logo-wrap img { height: 70px; width: auto; }
-        .page-header h1 {
-            font-size: 1.85rem;
+        .page-intro h2 {
+            font-size: 1.5rem;
             color: var(--navy);
-            margin-bottom: 8px;
-            text-align: center;
+            margin-bottom: 12px;
         }
-        .page-header p {
-            text-align: center;
+        .page-intro p {
+            font-size: 1rem;
             color: var(--muted);
-            font-size: 1.05rem;
-            max-width: 580px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        /* Main */
-        main { padding: 56px 0; }
-
-        /* Island section label */
-        .island-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 48px 0 24px;
-        }
-        .island-label:first-of-type { margin-top: 0; }
-        .island-label img {
-            height: 1.4rem;
-            width: auto;
-            border-radius: 3px;
-            border: 1px solid #ddd;
-        }
-        .island-label h2 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--navy);
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-        }
-        .island-divider {
-            flex: 1;
-            height: 1px;
-            background: var(--border);
+        /* Team grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 32px;
+            margin-bottom: 64px;
         }
 
         /* Profile card */
-        .profile {
-            display: flex;
-            gap: 28px;
-            padding: 28px;
-            background: var(--light-teal);
-            border-radius: 12px;
-            margin-bottom: 20px;
-            border-left: 4px solid var(--teal);
+        .profile-card {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         }
-        .profile.coordinator { border-left-color: var(--teal); }
-        .profile.penhouder   { border-left-color: var(--purple); }
 
-        .profile-photo {
-            flex-shrink: 0;
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-            background: var(--border);
+        .card-header {
+            background: var(--navy);
+            padding: 24px 28px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--muted);
-            overflow: hidden;
+            gap: 18px;
         }
-        .profile-photo img {
+
+        .avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            border: 3px solid rgba(255,255,255,0.2);
+            overflow: hidden;
+            background: var(--teal);
+        }
+        .avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 50%;
+            object-position: center top;
+            display: block;
         }
-        .photo-placeholder {
-            width: 90px;
-            height: 90px;
+        .avatar-initials {
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
-            background: var(--border);
-            border: 3px solid #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            flex-shrink: 0;
+            border: 3px solid rgba(255,255,255,0.2);
+            background: var(--teal);
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
-            font-size: 2rem;
-        }
-
-        .profile-body { flex: 1; }
-        .profile-name {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 2px;
+            color: white;
+            letter-spacing: -1px;
         }
-        .profile-role {
-            font-size: 0.82rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--teal);
-            margin-bottom: 10px;
-        }
-        .profile-role.penhouder { color: var(--purple); }
 
-        .profile-field { margin-bottom: 10px; font-size: 0.93rem; color: var(--muted); }
-        .profile-field strong {
-            display: block;
+        .header-text h3 {
+            color: white;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+        .role {
+            color: #7dd3dc;
             font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--navy);
-            margin-bottom: 2px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        .island-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255,255,255,0.1);
+            color: #cbd5e0;
+            font-size: 0.72rem;
+            padding: 3px 9px;
+            border-radius: 20px;
+        }
+        .island-tag img {
+            height: 11px;
+            border-radius: 1px;
         }
 
-        /* Pending placeholder card */
-        .profile-pending {
+        .card-body { padding: 24px 28px; }
+
+        .field { margin-bottom: 18px; }
+        .field:last-child { margin-bottom: 0; }
+        .field-label {
+            font-size: 0.67rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--teal);
+            margin-bottom: 5px;
+        }
+        .field-text {
+            font-size: 0.9rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .card-footer {
+            border-top: 1px solid var(--border);
+            padding: 12px 28px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .flag-wrap { display: flex; align-items: center; gap: 6px; }
+        .flag-wrap img {
+            height: 16px;
+            width: auto;
+            border-radius: 2px;
+            border: 1px solid var(--border);
+        }
+
+        /* Coming soon card */
+        .profile-card.pending {
+            border: 2px dashed var(--border);
+            box-shadow: none;
+        }
+        .profile-card.pending .card-header {
+            background: #f7fafc;
+            border-bottom: 1px solid var(--border);
+        }
+        .profile-card.pending .header-text h3 { color: var(--muted); }
+        .profile-card.pending .role { color: var(--teal); }
+        .profile-card.pending .island-tag { background: var(--light-teal); color: var(--muted); }
+        .profile-card.pending .avatar-initials {
+            background: #e2e8f0;
+            color: var(--muted);
+        }
+        .coming-soon {
+            padding: 28px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+        .coming-soon-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        /* Island sections */
+        .island-section { margin-bottom: 56px; }
+        .island-heading {
             display: flex;
             align-items: center;
-            gap: 20px;
-            padding: 20px 28px;
-            background: #f8fafc;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            border: 2px dashed var(--border);
+            gap: 10px;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--light-teal);
         }
-        .profile-pending .photo-placeholder { opacity: 0.4; }
-        .profile-pending p {
-            color: #94a3b8;
-            font-size: 0.92rem;
-            font-style: italic;
-        }
+        .island-heading img { height: 22px; border-radius: 3px; border: 1px solid var(--border); }
+        .island-heading h2 { font-size: 1.1rem; color: var(--navy); font-weight: 600; }
 
         /* Footer */
         footer {
@@ -218,8 +253,8 @@
         }
 
         @media (max-width: 600px) {
-            .profile { flex-direction: column; align-items: flex-start; }
-            .page-header h1 { font-size: 1.4rem; }
+            .team-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -235,122 +270,189 @@
         </div>
     </nav>
 
-    <div class="page-header">
+    <header>
         <div class="container">
             <div class="logo-wrap">
                 <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC Network logo">
             </div>
-            <h1>The people behind the network</h1>
-            <p>The DCDC Network is built by researchers, educators, and professionals who believe the Dutch Caribbean deserves better access to open science tools and knowledge.</p>
+            <h1>Our team</h1>
+            <p class="tagline">The people behind the DCDC Network</p>
         </div>
-    </div>
+    </header>
 
     <main>
         <div class="container">
 
+            <div class="page-intro">
+                <h2>Real people, real islands</h2>
+                <p>The DCDC Network is built by researchers, educators, and professionals who live and work in the Dutch Caribbean. We share a belief that open data and collaborative research make the region stronger.</p>
+            </div>
+
             <!-- ARUBA -->
-            <div class="island-label">
-                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Aruba.svg" alt="Flag of Aruba">
-                <h2>Aruba</h2>
-                <div class="island-divider"></div>
-            </div>
-
-            <!-- Rendell -->
-            <div class="profile coordinator">
-                <div class="photo-placeholder">🙂</div>
-                <!-- Replace the line above with the following once you have a photo:
-                <div class="profile-photo"><img src="/assets/team/rendell.jpg" alt="Rendell de Kort"></div> -->
-                <div class="profile-body">
-                    <div class="profile-name">Rendell de Kort</div>
-                    <div class="profile-role">Network Administrator &amp; Facilitator — University of Aruba</div>
-                    <div class="profile-field">
-                        <strong>What I work on</strong>
-                        I run an economics consultancy focused on sustainable and purpose-driven business models, and I'm completing a PhD on economic resilience in small island states. Data and how we use it sits at the center of most of what I do.
-                    </div>
-                    <div class="profile-field">
-                        <strong>Why this matters to me</strong>
-                        The Dutch Caribbean produces real knowledge. But too much of it stays locked inside organizations, never shared, never built upon. That's a loss we can actually do something about.
-                    </div>
-                    <div class="profile-field">
-                        <strong>What I'm hoping DCDC makes possible</strong>
-                        A researcher in Sint Maarten being able to build on work done in Aruba without starting from scratch. That kind of quiet, practical collaboration is what the region has been missing.
-                    </div>
+            <section class="island-section">
+                <div class="island-heading">
+                    <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Aruba.svg" alt="Aruba">
+                    <h2>Aruba</h2>
                 </div>
-            </div>
+                <div class="team-grid">
 
-            <!-- Esther -->
-            <div class="profile penhouder">
-                <div class="photo-placeholder">🙂</div>
-                <!-- Replace with: <div class="profile-photo"><img src="/assets/team/esther.jpg" alt="Esther Plomp-Peterson"></div> -->
-                <div class="profile-body">
-                    <div class="profile-name">Dr. Esther Plomp-Peterson</div>
-                    <div class="profile-role penhouder">Project Lead &amp; Aruba Coordinator — University of Aruba Research Center</div>
-                    <div class="profile-field">
-                        <strong>What I work on</strong>
-                        <!-- Awaiting Esther's response -->
-                        <em style="color:#94a3b8;">Profile coming soon.</em>
+                    <!-- Rendell -->
+                    <div class="profile-card">
+                        <div class="card-header">
+                            <div class="avatar">
+                                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Rendell.jpg" alt="Rendell de Kort">
+                            </div>
+                            <div class="header-text">
+                                <h3>Rendell de Kort</h3>
+                                <div class="role">Network Administrator &amp; Facilitator</div>
+                                <div class="island-tag">
+                                    <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Aruba.svg" alt="Aruba">
+                                    Aruba &middot; University of Aruba
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="field">
+                                <div class="field-label">What I work on</div>
+                                <div class="field-text">I run an economics consultancy focused on sustainable and purpose-driven business models, and I'm completing a PhD on economic resilience in small island states. Data and how we use it sits at the center of most of what I do.</div>
+                            </div>
+                            <div class="field">
+                                <div class="field-label">Why this matters to me</div>
+                                <div class="field-text">The Dutch Caribbean produces real knowledge. But too much of it stays locked inside organizations, never shared, never built upon. That's a loss we can actually do something about, and that's why I said yes to this role.</div>
+                            </div>
+                            <div class="field">
+                                <div class="field-label">What I'm hoping DCDC makes possible</div>
+                                <div class="field-text">A researcher in Sint Maarten being able to build on work done in Aruba without starting from scratch. That kind of quiet, practical collaboration is what the region has been missing.</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="flag-wrap">
+                                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Aruba.svg" alt="Aruba">
+                                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Cura%C3%A7ao.svg" alt="Curaçao">
+                                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Saint_Martin_island_(Unification_flag).svg" alt="Sint Maarten">
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- Regine placeholder -->
+                    <div class="profile-card pending">
+                        <div class="card-header">
+                            <div class="avatar-initials">R</div>
+                            <div class="header-text">
+                                <h3>Regine</h3>
+                                <div class="role">IPA Coordinator</div>
+                                <div class="island-tag">
+                                    <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Aruba.svg" alt="Aruba">
+                                    Aruba &middot; Instituto Pedagogico Arubano
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coming-soon">
+                            <div class="coming-soon-icon">🔜</div>
+                            Profile coming soon
+                        </div>
+                    </div>
+
+                    <!-- Esther placeholder -->
+                    <div class="profile-card pending">
+                        <div class="card-header">
+                            <div class="avatar-initials">EP</div>
+                            <div class="header-text">
+                                <h3>Dr. Esther Plomp-Peterson</h3>
+                                <div class="role">Project Lead &amp; Aruba Coordinator</div>
+                                <div class="island-tag">
+                                    <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Aruba.svg" alt="Aruba">
+                                    Aruba &middot; University of Aruba
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coming-soon">
+                            <div class="coming-soon-icon">🔜</div>
+                            Profile coming soon
+                        </div>
+                    </div>
+
                 </div>
-            </div>
+            </section>
 
             <!-- CURAÇAO -->
-            <div class="island-label">
-                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Cura%C3%A7ao.svg" alt="Flag of Curaçao">
-                <h2>Curaçao</h2>
-                <div class="island-divider"></div>
-            </div>
-
-            <!-- Marjorie -->
-            <div class="profile coordinator">
-                <div class="photo-placeholder">🙂</div>
-                <div class="profile-body">
-                    <div class="profile-name">Marjorie Alfonso</div>
-                    <div class="profile-role">Local Network Coordinator — University of Curaçao</div>
-                    <div class="profile-field">
-                        <strong>What I work on</strong>
-                        <em style="color:#94a3b8;">Profile coming soon.</em>
-                    </div>
+            <section class="island-section">
+                <div class="island-heading">
+                    <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Cura%C3%A7ao.svg" alt="Curaçao">
+                    <h2>Curaçao</h2>
                 </div>
-            </div>
+                <div class="team-grid">
 
-            <!-- Curaçao flex admin placeholder -->
-            <div class="profile-pending">
-                <div class="photo-placeholder">👤</div>
-                <p>A part-time network support role is based in Curaçao. Profile coming soon.</p>
-            </div>
+                    <!-- Marjorie placeholder -->
+                    <div class="profile-card pending">
+                        <div class="card-header">
+                            <div class="avatar-initials">MA</div>
+                            <div class="header-text">
+                                <h3>Marjorie Alfonso</h3>
+                                <div class="role">Local Network Coordinator</div>
+                                <div class="island-tag">
+                                    <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Cura%C3%A7ao.svg" alt="Curaçao">
+                                    Curaçao &middot; University of Curaçao
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coming-soon">
+                            <div class="coming-soon-icon">🔜</div>
+                            Profile coming soon
+                        </div>
+                    </div>
+
+                </div>
+            </section>
 
             <!-- SINT MAARTEN -->
-            <div class="island-label">
-                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Saint_Martin_island_(Unification_flag).svg" alt="Flag of Sint Maarten">
-                <h2>Sint Maarten</h2>
-                <div class="island-divider"></div>
-            </div>
-
-            <!-- Antonio -->
-            <div class="profile coordinator">
-                <div class="photo-placeholder">🙂</div>
-                <div class="profile-body">
-                    <div class="profile-name">Antonio "Tico" Carmona Báez</div>
-                    <div class="profile-role">Local Network Coordinator — University of St. Martin</div>
-                    <div class="profile-field">
-                        <strong>What I work on</strong>
-                        <em style="color:#94a3b8;">Profile coming soon.</em>
-                    </div>
+            <section class="island-section">
+                <div class="island-heading">
+                    <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Saint_Martin_island_(Unification_flag).svg" alt="Sint Maarten">
+                    <h2>Sint Maarten</h2>
                 </div>
-            </div>
+                <div class="team-grid">
 
-            <!-- Raymond -->
-            <div class="profile coordinator">
-                <div class="photo-placeholder">🙂</div>
-                <div class="profile-body">
-                    <div class="profile-name">Raymond Jessurun</div>
-                    <div class="profile-role">Local Network Coordinator — University of St. Martin</div>
-                    <div class="profile-field">
-                        <strong>What I work on</strong>
-                        <em style="color:#94a3b8;">Profile coming soon.</em>
+                    <!-- Antonio placeholder -->
+                    <div class="profile-card pending">
+                        <div class="card-header">
+                            <div class="avatar-initials">AC</div>
+                            <div class="header-text">
+                                <h3>Antonio Carmona Báez</h3>
+                                <div class="role">Local Network Coordinator</div>
+                                <div class="island-tag">
+                                    <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Saint_Martin_island_(Unification_flag).svg" alt="Sint Maarten">
+                                    Sint Maarten &middot; University of St. Martin
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coming-soon">
+                            <div class="coming-soon-icon">🔜</div>
+                            Profile coming soon
+                        </div>
                     </div>
+
+                    <!-- Raymond placeholder -->
+                    <div class="profile-card pending">
+                        <div class="card-header">
+                            <div class="avatar-initials">RJ</div>
+                            <div class="header-text">
+                                <h3>Raymond Jessurun</h3>
+                                <div class="role">Local Network Coordinator</div>
+                                <div class="island-tag">
+                                    <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Saint_Martin_island_(Unification_flag).svg" alt="Sint Maarten">
+                                    Sint Maarten &middot; University of St. Martin
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coming-soon">
+                            <div class="coming-soon-icon">🔜</div>
+                            Profile coming soon
+                        </div>
+                    </div>
+
                 </div>
-            </div>
+            </section>
 
         </div>
     </main>
@@ -362,7 +464,7 @@
             <p><strong>Aruba:</strong> <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a></p>
             <p><strong>Curaçao:</strong> <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></p>
             <p><strong>Sint Maarten:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
-            <p style="margin-top: 14px;"><strong>Network Facilitator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
+            <p style="margin-top:14px;"><strong>Network Facilitator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
             <div class="funding">
                 <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
             </div>
