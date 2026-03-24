@@ -177,6 +177,51 @@
         }
         .btn:hover { background: var(--navy); }
 
+        /* Team teaser */
+        .team-teaser {
+            margin: 48px 0;
+            text-align: center;
+        }
+        .team-teaser h2 {
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+        .team-teaser p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            max-width: 500px;
+            margin: 0 auto 20px;
+        }
+        .team-avatars {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .team-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 3px solid var(--light-teal);
+            overflow: hidden;
+            background: var(--teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+        .team-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
         /* Partners */
         .partners { text-align: center; padding: 32px 0; }
         .partners h2 { font-size: 1.2rem; color: var(--navy); margin-bottom: 20px; }
@@ -234,6 +279,7 @@
         <div class="container">
             <a href="/" class="current">Home</a>
             <a href="/training/">Training</a>
+            <a href="/team/">Team</a>
             <a href="/about/fair-and-reproducibility/">FAIR &amp; Reproducibility</a>
             <a href="mailto:rendell.dekort@ua.aw">Contact</a>
         </div>
@@ -283,7 +329,7 @@
                     <div class="island-icon">
                         <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Saint_Martin_island_(Unification_flag).svg" alt="Unity Flag of Saint Martin" style="height:1.8rem;width:auto;vertical-align:middle;border-radius:3px;border:1px solid #ddd;">
                     </div>
-                    <h3>St. Martin</h3>
+                    <h3>Sint Maarten</h3>
                     <p>University of St. Martin</p>
                 </div>
             </section>
@@ -314,6 +360,22 @@
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLScfqYjSIMjTNzeMU-L9vjHe5W_07rXM49Lpqxl3RJwlydzgyA/viewform?usp=header" class="btn">Complete the onboarding survey</a>
             </section>
 
+            <section class="team-teaser">
+                <h2>Meet the team</h2>
+                <p>The DCDC Network is built by real people, living and working across the Dutch Caribbean.</p>
+                <div class="team-avatars">
+                    <div class="team-avatar">
+                        <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Rendell.jpg" alt="Rendell de Kort">
+                    </div>
+                    <div class="team-avatar">EP</div>
+                    <div class="team-avatar">MA</div>
+                    <div class="team-avatar">AC</div>
+                    <div class="team-avatar">RJ</div>
+                    <div class="team-avatar">R</div>
+                </div>
+                <a href="/team/" class="btn-outline">Meet the team</a>
+            </section>
+
             <section class="partners">
                 <h2>Partner institutions</h2>
                 <div class="partner-list">
@@ -333,7 +395,7 @@
             <p>For questions about the DCDC Network, reach out to your local coordinator:</p>
             <p><strong>Aruba:</strong> <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a></p>
             <p><strong>Curaçao:</strong> <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></p>
-            <p><strong>St. Martin:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
+            <p><strong>Sint Maarten:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
             <p style="margin-top: 14px;"><strong>Network Facilitator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
             <div class="funding">
                 <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
