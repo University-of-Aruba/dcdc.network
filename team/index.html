@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | DCDC Network</title>
+    <meta name="description" content="Meet the people behind the Dutch Caribbean Digital Competence Network.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:       #091f38;
+            --teal:       #2e8894;
+            --purple:     #2e3192;
+            --blue:       #1a66b1;
+            --light-teal: #e8f5f7;
+            --text:       #2d3748;
+            --muted:      #4a5568;
+            --border:     #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* Nav */
+        .site-nav {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+        }
+        .site-nav .container { display: flex; justify-content: flex-end; gap: 24px; }
+        .site-nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .site-nav a:hover { color: var(--navy); }
+        .site-nav a.current {
+            color: var(--navy);
+            border-bottom: 2px solid var(--teal);
+            padding-bottom: 2px;
+        }
+
+        /* Page header */
+        .page-header {
+            padding: 48px 0 36px;
+            border-bottom: 1px solid var(--border);
+        }
+        .page-header .logo-wrap {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .page-header .logo-wrap img { height: 70px; width: auto; }
+        .page-header h1 {
+            font-size: 1.85rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .page-header p {
+            text-align: center;
+            color: var(--muted);
+            font-size: 1.05rem;
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        /* Main */
+        main { padding: 56px 0; }
+
+        /* Island section label */
+        .island-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 48px 0 24px;
+        }
+        .island-label:first-of-type { margin-top: 0; }
+        .island-label img {
+            height: 1.4rem;
+            width: auto;
+            border-radius: 3px;
+            border: 1px solid #ddd;
+        }
+        .island-label h2 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        .island-divider {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* Profile card */
+        .profile {
+            display: flex;
+            gap: 28px;
+            padding: 28px;
+            background: var(--light-teal);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--teal);
+        }
+        .profile.coordinator { border-left-color: var(--teal); }
+        .profile.penhouder   { border-left-color: var(--purple); }
+
+        .profile-photo {
+            flex-shrink: 0;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            background: var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--muted);
+            overflow: hidden;
+        }
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .photo-placeholder {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: var(--border);
+            border: 3px solid #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 2rem;
+        }
+
+        .profile-body { flex: 1; }
+        .profile-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+        .profile-role {
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--teal);
+            margin-bottom: 10px;
+        }
+        .profile-role.penhouder { color: var(--purple); }
+
+        .profile-field { margin-bottom: 10px; font-size: 0.93rem; color: var(--muted); }
+        .profile-field strong {
+            display: block;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+
+        /* Pending placeholder card */
+        .profile-pending {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 28px;
+            background: #f8fafc;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 2px dashed var(--border);
+        }
+        .profile-pending .photo-placeholder { opacity: 0.4; }
+        .profile-pending p {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: #e2e8f0;
+            padding: 40px 0;
+            margin-top: 48px;
+        }
+        footer .container { text-align: center; }
+        footer h3 { font-size: 1.05rem; margin-bottom: 14px; color: white; }
+        footer p  { margin-bottom: 7px; font-size: 0.92rem; }
+        footer a  { color: #7dd3dc; }
+        .funding {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid #1e3a5a;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 600px) {
+            .profile { flex-direction: column; align-items: flex-start; }
+            .page-header h1 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav">
+        <div class="container">
+            <a href="/">Home</a>
+            <a href="/training/">Training</a>
+            <a href="/about/fair-and-reproducibility/">FAIR &amp; Reproducibility</a>
+            <a href="/team/" class="current">Team</a>
+            <a href="mailto:rendell.dekort@ua.aw">Contact</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <div class="logo-wrap">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC Network logo">
+            </div>
+            <h1>The people behind the network</h1>
+            <p>The DCDC Network is built by researchers, educators, and professionals who believe the Dutch Caribbean deserves better access to open science tools and knowledge.</p>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+
+            <!-- ARUBA -->
+            <div class="island-label">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Aruba.svg" alt="Flag of Aruba">
+                <h2>Aruba</h2>
+                <div class="island-divider"></div>
+            </div>
+
+            <!-- Rendell -->
+            <div class="profile coordinator">
+                <div class="photo-placeholder">🙂</div>
+                <!-- Replace the line above with the following once you have a photo:
+                <div class="profile-photo"><img src="/assets/team/rendell.jpg" alt="Rendell de Kort"></div> -->
+                <div class="profile-body">
+                    <div class="profile-name">Rendell de Kort</div>
+                    <div class="profile-role">Network Administrator &amp; Facilitator — University of Aruba</div>
+                    <div class="profile-field">
+                        <strong>What I work on</strong>
+                        I run an economics consultancy focused on sustainable and purpose-driven business models, and I'm completing a PhD on economic resilience in small island states. Data and how we use it sits at the center of most of what I do.
+                    </div>
+                    <div class="profile-field">
+                        <strong>Why this matters to me</strong>
+                        The Dutch Caribbean produces real knowledge. But too much of it stays locked inside organizations, never shared, never built upon. That's a loss we can actually do something about.
+                    </div>
+                    <div class="profile-field">
+                        <strong>What I'm hoping DCDC makes possible</strong>
+                        A researcher in Sint Maarten being able to build on work done in Aruba without starting from scratch. That kind of quiet, practical collaboration is what the region has been missing.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Esther -->
+            <div class="profile penhouder">
+                <div class="photo-placeholder">🙂</div>
+                <!-- Replace with: <div class="profile-photo"><img src="/assets/team/esther.jpg" alt="Esther Plomp-Peterson"></div> -->
+                <div class="profile-body">
+                    <div class="profile-name">Dr. Esther Plomp-Peterson</div>
+                    <div class="profile-role penhouder">Project Lead &amp; Aruba Coordinator — University of Aruba Research Center</div>
+                    <div class="profile-field">
+                        <strong>What I work on</strong>
+                        <!-- Awaiting Esther's response -->
+                        <em style="color:#94a3b8;">Profile coming soon.</em>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CURAÇAO -->
+            <div class="island-label">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Cura%C3%A7ao.svg" alt="Flag of Curaçao">
+                <h2>Curaçao</h2>
+                <div class="island-divider"></div>
+            </div>
+
+            <!-- Marjorie -->
+            <div class="profile coordinator">
+                <div class="photo-placeholder">🙂</div>
+                <div class="profile-body">
+                    <div class="profile-name">Marjorie Alfonso</div>
+                    <div class="profile-role">Local Network Coordinator — University of Curaçao</div>
+                    <div class="profile-field">
+                        <strong>What I work on</strong>
+                        <em style="color:#94a3b8;">Profile coming soon.</em>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Curaçao flex admin placeholder -->
+            <div class="profile-pending">
+                <div class="photo-placeholder">👤</div>
+                <p>A part-time network support role is based in Curaçao. Profile coming soon.</p>
+            </div>
+
+            <!-- SINT MAARTEN -->
+            <div class="island-label">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Saint_Martin_island_(Unification_flag).svg" alt="Flag of Sint Maarten">
+                <h2>Sint Maarten</h2>
+                <div class="island-divider"></div>
+            </div>
+
+            <!-- Antonio -->
+            <div class="profile coordinator">
+                <div class="photo-placeholder">🙂</div>
+                <div class="profile-body">
+                    <div class="profile-name">Antonio "Tico" Carmona Báez</div>
+                    <div class="profile-role">Local Network Coordinator — University of St. Martin</div>
+                    <div class="profile-field">
+                        <strong>What I work on</strong>
+                        <em style="color:#94a3b8;">Profile coming soon.</em>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Raymond -->
+            <div class="profile coordinator">
+                <div class="photo-placeholder">🙂</div>
+                <div class="profile-body">
+                    <div class="profile-name">Raymond Jessurun</div>
+                    <div class="profile-role">Local Network Coordinator — University of St. Martin</div>
+                    <div class="profile-field">
+                        <strong>What I work on</strong>
+                        <em style="color:#94a3b8;">Profile coming soon.</em>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h3>Contact</h3>
+            <p>For questions about the DCDC Network, reach out to your local coordinator:</p>
+            <p><strong>Aruba:</strong> <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a></p>
+            <p><strong>Curaçao:</strong> <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></p>
+            <p><strong>Sint Maarten:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
+            <p style="margin-top: 14px;"><strong>Network Facilitator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
+            <div class="funding">
+                <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
