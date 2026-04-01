@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A seed planted: the DCDC Network meets IPA | DCDC Network</title>
+    <meta name="description" content="On 16 March, the DCDC Network visited Instituto Pedagogico Arubano for a sip & learn dialogue session on open research. Here's what happened.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:       #091f38;
+            --teal:       #2e8894;
+            --purple:     #2e3192;
+            --light-teal: #e8f5f7;
+            --text:       #2d3748;
+            --muted:      #4a5568;
+            --border:     #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* ── Nav ── */
+        .site-nav {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+        }
+        .site-nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo img { height: 36px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 24px; list-style: none; }
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--navy); }
+        .nav-links a.active {
+            color: var(--navy);
+            border-bottom: 2px solid var(--teal);
+            padding-bottom: 2px;
+        }
+
+        /* ── Breadcrumb ── */
+        .breadcrumb { padding: 16px 0 0; font-size: 0.85rem; color: #718096; }
+        .breadcrumb a { color: var(--muted); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb .sep { margin: 0 6px; }
+
+        /* ── Article header ── */
+        .article-header { padding: 32px 0 0; max-width: 720px; }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            display: inline-block;
+            background: var(--light-teal);
+            color: var(--teal);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+        .post-date { font-size: 0.85rem; color: var(--muted); }
+
+        .article-header h1 {
+            font-size: 2rem;
+            color: var(--navy);
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+        .article-header .lead {
+            font-size: 1.1rem;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 32px;
+        }
+
+        /* ── Hero image ── */
+        .hero-image {
+            width: 100%;
+            border-radius: 10px;
+            margin: 8px 0 40px;
+            display: block;
+            border: 1px solid var(--border);
+        }
+        .image-caption {
+            font-size: 0.82rem;
+            color: #94a3b8;
+            text-align: center;
+            margin-top: -32px;
+            margin-bottom: 40px;
+        }
+
+        /* ── Article body ── */
+        .article-body {
+            max-width: 720px;
+            padding-bottom: 56px;
+        }
+        .article-body h2 {
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin: 40px 0 14px;
+        }
+        .article-body p {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+        .article-body p:last-child { margin-bottom: 0; }
+
+        /* ── Pull quote ── */
+        .pull-quote {
+            border-left: 4px solid var(--teal);
+            background: var(--light-teal);
+            padding: 20px 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 32px 0;
+        }
+        .pull-quote p {
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .pull-quote cite {
+            font-size: 0.85rem;
+            color: var(--teal);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* ── About box ── */
+        .about-box {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 40px 0;
+        }
+        .about-box h3 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--teal);
+            margin-bottom: 10px;
+        }
+        .about-box p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        .about-box p:last-child { margin-bottom: 0; }
+
+        /* ── CTA ── */
+        .post-cta {
+            background: var(--navy);
+            border-radius: 10px;
+            padding: 32px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .post-cta p {
+            color: #cbd5e0;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--teal);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #236e79; }
+
+        /* ── Back link ── */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        /* ── Footer ── */
+        footer { background: var(--navy); color: #e2e8f0; padding: 40px 0; margin-top: 48px; }
+        footer .container { text-align: center; }
+        footer h3 { font-size: 1.05rem; margin-bottom: 14px; color: white; }
+        footer p  { margin-bottom: 7px; font-size: 0.92rem; }
+        footer a  { color: #7dd3dc; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .funding {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid #1e3a5a;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 600px) {
+            .article-header h1 { font-size: 1.5rem; }
+            .nav-logo { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav">
+        <div class="container">
+            <a href="/" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC Network">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/training/">Training</a></li>
+                <li><a href="/team/">Team</a></li>
+                <li><a href="/about/fair-and-reproducibility/">FAIR &amp; Reproducibility</a></li>
+                <li><a href="/blog/" class="active">Blog</a></li>
+                <li><a href="mailto:rendell.dekort@ua.aw">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="breadcrumb">
+            <a href="/">Home</a><span class="sep">/</span>
+            <a href="/blog/">Blog</a><span class="sep">/</span>
+            A seed planted: the DCDC Network meets IPA
+        </div>
+
+        <div class="article-header">
+            <div class="post-meta">
+                <span class="tag">Network news</span>
+                <span class="post-date">March 2026</span>
+            </div>
+            <h1>A seed planted: the DCDC Network meets IPA</h1>
+            <p class="lead">Sometimes the most important conversations happen with a small group of people who are genuinely curious, willing to ask hard questions, and open to imagining something new. That is exactly what happened when the DCDC Network visited Instituto Pedagogico Arubano on 16 March for a "sip &amp; learn" dialogue session on open research.</p>
+        </div>
+
+        <img
+            src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/IPA.jpg"
+            alt="DCDC Network sip and learn session at Instituto Pedagogico Arubano, March 2026"
+            class="hero-image"
+        >
+        <p class="image-caption">The "sip &amp; learn" dialogue session at Instituto Pedagogico Arubano, 16 March 2026.</p>
+
+        <div class="article-body">
+
+            <div class="about-box">
+                <h3>About the DCDC Network</h3>
+                <p>The Dutch Caribbean Digital Competence (DCDC) Network was established in 2025 with funding from Open Science NL. It connects the Universities of Aruba, Curaçao, and Sint Maarten, and Instituto Pedagogico Arubano, with a shared mission: to make research data more reusable, accessible, and transparent across the Dutch Caribbean.</p>
+                <p>The current data landscape in our region is fragmented, which makes research collaboration and validation harder than it needs to be. The Network addresses this through peer-to-peer exchange, a training program, and strategic partnerships between institutions.</p>
+                <div style="display:flex;align-items:center;gap:14px;margin-top:16px;padding-top:14px;border-top:1px solid #e2e8f0;flex-wrap:wrap;">
+                    <span style="font-size:0.78rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;">Session host</span>
+                    <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/IPA_Logo.jpg" alt="Instituto Pedagogico Arubano" style="height:36px;width:auto;object-fit:contain;border-radius:4px;">
+                </div>
+            </div>
+
+            <h2>What is open research, and why does it matter?</h2>
+
+            <p>Esther Plomp-Peterson, DCDC Project Lead and researcher at the University of Aruba Research Center, guided the group through the core ideas behind open research. The argument for openness is straightforward: research funded by public money should be publicly accessible. But the benefits go further than principle. Open research improves the quality of science by making it reproducible and verifiable, helps prevent retractions, enables long-term access to data, saves time and costs for other researchers, and tends to attract more citations. As Esther framed it, openness is not just an ethical position but a practical one.</p>
+
+            <p>The session covered three interconnected ideas. Open access refers to making published research articles and books freely available, either directly through publishers or through author-deposited versions such as preprints or postprints. Open data means sharing the underlying data behind research articles, including both raw and processed data. One striking figure: when researchers say "data available upon request," the actual success rate of those requests ranges from just 4.5% to 38%, depending on the study. Data shared openly in repositories from the start is simply more likely to be found and used. And FAIR data is the standard the open science community uses to evaluate whether data is genuinely usable: Findable, Accessible, Interoperable, and Reusable.</p>
+
+            <p>For institutions receiving NWO funding, these are no longer optional considerations. NWO requires a Data Management Plan, open access publications, and that data and code underlying publications follow FAIR principles and be deposited in proper repositories.</p>
+
+            <h2>Honest questions, honest answers</h2>
+
+            <p>What made the session particularly valuable was the quality of the questions. Participants raised concerns that many researchers in the region quietly hold but rarely voice: what if someone misuses or misinterprets your data once it is out there? What happens when collaboration feels unequal, when one party shares generously and the other does not? How do you protect your work from being used without credit?</p>
+
+            <p>These are not obstacles to open science. They are the starting point for a real conversation about it.</p>
+
+            <p>The group also reflected on lived experiences with closed research. The example of student internships where host organizations prefer findings to stay private resonated with several participants. So did the question of visibility: research that never reaches the public domain, however rigorous, cannot build the connections and impact it deserves.</p>
+
+            <p>Esther offered some perspective on how quickly things can shift. In the Netherlands, more than 90% of publications at TU Delft are now open access. The Caribbean is at an earlier stage, but the pace of change depends heavily on the right conditions and the right push. Importantly, IPA's needs and context are not the same as those of a traditional research university, and the DCDC Network is designed to meet partners where they are.</p>
+
+            <h2>A beginning, not a conclusion</h2>
+
+            <p>Good networks are built one genuine conversation at a time, and this session was a strong first one.</p>
+
+            <div class="pull-quote">
+                <p>"The seed has been planted."</p>
+                <cite>Regine Croes, IPA Coordinator, DCDC Network</cite>
+            </div>
+
+            <p>The CIDE team now has material to reflect on, questions to continue exploring internally, and a clearer picture of what the DCDC Network is building across the region. The foundation for collaboration between IPA and the University of Aruba on open research and open data has been laid, and we look forward to growing it together.</p>
+
+            <div class="post-cta">
+                <p>Part of IPA or another institution and want to learn more about the DCDC Network?</p>
+                <a href="mailto:rendell.dekort@ua.aw" class="btn">Get in touch</a>
+            </div>
+
+            <a href="/blog/" class="back-link">&#8592; Back to blog</a>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <h3>Contact</h3>
+            <p>For questions about the DCDC Network, reach out to your local coordinator:</p>
+            <p><strong>Aruba:</strong> <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a></p>
+            <p><strong>Curaçao:</strong> <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></p>
+            <p><strong>St. Martin:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
+            <p style="margin-top: 14px;"><strong>Network Facilitator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
+            <div class="funding">
+                <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/openscience_donkerblauw.png" alt="Open Science NL" style="height:40px;width:auto;margin-top:14px;opacity:0.85;">
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
