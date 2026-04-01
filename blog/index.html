@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | DCDC Network</title>
+    <meta name="description" content="News, reflections, and updates from the Dutch Caribbean Digital Competence Network.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:       #091f38;
+            --teal:       #2e8894;
+            --purple:     #2e3192;
+            --blue:       #1a66b1;
+            --light-teal: #e8f5f7;
+            --text:       #2d3748;
+            --muted:      #4a5568;
+            --border:     #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* ── Nav ── */
+        .site-nav {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+        }
+        .site-nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo img { height: 36px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 24px; list-style: none; }
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--navy); }
+        .nav-links a.active {
+            color: var(--navy);
+            border-bottom: 2px solid var(--teal);
+            padding-bottom: 2px;
+        }
+
+        /* ── Page header ── */
+        .page-header {
+            padding: 48px 0 36px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 48px;
+        }
+        .page-header h1 { font-size: 2rem; color: var(--navy); margin-bottom: 10px; }
+        .page-header p {
+            font-size: 1.05rem;
+            color: var(--muted);
+            max-width: 600px;
+            line-height: 1.75;
+        }
+
+        /* ── Post list ── */
+        .post-list { margin-bottom: 64px; }
+
+        /* ── Featured post (first post gets larger treatment) ── */
+        .post-card-featured {
+            display: block;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            transition: box-shadow 0.2s;
+        }
+        .post-card-featured:hover { box-shadow: 0 6px 24px rgba(9,31,56,0.1); }
+
+        .featured-image {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .featured-body { padding: 28px 32px; }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            display: inline-block;
+            background: var(--light-teal);
+            color: var(--teal);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+        .post-date { font-size: 0.85rem; color: var(--muted); }
+
+        .featured-body h2 {
+            font-size: 1.4rem;
+            color: var(--navy);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .featured-body p {
+            font-size: 0.97rem;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        .read-more {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--teal);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .arrow { transition: transform 0.2s; }
+        .post-card-featured:hover .arrow { transform: translateX(4px); }
+
+        /* ── Standard post card ── */
+        .post-card {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 0;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            text-decoration: none;
+            transition: box-shadow 0.2s;
+        }
+        .post-card:hover { box-shadow: 0 4px 16px rgba(9,31,56,0.1); }
+
+        .post-card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            min-height: 140px;
+        }
+
+        .post-card-body {
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .post-card-body h3 {
+            font-size: 1.05rem;
+            color: var(--navy);
+            margin-bottom: 6px;
+            line-height: 1.35;
+        }
+        .post-card-body p {
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.65;
+            margin-bottom: 12px;
+        }
+        .post-card:hover .read-more .arrow { transform: translateX(4px); }
+
+        /* ── Empty state (for when more posts come) ── */
+        .more-coming {
+            border: 1px dashed #b2dfe5;
+            border-radius: 10px;
+            padding: 32px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-top: 8px;
+        }
+        .more-coming strong { color: var(--navy); }
+        .more-coming a { color: var(--teal); font-weight: 500; text-decoration: none; }
+        .more-coming a:hover { text-decoration: underline; }
+
+        /* ── Subscribe nudge ── */
+        .subscribe-box {
+            background: var(--navy);
+            border-radius: 12px;
+            padding: 36px 40px;
+            text-align: center;
+            margin: 48px 0;
+        }
+        .subscribe-box h2 { font-size: 1.2rem; color: white; margin-bottom: 10px; }
+        .subscribe-box p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 20px; max-width: 480px; margin-left: auto; margin-right: auto; }
+        .btn {
+            display: inline-block;
+            background: var(--teal);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #236e79; }
+
+        /* ── Footer ── */
+        footer { background: var(--navy); color: #e2e8f0; padding: 40px 0; margin-top: 48px; }
+        footer .container { text-align: center; }
+        footer h3 { font-size: 1.05rem; margin-bottom: 14px; color: white; }
+        footer p { margin-bottom: 7px; font-size: 0.92rem; }
+        footer a { color: #7dd3dc; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .funding {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid #1e3a5a;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 600px) {
+            .page-header h1 { font-size: 1.5rem; }
+            .featured-image { height: 180px; }
+            .featured-body { padding: 20px; }
+            .post-card { grid-template-columns: 1fr; }
+            .post-card-image { height: 160px; min-height: unset; }
+            .subscribe-box { padding: 24px 20px; }
+            .nav-logo { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav">
+        <div class="container">
+            <a href="/" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC Network">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/training/">Training</a></li>
+                <li><a href="/team/">Team</a></li>
+                <li><a href="/about/fair-and-reproducibility/">FAIR &amp; Reproducibility</a></li>
+                <li><a href="/blog/" class="active">Blog</a></li>
+                <li><a href="mailto:rendell.dekort@ua.aw">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="page-header">
+            <h1>Blog</h1>
+            <p>News, reflections, and updates from the Dutch Caribbean Digital Competence Network.</p>
+        </div>
+
+        <div class="post-list">
+
+            <!-- Featured post -->
+            <a href="/blog/a-seed-planted-dcdc-meets-ipa/" class="post-card-featured">
+                <img
+                    src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/IPA.jpg"
+                    alt="DCDC Network sip and learn session at Instituto Pedagogico Arubano"
+                    class="featured-image"
+                >
+                <div class="featured-body">
+                    <div class="post-meta">
+                        <span class="tag">Network news</span>
+                        <span class="post-date">March 2026</span>
+                    </div>
+                    <h2>A seed planted: the DCDC Network meets IPA</h2>
+                    <p>On 16 March, the DCDC Network visited Instituto Pedagogico Arubano for a "sip &amp; learn" dialogue on open research. Participants raised questions that many researchers in the region hold but rarely voice, and the conversation that followed was exactly the kind the network was built to have.</p>
+                    <span class="read-more">Read more <span class="arrow">&rarr;</span></span>
+                </div>
+            </a>
+
+            <!-- Placeholder for future posts -->
+            <div class="more-coming">
+                <p><strong>More posts coming soon.</strong></p>
+                <p>The blog will cover network events, open science topics, training updates, and reflections from across the Dutch Caribbean. Want to contribute a post? <a href="mailto:rendell.dekort@ua.aw">Get in touch</a>.</p>
+            </div>
+
+        </div>
+
+        <div class="subscribe-box">
+            <h2>Stay in the loop</h2>
+            <p>Join the network to receive updates on training, events, and new resources as the DCDC Network grows across the region.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScfqYjSIMjTNzeMU-L9vjHe5W_07rXM49Lpqxl3RJwlydzgyA/viewform?usp=header" class="btn">Complete the onboarding survey</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <h3>Contact</h3>
+            <p>For questions about the DCDC Network, reach out to your local coordinator:</p>
+            <p><strong>Aruba:</strong> <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a></p>
+            <p><strong>Curaçao:</strong> <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></p>
+            <p><strong>St. Martin:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
+            <p style="margin-top: 14px;"><strong>Network Facilitator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
+            <div class="funding">
+                <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/openscience_donkerblauw.png" alt="Open Science NL" style="height:40px;width:auto;margin-top:14px;opacity:0.85;">
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
