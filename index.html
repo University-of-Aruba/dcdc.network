@@ -9,14 +9,14 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --navy:   #091f38;
-            --teal:   #2e8894;
-            --purple: #2e3192;
-            --blue:   #1a66b1;
+            --navy:       #091f38;
+            --teal:       #2e8894;
+            --purple:     #2e3192;
+            --blue:       #1a66b1;
             --light-teal: #e8f5f7;
-            --text:   #2d3748;
-            --muted:  #4a5568;
-            --border: #e2e8f0;
+            --text:       #2d3748;
+            --muted:      #4a5568;
+            --border:     #e2e8f0;
         }
 
         body {
@@ -28,28 +28,34 @@
 
         .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
 
-        /* Nav */
+        /* ── Nav ── */
         .site-nav {
             background: #fff;
             border-bottom: 1px solid var(--border);
             padding: 12px 0;
         }
-        .site-nav .container { display: flex; justify-content: flex-end; gap: 24px; }
-        .site-nav a {
+        .site-nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo img { height: 36px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 24px; list-style: none; }
+        .nav-links a {
             color: var(--muted);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
             transition: color 0.2s;
         }
-        .site-nav a:hover { color: var(--navy); }
-        .site-nav a.current {
+        .nav-links a:hover { color: var(--navy); }
+        .nav-links a.active {
             color: var(--navy);
             border-bottom: 2px solid var(--teal);
             padding-bottom: 2px;
         }
 
-        /* Header */
+        /* ── Header ── */
         header {
             padding: 48px 0 36px;
             text-align: center;
@@ -57,11 +63,10 @@
         }
         .logo-wrap { margin: 0 auto 20px; display: flex; justify-content: center; }
         .logo-wrap img { height: 90px; width: auto; display: block; }
-
         h1 { font-size: 1.85rem; color: var(--navy); margin-bottom: 8px; }
         .tagline { font-size: 1.05rem; color: var(--muted); }
 
-        /* Main */
+        /* ── Main ── */
         main { padding: 48px 0; }
 
         .intro { text-align: center; margin-bottom: 48px; }
@@ -72,7 +77,7 @@
             margin: 0 auto;
         }
 
-        /* Islands */
+        /* ── Islands ── */
         .islands {
             display: flex;
             justify-content: center;
@@ -89,19 +94,18 @@
             border-top: 3px solid var(--teal);
         }
         .island.curacao { border-top-color: var(--purple); }
-        .island.bonaire  { border-top-color: var(--blue); }
-        .island-icon { font-size: 1.8rem; margin-bottom: 6px; }
         .island-icon img {
             height: 1.8rem;
             width: auto;
             vertical-align: middle;
             border-radius: 3px;
             border: 1px solid #ddd;
+            margin-bottom: 6px;
         }
         .island h3 { font-size: 0.95rem; color: var(--navy); font-weight: 600; }
         .island p  { font-size: 0.82rem; color: var(--muted); margin-top: 3px; }
 
-        /* About */
+        /* ── About ── */
         .about {
             background: var(--light-teal);
             padding: 40px;
@@ -114,7 +118,7 @@
         .about ul { margin: 12px 0 14px 22px; color: var(--muted); }
         .about li { margin-bottom: 7px; }
 
-        /* Training highlight */
+        /* ── Training highlight ── */
         .training-highlight {
             background: #fff;
             border: 2px solid var(--border);
@@ -149,7 +153,7 @@
         }
         .btn-outline:hover { background: var(--teal); color: #fff; }
 
-        /* CTA */
+        /* ── CTA ── */
         .cta {
             text-align: center;
             padding: 48px 0;
@@ -177,16 +181,55 @@
         }
         .btn:hover { background: var(--navy); }
 
-        /* Team teaser */
+        /* ── Latest from the blog ── */
+        .blog-teaser { margin: 48px 0; }
+        .blog-teaser h2 { font-size: 1.2rem; color: var(--navy); margin-bottom: 10px; }
+        .blog-teaser p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+        .blog-card {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px 28px;
+            text-decoration: none;
+            display: block;
+            transition: box-shadow 0.2s;
+        }
+        .blog-card:hover { box-shadow: 0 4px 16px rgba(9,31,56,0.1); }
+        .blog-card-meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .tag {
+            background: var(--light-teal);
+            color: var(--teal);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        .blog-card-date { font-size: 0.82rem; color: var(--muted); }
+        .blog-card h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: 6px; }
+        .blog-card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 12px; }
+        .blog-card .read-more {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--teal);
+        }
+
+        /* ── Team teaser ── */
         .team-teaser {
             margin: 48px 0;
             text-align: center;
         }
-        .team-teaser h2 {
-            font-size: 1.2rem;
-            color: var(--navy);
-            margin-bottom: 10px;
-        }
+        .team-teaser h2 { font-size: 1.2rem; color: var(--navy); margin-bottom: 10px; }
         .team-teaser p {
             color: var(--muted);
             font-size: 0.95rem;
@@ -201,8 +244,7 @@
             flex-wrap: wrap;
         }
         .team-avatar {
-            width: 56px;
-            height: 56px;
+            width: 56px; height: 56px;
             border-radius: 50%;
             border: 3px solid var(--light-teal);
             overflow: hidden;
@@ -222,7 +264,7 @@
             object-position: center top;
         }
 
-        /* Partners */
+        /* ── Partners ── */
         .partners { text-align: center; padding: 32px 0; }
         .partners h2 { font-size: 1.2rem; color: var(--navy); margin-bottom: 20px; }
         .partner-list {
@@ -234,7 +276,7 @@
             font-size: 0.92rem;
         }
 
-        /* Footer */
+        /* ── Footer ── */
         footer {
             background: var(--navy);
             color: #e2e8f0;
@@ -244,7 +286,8 @@
         footer .container { text-align: center; }
         footer h3 { font-size: 1.05rem; margin-bottom: 14px; color: white; }
         footer p  { margin-bottom: 7px; font-size: 0.92rem; }
-        footer a  { color: #7dd3dc; }
+        footer a  { color: #7dd3dc; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
         .funding {
             margin-top: 28px;
             padding-top: 20px;
@@ -253,7 +296,6 @@
             color: #94a3b8;
         }
 
-        /* Island dot accent strip */
         .island-dots {
             display: flex;
             justify-content: center;
@@ -270,6 +312,7 @@
             h1 { font-size: 1.4rem; }
             .islands { flex-direction: column; align-items: center; }
             .about, .training-highlight { padding: 24px; }
+            .nav-logo { display: none; }
         }
     </style>
 </head>
@@ -277,11 +320,17 @@
 
     <nav class="site-nav">
         <div class="container">
-            <a href="/" class="current">Home</a>
-            <a href="/training/">Training</a>
-            <a href="/team/">Team</a>
-            <a href="/about/fair-and-reproducibility/">FAIR &amp; Reproducibility</a>
-            <a href="mailto:rendell.dekort@ua.aw">Contact</a>
+            <a href="/" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC Network">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/training/">Training</a></li>
+                <li><a href="/team/">Team</a></li>
+                <li><a href="/about/fair-and-reproducibility/">FAIR &amp; Reproducibility</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="mailto:rendell.dekort@ua.aw">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -327,7 +376,7 @@
                 </div>
                 <div class="island">
                     <div class="island-icon">
-                        <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Saint_Martin_island_(Unification_flag).svg" alt="Unity Flag of Saint Martin" style="height:1.8rem;width:auto;vertical-align:middle;border-radius:3px;border:1px solid #ddd;">
+                        <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Saint_Martin_island_(Unification_flag).svg" alt="Unity Flag of Saint Martin">
                     </div>
                     <h3>St. Martin</h3>
                     <p>University of St. Martin</p>
@@ -358,6 +407,20 @@
                 <h2>Join the network</h2>
                 <p>We're building this network by listening first. Complete our onboarding survey to help shape our priorities and connect with peers across the region.</p>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLScfqYjSIMjTNzeMU-L9vjHe5W_07rXM49Lpqxl3RJwlydzgyA/viewform?usp=header" class="btn">Complete the onboarding survey</a>
+            </section>
+
+            <section class="blog-teaser">
+                <h2>Latest from the blog</h2>
+                <p>News and reflections from the network.</p>
+                <a href="/blog/a-seed-planted-dcdc-meets-ipa/" class="blog-card">
+                    <div class="blog-card-meta">
+                        <span class="tag">Network news</span>
+                        <span class="blog-card-date">March 2026</span>
+                    </div>
+                    <h3>A seed planted: the DCDC Network meets IPA</h3>
+                    <p>On 16 March, the DCDC Network visited Instituto Pedagogico Arubano for a "sip &amp; learn" dialogue on open research. Here's what happened.</p>
+                    <span class="read-more">Read more &rarr;</span>
+                </a>
             </section>
 
             <section class="team-teaser">
@@ -394,7 +457,7 @@
             <p>For questions about the DCDC Network, reach out to your local coordinator:</p>
             <p><strong>Aruba:</strong> <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a></p>
             <p><strong>Curaçao:</strong> <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></p>
-            <p><strong>Sint Maarten:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
+            <p><strong>St. Martin:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
             <p style="margin-top: 14px;"><strong>Network Facilitator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
             <div class="funding">
                 <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
