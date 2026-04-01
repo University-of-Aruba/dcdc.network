@@ -27,28 +27,34 @@
 
         .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
 
-        /* Nav */
+        /* ── Nav ── */
         .site-nav {
             background: #fff;
             border-bottom: 1px solid var(--border);
             padding: 12px 0;
         }
-        .site-nav .container { display: flex; justify-content: flex-end; gap: 24px; }
-        .site-nav a {
+        .site-nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo img { height: 36px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 24px; list-style: none; }
+        .nav-links a {
             color: var(--muted);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
             transition: color 0.2s;
         }
-        .site-nav a:hover { color: var(--navy); }
-        .site-nav a.current {
+        .nav-links a:hover { color: var(--navy); }
+        .nav-links a.active {
             color: var(--navy);
             border-bottom: 2px solid var(--teal);
             padding-bottom: 2px;
         }
 
-        /* Header */
+        /* ── Header ── */
         header {
             padding: 48px 0 36px;
             text-align: center;
@@ -59,7 +65,7 @@
         h1 { font-size: 1.85rem; color: var(--navy); margin-bottom: 8px; }
         .tagline { font-size: 1.05rem; color: var(--muted); }
 
-        /* Page intro */
+        /* ── Page intro ── */
         .page-intro {
             text-align: center;
             padding: 48px 0 36px;
@@ -74,7 +80,7 @@
             margin: 0 auto;
         }
 
-        /* Team grid */
+        /* ── Team grid ── */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
@@ -82,7 +88,7 @@
             margin-bottom: 64px;
         }
 
-        /* Profile card */
+        /* ── Profile card ── */
         .profile-card {
             border: 1px solid var(--border);
             border-radius: 14px;
@@ -99,8 +105,7 @@
         }
 
         .avatar {
-            width: 64px;
-            height: 64px;
+            width: 64px; height: 64px;
             border-radius: 50%;
             flex-shrink: 0;
             border: 3px solid rgba(255,255,255,0.2);
@@ -108,15 +113,13 @@
             background: var(--teal);
         }
         .avatar img {
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
             object-fit: cover;
             object-position: center top;
             display: block;
         }
         .avatar-initials {
-            width: 64px;
-            height: 64px;
+            width: 64px; height: 64px;
             border-radius: 50%;
             flex-shrink: 0;
             border: 3px solid rgba(255,255,255,0.2);
@@ -165,13 +168,12 @@
         }
         .flag-wrap { display: flex; align-items: center; gap: 6px; }
         .flag-wrap img {
-            height: 16px;
-            width: auto;
+            height: 16px; width: auto;
             border-radius: 2px;
             border: 1px solid var(--border);
         }
 
-        /* Pending card */
+        /* ── Pending card ── */
         .profile-card.pending {
             border: 2px dashed var(--border);
             box-shadow: none;
@@ -192,7 +194,7 @@
         }
         .coming-soon-icon { font-size: 1.8rem; margin-bottom: 8px; }
 
-        /* Island sections */
+        /* ── Island sections ── */
         .island-section { margin-bottom: 56px; }
         .island-heading {
             display: flex;
@@ -205,17 +207,13 @@
         .island-heading img { height: 22px; border-radius: 3px; border: 1px solid var(--border); }
         .island-heading h2 { font-size: 1.1rem; color: var(--navy); font-weight: 600; }
 
-        /* Footer */
-        footer {
-            background: var(--navy);
-            color: #e2e8f0;
-            padding: 40px 0;
-            margin-top: 48px;
-        }
+        /* ── Footer ── */
+        footer { background: var(--navy); color: #e2e8f0; padding: 40px 0; margin-top: 48px; }
         footer .container { text-align: center; }
         footer h3 { font-size: 1.05rem; margin-bottom: 14px; color: white; }
         footer p  { margin-bottom: 7px; font-size: 0.92rem; }
-        footer a  { color: #7dd3dc; }
+        footer a  { color: #7dd3dc; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
         .funding {
             margin-top: 28px;
             padding-top: 20px;
@@ -227,6 +225,7 @@
         @media (max-width: 600px) {
             .team-grid { grid-template-columns: 1fr; }
             h1 { font-size: 1.4rem; }
+            .nav-logo { display: none; }
         }
     </style>
 </head>
@@ -234,11 +233,17 @@
 
     <nav class="site-nav">
         <div class="container">
-            <a href="/">Home</a>
-            <a href="/training/">Training</a>
-            <a href="/team/" class="current">Team</a>
-            <a href="/about/fair-and-reproducibility/">FAIR &amp; Reproducibility</a>
-            <a href="mailto:rendell.dekort@ua.aw">Contact</a>
+            <a href="/" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC Network">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/training/">Training</a></li>
+                <li><a href="/team/" class="active">Team</a></li>
+                <li><a href="/about/fair-and-reproducibility/">FAIR &amp; Reproducibility</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="mailto:rendell.dekort@ua.aw">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -330,7 +335,7 @@
                         <div class="card-header">
                             <div class="avatar-initials">R</div>
                             <div class="header-text">
-                                <h3>Regine</h3>
+                                <h3>Regine Croes</h3>
                                 <div class="role">IPA Coordinator</div>
                                 <div class="island-tag">
                                     <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Flag_of_Aruba.svg" alt="Aruba">
