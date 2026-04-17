@@ -212,6 +212,47 @@
         .session-topic:last-child { margin-bottom: 0; }
         .session-topic h4 { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
         .session-topic p { font-size: 0.87rem; color: var(--muted); line-height: 1.6; margin-bottom: 0; }
+
+        /* Timed schedule */
+        .schedule { }
+        .schedule-row {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 18px;
+            padding: 12px 0;
+            border-top: 1px solid var(--border);
+        }
+        .schedule-row:first-child { border-top: none; padding-top: 4px; }
+        .schedule-time {
+            font-size: 0.83rem;
+            color: var(--navy);
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+            padding-top: 2px;
+            letter-spacing: 0.3px;
+        }
+        .schedule-content h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+        .schedule-content p {
+            font-size: 0.87rem;
+            color: var(--muted);
+            line-height: 1.65;
+            margin-bottom: 0;
+        }
+        .schedule-row.is-break .schedule-time { color: #94a3b8; font-weight: 500; }
+        .schedule-row.is-break .schedule-content {
+            font-size: 0.88rem;
+            color: #94a3b8;
+            font-style: italic;
+            padding-top: 2px;
+        }
+        @media (max-width: 600px) {
+            .schedule-row { grid-template-columns: 1fr; gap: 4px; padding: 10px 0; }
+        }
         .duration {
             display: inline-block;
             font-size: 0.72rem;
@@ -371,21 +412,68 @@
                             <div class="session-time">Tuesday 22 April &middot; 9:00–16:00</div>
                         </div>
                         <div class="session-body">
-                            <div class="session-topic">
-                                <h4>The case for switching <span class="duration">45 min</span></h4>
-                                <p>Live demonstration of what R can do that SPSS cannot. Cost comparison, reproducibility advantages, and career relevance. The goal is motivation before any coding begins.</p>
-                            </div>
-                            <div class="session-topic">
-                                <h4>Your first R session <span class="duration">90 min</span></h4>
-                                <p>Navigating RStudio, understanding the interface, running your first commands. Importing a dataset and performing basic operations you already know from SPSS: descriptive statistics, frequency tables, variable inspection.</p>
-                            </div>
-                            <div class="session-topic">
-                                <h4>Data manipulation <span class="duration">90 min</span></h4>
-                                <p>Filtering, sorting, recoding, and creating new variables. Every operation is shown side-by-side with its SPSS menu equivalent. Introduction to the tidyverse workflow for chaining operations together.</p>
-                            </div>
-                            <div class="session-topic">
-                                <h4>Your first visualization <span class="duration">60 min</span></h4>
-                                <p>Building charts with ggplot2. Starting from a basic plot and layering elements to produce something publication-ready. Comparison with SPSS chart builder output.</p>
+                            <div class="schedule">
+                                <div class="schedule-row">
+                                    <div class="schedule-time">09:00 – 09:10</div>
+                                    <div class="schedule-content">
+                                        <h4>Welcome and introductions</h4>
+                                        <p>Overview of the two days, a short round of introductions, and what we aim to achieve by Thursday afternoon.</p>
+                                    </div>
+                                </div>
+                                <div class="schedule-row">
+                                    <div class="schedule-time">09:10 – 09:55</div>
+                                    <div class="schedule-content">
+                                        <h4>The case for switching</h4>
+                                        <p>Live demonstration of what R can do that SPSS cannot. Cost comparison, reproducibility advantages, and career relevance. The goal is motivation before any coding begins.</p>
+                                    </div>
+                                </div>
+                                <div class="schedule-row is-break">
+                                    <div class="schedule-time">09:55 – 10:10</div>
+                                    <div class="schedule-content">Coffee break</div>
+                                </div>
+                                <div class="schedule-row">
+                                    <div class="schedule-time">10:10 – 11:40</div>
+                                    <div class="schedule-content">
+                                        <h4>Your first R session</h4>
+                                        <p>Navigating RStudio, understanding the interface, running your first commands. Importing a dataset and performing basic operations you already know from SPSS: descriptive statistics, frequency tables, variable inspection.</p>
+                                    </div>
+                                </div>
+                                <div class="schedule-row">
+                                    <div class="schedule-time">11:40 – 12:00</div>
+                                    <div class="schedule-content">
+                                        <h4>Questions and consolidation</h4>
+                                        <p>A short Q&amp;A to make sure everyone is on the same page before the lunch break.</p>
+                                    </div>
+                                </div>
+                                <div class="schedule-row is-break">
+                                    <div class="schedule-time">12:00 – 13:00</div>
+                                    <div class="schedule-content">Lunch</div>
+                                </div>
+                                <div class="schedule-row">
+                                    <div class="schedule-time">13:00 – 14:30</div>
+                                    <div class="schedule-content">
+                                        <h4>Data manipulation</h4>
+                                        <p>Filtering, sorting, recoding, and creating new variables. Every operation is shown side-by-side with its SPSS menu equivalent. Introduction to the tidyverse workflow for chaining operations together.</p>
+                                    </div>
+                                </div>
+                                <div class="schedule-row is-break">
+                                    <div class="schedule-time">14:30 – 14:45</div>
+                                    <div class="schedule-content">Afternoon break</div>
+                                </div>
+                                <div class="schedule-row">
+                                    <div class="schedule-time">14:45 – 15:45</div>
+                                    <div class="schedule-content">
+                                        <h4>Your first visualization</h4>
+                                        <p>Building charts with ggplot2. Starting from a basic plot and layering elements to produce something publication-ready. Comparison with SPSS chart builder output.</p>
+                                    </div>
+                                </div>
+                                <div class="schedule-row">
+                                    <div class="schedule-time">15:45 – 16:00</div>
+                                    <div class="schedule-content">
+                                        <h4>Wrap-up and homework</h4>
+                                        <p>Recap of Day 1 and a short practice exercise to try between sessions, so you arrive on Thursday with questions and momentum.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -396,21 +484,72 @@
                             <div class="session-time">Thursday 24 April &middot; 9:00–16:00</div>
                         </div>
                         <div class="session-body">
-                            <div class="session-topic">
-                                <h4>Review and troubleshooting <span class="duration">30 min</span></h4>
-                                <p>Addressing questions from between-session practice. Common errors and how to read R error messages — a skill SPSS users rarely need.</p>
-                            </div>
-                            <div class="session-topic">
-                                <h4>Statistical analysis in R <span class="duration">120 min</span></h4>
-                                <p>Running the analyses participants use most: t-tests, ANOVA, correlation, regression. For each test, the SPSS dialog is shown alongside the R code. Interpreting output and extracting results.</p>
-                            </div>
-                            <div class="session-topic">
-                                <h4>Reproducible reporting <span class="duration">60 min</span></h4>
-                                <p>Introduction to R Markdown: combining narrative text, code, and output in a single document. Creating a report that updates automatically when data changes.</p>
-                            </div>
-                            <div class="session-topic">
-                                <h4>Where to go from here <span class="duration">45 min</span></h4>
-                                <p>Resources for continued learning. Community forums, package documentation, free online courses. Building a personal reference library of R scripts that replace your SPSS workflows.</p>
+                            <div class="schedule">
+                                <div class="schedule-row">
+                                    <div class="schedule-time">09:00 – 09:30</div>
+                                    <div class="schedule-content">
+                                        <h4>Review and troubleshooting</h4>
+                                        <p>Addressing questions from between-session practice. Common errors and how to read R error messages, a skill SPSS users rarely need.</p>
+                                    </div>
+                                </div>
+                                <div class="schedule-row is-break">
+                                    <div class="schedule-time">09:30 – 09:45</div>
+                                    <div class="schedule-content">Short break</div>
+                                </div>
+                                <div class="schedule-row">
+                                    <div class="schedule-time">09:45 – 10:45</div>
+                                    <div class="schedule-content">
+                                        <h4>Statistical analysis in R, part 1</h4>
+                                        <p>The tests participants use most often: t-tests and ANOVA. For each test, the SPSS dialog is shown alongside the R code, and we interpret the output together.</p>
+                                    </div>
+                                </div>
+                                <div class="schedule-row is-break">
+                                    <div class="schedule-time">10:45 – 11:00</div>
+                                    <div class="schedule-content">Coffee break</div>
+                                </div>
+                                <div class="schedule-row">
+                                    <div class="schedule-time">11:00 – 12:00</div>
+                                    <div class="schedule-content">
+                                        <h4>Statistical analysis in R, part 2</h4>
+                                        <p>Correlation and regression. Extracting results cleanly and a first look at how to save outputs for reports.</p>
+                                    </div>
+                                </div>
+                                <div class="schedule-row is-break">
+                                    <div class="schedule-time">12:00 – 13:00</div>
+                                    <div class="schedule-content">Lunch</div>
+                                </div>
+                                <div class="schedule-row">
+                                    <div class="schedule-time">13:00 – 14:00</div>
+                                    <div class="schedule-content">
+                                        <h4>Reproducible reporting</h4>
+                                        <p>Introduction to R Markdown: combining narrative text, code, and output in a single document. Creating a report that updates automatically when data changes.</p>
+                                    </div>
+                                </div>
+                                <div class="schedule-row is-break">
+                                    <div class="schedule-time">14:00 – 14:15</div>
+                                    <div class="schedule-content">Afternoon break</div>
+                                </div>
+                                <div class="schedule-row">
+                                    <div class="schedule-time">14:15 – 15:00</div>
+                                    <div class="schedule-content">
+                                        <h4>Where to go from here</h4>
+                                        <p>Resources for continued learning. Community forums, package documentation, free online courses. Building a personal reference library of R scripts that replace your SPSS workflows.</p>
+                                    </div>
+                                </div>
+                                <div class="schedule-row">
+                                    <div class="schedule-time">15:00 – 15:45</div>
+                                    <div class="schedule-content">
+                                        <h4>Open lab</h4>
+                                        <p>Time to apply what you have learned to your own data or a worked example, with the facilitator on hand to answer questions.</p>
+                                    </div>
+                                </div>
+                                <div class="schedule-row">
+                                    <div class="schedule-time">15:45 – 16:00</div>
+                                    <div class="schedule-content">
+                                        <h4>Wrap-up and next steps</h4>
+                                        <p>Recap, peer connections, and how to stay in touch with the network after the course.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
