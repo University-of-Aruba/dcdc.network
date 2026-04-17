@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Training | DCDC Network</title>
-    <meta name="description" content="Training programs offered by the Dutch Caribbean Digital Competence Network. Building digital skills across the region through open, accessible courses.">
+    <title>Team | DCDC Network</title>
+    <meta name="description" content="Meet the coordinators of the Dutch Caribbean Digital Competence Network across Aruba, Curaçao, and St. Martin.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -28,17 +28,9 @@
 
         .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 
-        /* ── Nav ── */
-        .site-nav {
-            background: #fff;
-            border-bottom: 1px solid var(--border);
-            padding: 12px 0;
-        }
-        .site-nav .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+        /* Nav */
+        .site-nav { background: #fff; border-bottom: 1px solid var(--border); padding: 12px 0; }
+        .site-nav .container { display: flex; align-items: center; justify-content: space-between; }
         .nav-logo img { height: 36px; width: auto; display: block; }
         .nav-links { display: flex; gap: 24px; list-style: none; }
         .nav-links a {
@@ -55,136 +47,87 @@
             padding-bottom: 2px;
         }
 
-        /* ── Page header ── */
+        /* Page header */
         .page-header { padding: 48px 0 32px; }
         .page-header h1 { font-size: 2rem; color: var(--navy); margin-bottom: 14px; }
         .page-header p { font-size: 1.05rem; color: var(--muted); max-width: 720px; line-height: 1.75; }
 
-        /* ── Philosophy box ── */
-        .philosophy {
+        /* Team grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 32px 0 56px;
+        }
+        .member-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .member-card:hover {
+            box-shadow: 0 6px 20px rgba(9,31,56,0.08);
+            transform: translateY(-2px);
+        }
+        .member-photo {
+            width: 100%;
+            aspect-ratio: 1 / 1;
             background: var(--light-teal);
-            border: 1px solid #b2dfe5;
+            overflow: hidden;
+        }
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+        .member-body { padding: 20px 22px 22px; }
+        .member-name { font-size: 1.1rem; color: var(--navy); margin-bottom: 4px; font-weight: 600; }
+        .member-role {
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--teal);
+            margin-bottom: 6px;
+        }
+        .member-affiliation { font-size: 0.9rem; color: var(--muted); margin-bottom: 12px; }
+        .member-bio { font-size: 0.92rem; color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
+        .member-contact a {
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            word-break: break-all;
+        }
+        .member-contact a:hover { text-decoration: underline; }
+
+        /* Join box */
+        .join-box {
+            background: var(--light-teal);
             border-left: 4px solid var(--teal);
             border-radius: 8px;
             padding: 28px 32px;
-            margin-bottom: 40px;
+            margin: 0 0 56px;
         }
-        .philosophy h2 { font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 12px; }
-        .philosophy p { color: var(--muted); font-size: 0.95rem; line-height: 1.75; }
-        .philosophy a { color: var(--teal); font-weight: 500; text-decoration: none; }
-        .philosophy a:hover { text-decoration: underline; }
+        .join-box h2 { font-size: 1.15rem; color: var(--navy); margin-bottom: 10px; }
+        .join-box p { color: var(--muted); font-size: 0.95rem; }
+        .join-box a { color: var(--teal); font-weight: 500; text-decoration: none; }
+        .join-box a:hover { text-decoration: underline; }
 
-        .principles {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-top: 20px;
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: #e2e8f0;
+            padding: 40px 0;
+            margin-top: 48px;
         }
-        .principle {
-            padding: 16px;
-            background: #fff;
-            border-radius: 6px;
-            border: 1px solid #b2dfe5;
-        }
-        .principle strong { display: block; font-size: 0.88rem; color: var(--navy); margin-bottom: 4px; }
-        .principle span { font-size: 0.83rem; color: var(--muted); }
-
-        /* ── Courses section ── */
-        .courses-section h2 { font-size: 1.3rem; color: var(--navy); margin-bottom: 24px; }
-
-        /* ── Course card ── */
-        .course-card {
-            background: #fff;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 24px;
-            transition: box-shadow 0.2s;
-        }
-        .course-card:hover { box-shadow: 0 4px 16px rgba(9,31,56,0.1); }
-        .course-card a { text-decoration: none; color: inherit; display: block; }
-
-        .card-content { padding: 28px 32px; }
-
-        .card-meta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
-
-        .badge {
-            display: inline-block;
-            font-size: 0.72rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 4px 10px;
-            border-radius: 4px;
-        }
-        .badge-upcoming { background: var(--light-teal); color: var(--teal); }
-        .badge-open     { background: #dbeafe; color: var(--blue); }
-        .badge-completed{ background: #ede9fe; color: var(--purple); }
-        .badge-location { background: #fff3e0; color: #b45309; }
-
-        .card-content h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 8px; }
-        .card-content .subtitle { font-size: 0.95rem; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
-
-        .card-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-            gap: 12px;
-            padding-top: 16px;
-            border-top: 1px solid var(--border);
-        }
-        .detail-item { font-size: 0.87rem; }
-        .detail-item .label {
-            color: #94a3b8;
-            font-weight: 600;
-            display: block;
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.4px;
-            margin-bottom: 2px;
-        }
-        .detail-item .value { color: var(--text); font-weight: 500; }
-
-        .card-cta {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 16px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--teal);
-        }
-        .arrow { transition: transform 0.2s; }
-        .course-card:hover .arrow { transform: translateX(4px); }
-
-        /* ── Placeholder card ── */
-        .course-card-placeholder {
-            background: #fff;
-            border: 1px dashed #b2dfe5;
-            border-radius: 10px;
-            padding: 32px;
-            text-align: center;
-            margin-bottom: 24px;
-        }
-        .course-card-placeholder p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
-        .course-card-placeholder strong { color: var(--navy); }
-        .course-card-placeholder a { color: var(--teal); text-decoration: none; font-weight: 500; }
-        .course-card-placeholder a:hover { text-decoration: underline; }
-
-        /* ── Value section ── */
-        .value-section {
-            background: var(--light-teal);
-            border: 1px solid #b2dfe5;
-            border-radius: 8px;
-            padding: 28px 32px;
-            margin: 40px 0;
-        }
-        .value-section h2 { font-size: 1.1rem; color: var(--navy); margin-bottom: 12px; }
-        .value-section p { color: var(--muted); font-size: 0.95rem; line-height: 1.75; }
-
-        /* ── Footer ── */
-        footer { background: var(--navy); color: #e2e8f0; padding: 40px 0; margin-top: 56px; }
         footer .container { text-align: center; }
-        footer h3 { font-size: 1.05rem; margin-bottom: 14px; color: white; }
+        footer h3 { font-size: 1.05rem; margin-bottom: 14px; color: #fff; }
         footer p { margin-bottom: 7px; font-size: 0.92rem; }
         footer a { color: #7dd3dc; text-decoration: none; }
         footer a:hover { text-decoration: underline; }
@@ -198,10 +141,8 @@
 
         @media (max-width: 600px) {
             .page-header h1 { font-size: 1.5rem; }
-            .card-content { padding: 20px; }
-            .philosophy { padding: 20px; }
-            .principles { grid-template-columns: 1fr; }
-            .card-details { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: 1fr; }
+            .join-box { padding: 20px 22px; }
             .nav-logo { display: none; }
         }
     </style>
@@ -215,8 +156,8 @@
             </a>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="/training/" class="active">Training</a></li>
-                <li><a href="/team/">Team</a></li>
+                <li><a href="/training/">Training</a></li>
+                <li><a href="/team/" class="active">Team</a></li>
                 <li><a href="/about/fair-and-reproducibility/">FAIR &amp; Reproducibility</a></li>
                 <li><a href="/blog/">Blog</a></li>
                 <li><a href="mailto:rendell.dekort@ua.aw">Contact</a></li>
@@ -227,79 +168,69 @@
     <div class="container">
 
         <div class="page-header">
-            <h1>Training</h1>
-            <p>The DCDC Network develops and delivers training that builds digital competence across the Dutch Caribbean. Our courses are designed to be accessible, practical, and transferable, so the skills we build together stay in the region.</p>
+            <h1>The team</h1>
+            <p>The DCDC Network is built by people working across the Dutch Caribbean. Each island has a local coordinator, and the facilitator keeps the whole network moving. Together we translate ideas about open research, FAIR data, and digital competence into practical work on the ground.</p>
         </div>
 
-        <div class="philosophy">
-            <h2>Our approach</h2>
-            <p>Every course in our program is built around open-source tools and open training materials. This means participants pay nothing for software, and the materials can be reused and adapted by anyone in the network. We prioritize courses that bridge existing skills to new capabilities, rather than starting from scratch. Our training is grounded in <a href="/about/fair-and-reproducibility/">FAIR data principles and reproducible research practices</a>.</p>
-            <div class="principles">
-                <div class="principle">
-                    <strong>Open and free</strong>
-                    <span>All tools and materials are open-source, eliminating software cost barriers across islands</span>
+        <div class="team-grid">
+
+            <div class="member-card">
+                <div class="member-photo">
+                    <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Rendell.jpg" alt="Rendell de Kort">
                 </div>
-                <div class="principle">
-                    <strong>Build on what you know</strong>
-                    <span>Courses connect to skills participants already have, making transitions practical</span>
-                </div>
-                <div class="principle">
-                    <strong>Train the trainer</strong>
-                    <span>Materials are documented so trained participants can deliver courses locally</span>
-                </div>
-                <div class="principle">
-                    <strong>Delivered across the region</strong>
-                    <span>Courses rotate between islands, with each delivery adapted to local needs</span>
+                <div class="member-body">
+                    <div class="member-name">Rendell de Kort</div>
+                    <div class="member-role">Network Facilitator</div>
+                    <div class="member-affiliation">University of Aruba</div>
+                    <p class="member-bio">Coordinates the DCDC Network across the islands. PhD candidate in economics at the University of Aruba and VU Amsterdam, with a research focus on economic resilience and adaptive capacity in small island economies.</p>
+                    <div class="member-contact"><a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></div>
                 </div>
             </div>
+
+            <div class="member-card">
+                <div class="member-photo">
+                    <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Esther.jpg" alt="Esther Plomp">
+                </div>
+                <div class="member-body">
+                    <div class="member-name">Esther Plomp</div>
+                    <div class="member-role">Project Lead · Aruba</div>
+                    <div class="member-affiliation">University of Aruba</div>
+                    <p class="member-bio">Leads the network's work on open research, FAIR data, and reproducibility. Supports researchers and students on Aruba to adopt transparent, reusable data practices.</p>
+                    <div class="member-contact"><a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a></div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-photo">
+                    <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Marjorie.jpg" alt="Marjorie Alfonso">
+                </div>
+                <div class="member-body">
+                    <div class="member-name">Marjorie Alfonso</div>
+                    <div class="member-role">Coordinator · Curaçao</div>
+                    <div class="member-affiliation">University of Curaçao</div>
+                    <p class="member-bio">Coordinates the network's activities on Curaçao, connecting researchers at the University of Curaçao with peers across the Dutch Caribbean and partners in the Netherlands.</p>
+                    <div class="member-contact"><a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-photo">
+                    <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Raymond.jpg" alt="Raymond Jessurun">
+                </div>
+                <div class="member-body">
+                    <div class="member-name">Raymond Jessurun</div>
+                    <div class="member-role">Coordinator · St. Martin</div>
+                    <div class="member-affiliation">University of St. Martin</div>
+                    <p class="member-bio">Coordinates the network's activities on St. Martin, linking USM with partners across the region on open science and digital competence.</p>
+                    <div class="member-contact"><a href="mailto:raymond.jessurun@usm.sx">raymond.jessurun@usm.sx</a></div>
+                </div>
+            </div>
+
         </div>
 
-        <div class="courses-section">
-            <h2>Courses</h2>
-
-            <div class="course-card">
-                <a href="/training/r-for-spss-users-aruba-2026/">
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="badge badge-upcoming">Upcoming</span>
-                            <span class="badge badge-location">Aruba</span>
-                        </div>
-                        <h3>Introduction to R for SPSS users</h3>
-                        <p class="subtitle">A hands-on workshop for researchers and students ready to transition from SPSS to a free, powerful, and reproducible alternative.</p>
-                        <div class="card-details">
-                            <div class="detail-item">
-                                <span class="label">Format</span>
-                                <span class="value">2 sessions, 10–12 hours</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="label">Participants</span>
-                                <span class="value">15–20 max</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="label">Prerequisites</span>
-                                <span class="value">Basic statistics (no coding needed)</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="label">When</span>
-                                <span class="value">22 &amp; 24 April 2026</span>
-                            </div>
-                        </div>
-                        <div class="card-cta">
-                            View course details <span class="arrow">&rarr;</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="course-card-placeholder">
-                <p><strong>More courses coming soon.</strong></p>
-                <p>The training program expands as the network grows. Future topics may include research data management, open science practices, reproducibility, and data visualization. Interested in suggesting or co-developing a course? <a href="mailto:rendell.dekort@ua.aw">Get in touch</a>.</p>
-            </div>
-        </div>
-
-        <div class="value-section">
-            <h2>Why this matters</h2>
-            <p>Proprietary software creates barriers. An SPSS license can cost AWG 400 or more per year, and that cost falls on institutions already operating under tight budgets. When each island pays separately for the same tools, collaboration becomes harder. Our training program focuses on open-source alternatives that any researcher, student, or government analyst can access at no cost, from any island. That is practical digital competence: skills and tools that work for everyone, everywhere in the region.</p>
+        <div class="join-box">
+            <h2>Want to get involved?</h2>
+            <p>The DCDC Network grows through its people. If you are a researcher, student, librarian, data steward, or professional anywhere in the Dutch Caribbean and you share our interest in open, reproducible research, we would like to hear from you. Reach out to your local coordinator above, or complete the <a href="https://docs.google.com/forms/d/e/1FAIpQLScfqYjSIMjTNzeMU-L9vjHe5W_07rXM49Lpqxl3RJwlydzgyA/viewform?usp=header">network onboarding survey</a>.</p>
         </div>
 
     </div>
@@ -310,7 +241,7 @@
             <p>For questions about the DCDC Network, reach out to your local coordinator:</p>
             <p><strong>Aruba:</strong> <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a></p>
             <p><strong>Curaçao:</strong> <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></p>
-            <p><strong>St. Martin:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
+            <p><strong>St. Martin:</strong> <a href="mailto:raymond.jessurun@usm.sx">raymond.jessurun@usm.sx</a></p>
             <p style="margin-top: 14px;"><strong>Network Facilitator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
             <div class="funding">
                 <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
