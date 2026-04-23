@@ -212,6 +212,36 @@
         .session-topic:last-child { margin-bottom: 0; }
         .session-topic h4 { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
         .session-topic p { font-size: 0.87rem; color: var(--muted); line-height: 1.6; margin-bottom: 0; }
+        .schedule-content h4 a { color: var(--navy); text-decoration: none; border-bottom: 1px dotted #cbd5e0; }
+        .schedule-content h4 a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+
+        /* Homework bridge between sessions */
+        .bridge-callout {
+            background: #fff7ed;
+            border: 1px solid #fdba74;
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .bridge-callout .bridge-tag {
+            flex-shrink: 0;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            background: #fff;
+            color: #b45309;
+            border: 1px solid #fdba74;
+            border-radius: 4px;
+        }
+        .bridge-callout h4 { font-size: 0.95rem; color: var(--navy); margin-bottom: 4px; }
+        .bridge-callout p { font-size: 0.87rem; color: var(--muted); line-height: 1.6; margin-bottom: 0; }
+        .bridge-callout a { color: #b45309; font-weight: 600; text-decoration: none; }
+        .bridge-callout a:hover { text-decoration: underline; }
 
         /* Timed schedule */
         .schedule { }
@@ -404,12 +434,12 @@
 
                 <div class="content-section">
                     <h2>Course structure</h2>
-                    <p>The course runs across two sessions in a single week, giving you time between sessions to practice and absorb. Each session combines short demonstrations with hands-on exercises using real data. Every SPSS operation is paired with its R equivalent, so you always have a clear reference point.</p>
+                    <p>The course runs across two sessions in a single week, giving you time between sessions to practice and absorb. Each session combines short demonstrations with hands-on exercises using real data. Every SPSS operation is paired with its R equivalent, so you always have a clear reference point. The material is organised as seven episodes on the <a href="https://dcdc.network/r/" target="_blank" rel="noopener">lesson website</a>, linked from the schedule below so you can jump straight to any topic.</p>
 
                     <div class="session-block">
                         <div class="session-header">
                             <h3>Session 1: Why R, and getting started</h3>
-                            <div class="session-time">Tuesday 22 April &middot; 9:00–16:00</div>
+                            <div class="session-time">Wednesday 22 April &middot; 9:00–16:00</div>
                         </div>
                         <div class="session-body">
                             <div class="schedule">
@@ -423,7 +453,7 @@
                                 <div class="schedule-row">
                                     <div class="schedule-time">09:10 – 09:55</div>
                                     <div class="schedule-content">
-                                        <h4>The case for switching</h4>
+                                        <h4><a href="https://university-of-aruba.github.io/r-for-spss-users/01-why-r.html" target="_blank" rel="noopener">Episode 1 &middot; The case for switching</a></h4>
                                         <p>Live demonstration of what R can do that SPSS cannot. Cost comparison, reproducibility advantages, and career relevance. The goal is motivation before any coding begins.</p>
                                     </div>
                                 </div>
@@ -434,7 +464,7 @@
                                 <div class="schedule-row">
                                     <div class="schedule-time">10:10 – 11:40</div>
                                     <div class="schedule-content">
-                                        <h4>Your first R session</h4>
+                                        <h4><a href="https://university-of-aruba.github.io/r-for-spss-users/02-first-r-session.html" target="_blank" rel="noopener">Episode 2 &middot; Your first R session</a></h4>
                                         <p>Navigating RStudio, understanding the interface, running your first commands. Importing a dataset and performing basic operations you already know from SPSS: descriptive statistics, frequency tables, variable inspection.</p>
                                     </div>
                                 </div>
@@ -452,7 +482,7 @@
                                 <div class="schedule-row">
                                     <div class="schedule-time">13:00 – 14:30</div>
                                     <div class="schedule-content">
-                                        <h4>Data manipulation</h4>
+                                        <h4><a href="https://university-of-aruba.github.io/r-for-spss-users/03-data-manipulation.html" target="_blank" rel="noopener">Episode 3 &middot; Data manipulation</a></h4>
                                         <p>Filtering, sorting, recoding, and creating new variables. Every operation is shown side-by-side with its SPSS menu equivalent. Introduction to the tidyverse workflow for chaining operations together.</p>
                                     </div>
                                 </div>
@@ -463,25 +493,33 @@
                                 <div class="schedule-row">
                                     <div class="schedule-time">14:45 – 15:45</div>
                                     <div class="schedule-content">
-                                        <h4>Your first visualization</h4>
+                                        <h4><a href="https://university-of-aruba.github.io/r-for-spss-users/04-visualization.html" target="_blank" rel="noopener">Episode 4 &middot; Your first visualization</a></h4>
                                         <p>Building charts with ggplot2. Starting from a basic plot and layering elements to produce something publication-ready. Comparison with SPSS chart builder output.</p>
                                     </div>
                                 </div>
                                 <div class="schedule-row">
                                     <div class="schedule-time">15:45 – 16:00</div>
                                     <div class="schedule-content">
-                                        <h4>Wrap-up and homework</h4>
-                                        <p>Recap of Day 1 and a short practice exercise to try between sessions, so you arrive on Thursday with questions and momentum.</p>
+                                        <h4>Wrap-up and homework brief</h4>
+                                        <p>Recap of Day 1 and a walkthrough of the <a href="https://university-of-aruba.github.io/r-for-spss-users/homework.html" target="_blank" rel="noopener">between-day homework</a>: a short exercise on your own data, so you arrive on Friday with questions and momentum.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <div class="bridge-callout">
+                        <span class="bridge-tag">Between days</span>
+                        <div>
+                            <h4>Homework brief</h4>
+                            <p>The 48 hours between sessions is when the course becomes a skill. Participants open a <a href="https://university-of-aruba.github.io/r-for-spss-users/homework.html" target="_blank" rel="noopener">standalone homework page</a> and write a short R script against a dataset they already use: import, transform, summarise, chart. Thirty to sixty minutes. The script comes back into the Friday open lab.</p>
+                        </div>
+                    </div>
+
                     <div class="session-block">
                         <div class="session-header">
                             <h3>Session 2: Analysis and reproducibility</h3>
-                            <div class="session-time">Thursday 24 April &middot; 9:00–16:00</div>
+                            <div class="session-time">Friday 24 April &middot; 9:00–16:00</div>
                         </div>
                         <div class="session-body">
                             <div class="schedule">
@@ -499,7 +537,7 @@
                                 <div class="schedule-row">
                                     <div class="schedule-time">09:45 – 10:45</div>
                                     <div class="schedule-content">
-                                        <h4>Statistical analysis in R, part 1</h4>
+                                        <h4><a href="https://university-of-aruba.github.io/r-for-spss-users/05-statistical-analysis.html" target="_blank" rel="noopener">Episode 5 &middot; Statistical analysis, part 1</a></h4>
                                         <p>The tests participants use most often: t-tests and ANOVA. For each test, the SPSS dialog is shown alongside the R code, and we interpret the output together.</p>
                                     </div>
                                 </div>
@@ -510,7 +548,7 @@
                                 <div class="schedule-row">
                                     <div class="schedule-time">11:00 – 12:00</div>
                                     <div class="schedule-content">
-                                        <h4>Statistical analysis in R, part 2</h4>
+                                        <h4><a href="https://university-of-aruba.github.io/r-for-spss-users/05-statistical-analysis.html" target="_blank" rel="noopener">Episode 5 &middot; Statistical analysis, part 2</a></h4>
                                         <p>Correlation and regression. Extracting results cleanly and a first look at how to save outputs for reports.</p>
                                     </div>
                                 </div>
@@ -521,7 +559,7 @@
                                 <div class="schedule-row">
                                     <div class="schedule-time">13:00 – 14:00</div>
                                     <div class="schedule-content">
-                                        <h4>Reproducible reporting</h4>
+                                        <h4><a href="https://university-of-aruba.github.io/r-for-spss-users/06-reproducible-reporting.html" target="_blank" rel="noopener">Episode 6 &middot; Reproducible reporting</a></h4>
                                         <p>Introduction to R Markdown: combining narrative text, code, and output in a single document. Creating a report that updates automatically when data changes.</p>
                                     </div>
                                 </div>
@@ -532,8 +570,8 @@
                                 <div class="schedule-row">
                                     <div class="schedule-time">14:15 – 15:00</div>
                                     <div class="schedule-content">
-                                        <h4>Where to go from here</h4>
-                                        <p>Resources for continued learning. Community forums, package documentation, free online courses. Building a personal reference library of R scripts that replace your SPSS workflows.</p>
+                                        <h4><a href="https://university-of-aruba.github.io/r-for-spss-users/07-next-steps.html" target="_blank" rel="noopener">Episode 7 &middot; Where to go from here</a></h4>
+                                        <p>A close-out on local reference datasets (UA's CAS election data and island-research reference data), community forums and package documentation for continued learning, and building a personal reference library of R scripts that replace your SPSS workflows.</p>
                                     </div>
                                 </div>
                                 <div class="schedule-row">
