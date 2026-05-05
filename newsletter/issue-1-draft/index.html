@@ -1,0 +1,629 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <title>DCDC Network Newsletter â€” Issue 1 (draft)</title>
+    <meta name="description" content="First issue of the DCDC Network newsletter. Draft for core team review.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:       #091f38;
+            --teal:       #2e8894;
+            --purple:     #2e3192;
+            --blue:       #1a66b1;
+            --light-teal: #e8f5f7;
+            --light-bg:   #f7fafb;
+            --text:       #2d3748;
+            --muted:      #4a5568;
+            --border:     #e2e8f0;
+            --gold:       #d4a017;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.65;
+            color: var(--text);
+            background: var(--light-bg);
+            padding: 24px 12px;
+        }
+
+        .newsletter {
+            max-width: 720px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 6px 32px rgba(9,31,56,0.08);
+        }
+
+        /* Draft banner */
+        .draft-banner {
+            background: #fff7e0;
+            border-bottom: 1px solid #f3d97a;
+            color: #7a5a00;
+            padding: 10px 24px;
+            font-size: 0.82rem;
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+        .draft-banner strong { color: #5a4300; }
+
+        /* Masthead */
+        .masthead {
+            background: var(--navy);
+            color: #fff;
+            padding: 36px 32px 28px;
+            text-align: center;
+        }
+        .masthead img { height: 56px; width: auto; margin-bottom: 18px; }
+        .masthead .issue-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            color: #7dd3dc;
+            background: rgba(125, 211, 220, 0.12);
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+        }
+        .masthead h1 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        .masthead .date {
+            color: #94a3b8;
+            font-size: 0.92rem;
+        }
+
+        /* Section frame */
+        .section {
+            padding: 36px 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        .section:last-of-type { border-bottom: none; }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--teal);
+            background: var(--light-teal);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            color: var(--navy);
+            margin-bottom: 14px;
+            line-height: 1.3;
+            font-weight: 600;
+        }
+        h3 {
+            font-size: 1.05rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        p { margin-bottom: 14px; color: var(--muted); }
+        p:last-child { margin-bottom: 0; }
+
+        a { color: var(--teal); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Editor's letter */
+        .from-the-network p {
+            font-size: 1rem;
+            color: var(--text);
+        }
+        .signoff {
+            margin-top: 18px;
+            font-style: italic;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        /* Featured member */
+        .feature-member {
+            background: linear-gradient(180deg, #fff 0%, var(--light-teal) 100%);
+        }
+        .member-card {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 24px;
+            align-items: start;
+            margin-top: 8px;
+        }
+        .member-card img {
+            width: 160px;
+            height: 160px;
+            border-radius: 10px;
+            object-fit: cover;
+            display: block;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 12px rgba(9,31,56,0.12);
+        }
+        .member-name {
+            font-size: 1.2rem;
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .member-role {
+            color: var(--teal);
+            font-size: 0.92rem;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+        .member-affiliation {
+            color: var(--muted);
+            font-size: 0.88rem;
+            margin-bottom: 12px;
+        }
+        .member-bio {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        .member-contact a {
+            font-size: 0.9rem;
+            color: var(--navy);
+            font-weight: 500;
+        }
+
+        /* Stories grid */
+        .story {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 20px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 18px;
+            background: #fff;
+        }
+        .story:last-child { margin-bottom: 0; }
+        .story img {
+            width: 100%;
+            height: 100%;
+            min-height: 140px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+        .story-body { padding: 18px 20px 18px 0; }
+        .story .post-meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            display: inline-block;
+            background: var(--light-teal);
+            color: var(--teal);
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        .post-date { font-size: 0.8rem; color: var(--muted); }
+        .story h3 { font-size: 1.02rem; margin-bottom: 6px; line-height: 1.35; }
+        .story p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 10px; }
+        .read-more {
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: var(--teal);
+        }
+
+        /* Survey CTA */
+        .survey-box {
+            background: var(--navy);
+            color: #fff;
+            border-radius: 10px;
+            padding: 28px 30px;
+            text-align: center;
+        }
+        .survey-box h2 { color: #fff; margin-bottom: 10px; }
+        .survey-box p { color: #cbd5e0; font-size: 0.95rem; margin-bottom: 18px; }
+        .incentive-pill {
+            display: inline-block;
+            background: rgba(212, 160, 23, 0.18);
+            color: #f5c542;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+            letter-spacing: 0.4px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--teal);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+        }
+        .btn:hover { background: #236e79; text-decoration: none; }
+        .btn-outline {
+            display: inline-block;
+            border: 1.5px solid var(--teal);
+            color: var(--teal);
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Long-form feature article */
+        .feature-article {
+            background: #fff;
+        }
+        .article-placeholder {
+            border: 2px dashed var(--border);
+            border-radius: 10px;
+            padding: 28px 26px;
+            background: #fafbfc;
+            margin-top: 8px;
+        }
+        .article-placeholder .word-count {
+            display: inline-block;
+            background: var(--light-teal);
+            color: var(--teal);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .article-placeholder h3 {
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+        .article-placeholder p {
+            font-size: 0.93rem;
+            line-height: 1.7;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+        .article-placeholder .lorem {
+            color: #a0aec0;
+            font-style: italic;
+            font-size: 0.88rem;
+        }
+
+        /* Calls & opportunities */
+        .opportunity {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 18px;
+            align-items: center;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            background: #fff;
+        }
+        .opportunity:last-child { margin-bottom: 0; }
+        .opp-deadline {
+            text-align: center;
+            background: var(--light-teal);
+            border-radius: 6px;
+            padding: 8px 4px;
+        }
+        .opp-deadline .day {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+        }
+        .opp-deadline .month {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--teal);
+            letter-spacing: 0.6px;
+            margin-top: 2px;
+        }
+        .opp-body h3 { font-size: 0.98rem; margin-bottom: 4px; }
+        .opp-body p { font-size: 0.85rem; line-height: 1.55; margin-bottom: 0; }
+        .opp-body .opp-meta {
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 4px;
+        }
+        .opp-cta {
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: var(--teal);
+            white-space: nowrap;
+        }
+
+        @media (max-width: 600px) {
+            .opportunity { grid-template-columns: 70px 1fr; }
+            .opp-cta { grid-column: 1 / -1; padding-top: 4px; }
+        }
+
+        /* Submit / call for contributions */
+        .submit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 14px;
+        }
+        .submit-card {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 22px 22px 24px;
+            background: #fff;
+        }
+        .submit-card h3 {
+            font-size: 0.98rem;
+            margin-bottom: 8px;
+        }
+        .submit-card p {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+        .placeholder-link {
+            display: inline-block;
+            background: #fef9e7;
+            border: 1px dashed #d4a017;
+            color: #7a5a00;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: #cbd5e0;
+            padding: 32px 32px 28px;
+            font-size: 0.88rem;
+        }
+        footer .coordinators {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+        footer .coord-block strong { color: #fff; display: block; margin-bottom: 2px; font-size: 0.85rem; }
+        footer .coord-block a { color: #7dd3dc; font-size: 0.82rem; }
+        footer .funding {
+            border-top: 1px solid #1e3a5a;
+            padding-top: 18px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+        footer .funding img { height: 32px; margin-top: 10px; opacity: 0.85; }
+        .unsubscribe {
+            text-align: center;
+            font-size: 0.78rem;
+            color: #94a3b8;
+            margin-top: 14px;
+        }
+        .unsubscribe a { color: #7dd3dc; }
+
+        @media (max-width: 600px) {
+            .section { padding: 28px 22px; }
+            .masthead { padding: 28px 22px 22px; }
+            .member-card { grid-template-columns: 1fr; }
+            .member-card img { width: 140px; height: 140px; margin: 0 auto; }
+            .story { grid-template-columns: 1fr; }
+            .story img { height: 180px; min-height: unset; }
+            .story-body { padding: 0 18px 18px; }
+            .submit-grid { grid-template-columns: 1fr; }
+            footer .coordinators { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="newsletter">
+
+        <!-- Draft notice for core team review -->
+        <div class="draft-banner">
+            <strong>Draft for core team input.</strong> Replace bracketed placeholders, drop in the 1000-word feature article, swap in the contribution sheet link, and confirm calls &amp; opportunities URLs before send.
+        </div>
+
+        <!-- Masthead -->
+        <div class="masthead">
+            <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Dark_BG_DCDC_Network_logo.png" alt="DCDC Network">
+            <span class="issue-label">Issue 1 Â· May 2026</span>
+            <h1>News, training, and people across the Dutch Caribbean</h1>
+            <p class="date">Dutch Caribbean Digital Competence Network</p>
+        </div>
+
+        <!-- From the network -->
+        <section class="section from-the-network">
+            <span class="eyebrow">From the network</span>
+            <h2>Welcome to the first DCDC Network newsletter</h2>
+            <p>This is the first edition of a regular update from the network. The aim is simple: keep members across Aruba, CuraÃ§ao, St. Martin, and IPA in the loop on what is happening, who is involved, and where to plug in. Each issue will share recent stories, spotlight a member of the network, and point to ways to contribute.</p>
+            <p>This first issue features Marjorie Alfonso, our coordinator in CuraÃ§ao, two recent posts from the blog, and an open invitation for members to suggest the next feature, write a post, or send something for the next issue.</p>
+            <p class="signoff">â€” The DCDC Core Team</p>
+        </section>
+
+        <!-- Featured member -->
+        <section class="section feature-member">
+            <span class="eyebrow">Member spotlight</span>
+            <h2>Meet Marjorie Alfonso, coordinator in CuraÃ§ao</h2>
+            <div class="member-card">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Marjorie.jpg" alt="Marjorie Alfonso">
+                <div>
+                    <div class="member-name">Marjorie Alfonso</div>
+                    <div class="member-role">Local Coordinator Â· CuraÃ§ao</div>
+                    <div class="member-affiliation">University of CuraÃ§ao (Library &amp; Research Services)</div>
+                    <p class="member-bio">Marjorie is Information and AI Specialist at the University of CuraÃ§ao Library, supporting researchers and lecturers with research tools, digital resources, and emerging technologies. She believes researchers and students on small islands should have equal access to knowledge and the chance to make their work visible internationally. Her hope for the network is stronger collaboration between Caribbean islands and international partners, with more opportunities for training and knowledge sharing.</p>
+                    <div class="member-contact"><a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Long-form feature article (RDAP-style, ~1000 words) -->
+        <section class="section feature-article">
+            <span class="eyebrow">Feature</span>
+            <h2>[Feature article title goes here]</h2>
+            <div class="article-placeholder">
+                <span class="word-count">â‰ˆ 1000 words Â· RDAP-style feature</span>
+                <h3>Drop the feature article in here</h3>
+                <p>Following the RDAP newsletter format: a longer-form piece (around 1000 words) profiling a project, dataset, person, or methodological angle from the network. Possible angles for issue 1: the FIMM working paper in plain language, a researcher journey from SPSS to R, or a feature on what a "data steward" actually does day to day in a Caribbean university library.</p>
+                <p class="lorem">Body copy will go here. The RDAP feature usually opens with a short narrative hook, sets up the question or problem, walks through what the person or team is doing, and closes with what readers can take away or where to plug in. Suggested length 900â€“1100 words. Include 1 image if available.</p>
+                <p style="margin-top:14px; margin-bottom:0;"><strong style="color:var(--navy);">Owner:</strong> <span style="color:var(--muted);">[assign at core team meeting]</span> Â· <strong style="color:var(--navy); margin-left:8px;">Deadline:</strong> <span style="color:var(--muted);">[date]</span></p>
+            </div>
+        </section>
+
+        <!-- Recent stories -->
+        <section class="section">
+            <span class="eyebrow">Recent stories</span>
+            <h2>From the blog</h2>
+
+            <a href="https://dcdc.network/blog/from-spss-to-r-in-two-days/" class="story" style="text-decoration:none; color:inherit;">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/r-course-cohort1-welcome.jpg" alt="First DCDC R for SPSS Users workshop, MC-Chapel, April 2026">
+                <div class="story-body">
+                    <div class="post-meta">
+                        <span class="tag">Training</span>
+                        <span class="post-date">April 2026</span>
+                    </div>
+                    <h3>From SPSS to R in two days: the first DCDC workshop</h3>
+                    <p>Twenty-five participants spent two days writing their first R code in Aruba. Every respondent said they would come back; the recommend score averaged 8.5 out of 10. The post covers what worked, what was too fast, and what changes for the next cohort.</p>
+                    <span class="read-more">Read the post &rarr;</span>
+                </div>
+            </a>
+
+            <a href="https://dcdc.network/blog/a-seed-planted-dcdc-meets-ipa/" class="story" style="text-decoration:none; color:inherit;">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/IPA.jpg" alt="DCDC sip and learn at Instituto Pedagogico Arubano">
+                <div class="story-body">
+                    <div class="post-meta">
+                        <span class="tag">Network news</span>
+                        <span class="post-date">March 2026</span>
+                    </div>
+                    <h3>A seed planted: the DCDC Network meets IPA</h3>
+                    <p>A "sip &amp; learn" session at Instituto Pedagogico Arubano on open access, open data, and FAIR. The honest questions in the room (what if my data is misused, what about unequal collaboration) became the starting point for the conversation, not the obstacle.</p>
+                    <span class="read-more">Read the post &rarr;</span>
+                </div>
+            </a>
+        </section>
+
+        <!-- Calls & opportunities -->
+        <section class="section">
+            <span class="eyebrow">Calls &amp; opportunities</span>
+            <h2>Open calls members can apply to</h2>
+            <p>Two open calls worth flagging this month. Deadlines are real, both are international, both welcome submissions from the Dutch Caribbean.</p>
+
+            <a href="#" class="opportunity" style="text-decoration:none; color:inherit;">
+                <div class="opp-deadline">
+                    <span class="day">18</span>
+                    <span class="month">May</span>
+                </div>
+                <div class="opp-body">
+                    <div class="opp-meta">Conference Â· Submissions close 18 May 2026</div>
+                    <h3>LatinR 2026 â€” call for proposals</h3>
+                    <p>Submissions open for oral presentations, lightning talks, and posters at LatinR, the Latin American R users conference. Strong fit for anyone in the network with R-based work to share. <span style="color:var(--gold);">[Confirm LatinR URL with Esther]</span></p>
+                </div>
+                <span class="opp-cta">Submit &rarr;</span>
+            </a>
+
+            <a href="https://events.humanitix.com/ols-nasa-nebula-program-cohort-4" class="opportunity" style="text-decoration:none; color:inherit;">
+                <div class="opp-deadline">
+                    <span class="day">TBC</span>
+                    <span class="month">2026</span>
+                </div>
+                <div class="opp-body">
+                    <div class="opp-meta">Program Â· Open Life Science Ã— NASA</div>
+                    <h3>OLS Ã— NASA Nebula Program â€” Cohort 4</h3>
+                    <p>Open Life Science cohort program with NASA, supporting open and reproducible research projects. A natural pathway for early-career members exploring open science leadership. <span style="color:var(--muted);">[Confirm dates and eligibility]</span></p>
+                </div>
+                <span class="opp-cta">Learn more &rarr;</span>
+            </a>
+        </section>
+
+        <!-- Onboarding survey with incentive -->
+        <section class="section">
+            <div class="survey-box">
+                <span class="incentive-pill">â˜… Complete by [DATE] to enter the prize draw</span>
+                <h2>Network onboarding survey</h2>
+                <p>The onboarding survey helps us understand who is in the network, what tools you use, and what training would actually be useful. It takes about [X] minutes. Everyone who completes it by [DATE] is entered for [INCENTIVE: e.g., a DCDC tote bag and a free seat in the next training cohort].</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScfqYjSIMjTNzeMU-L9vjHe5W_07rXM49Lpqxl3RJwlydzgyA/viewform?usp=header" class="btn">Take the survey</a>
+            </div>
+        </section>
+
+        <!-- Call for contributions -->
+        <section class="section">
+            <span class="eyebrow">Get involved</span>
+            <h2>Help shape the next issue</h2>
+            <p>The newsletter works best when it carries voices from across the network. Two ways to contribute, both light-touch:</p>
+
+            <div class="submit-grid">
+                <div class="submit-card">
+                    <h3>Suggest the next member feature</h3>
+                    <p>Who in the network should we feature next? Yourself, a colleague, a student doing interesting work. Add a name and a sentence to the contribution sheet.</p>
+                    <a href="#" class="placeholder-link">[Paste Esther's Google Sheet link here]</a>
+                </div>
+                <div class="submit-card">
+                    <h3>Submit a post or short note</h3>
+                    <p>Have a workshop reflection, a tool you love, a dataset you wish existed, or a story from your institution? Send a paragraph or a full draft and we will work it in.</p>
+                    <a href="mailto:rendell.dekort@ua.aw?subject=DCDC%20Newsletter%20submission" class="btn-outline">Email a submission</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="coordinators">
+                <div class="coord-block">
+                    <strong>Aruba</strong>
+                    Esther Plomp<br>
+                    <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a>
+                </div>
+                <div class="coord-block">
+                    <strong>CuraÃ§ao</strong>
+                    Marjorie Alfonso<br>
+                    <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a>
+                </div>
+                <div class="coord-block">
+                    <strong>St. Martin</strong>
+                    Raymond Jessurun<br>
+                    <a href="mailto:raymond.jessurun@usm.sx">raymond.jessurun@usm.sx</a>
+                </div>
+            </div>
+            <p style="text-align:center; margin-bottom:6px;"><strong style="color:#fff;">Network Administrator:</strong> <a href="mailto:rendell.dekort@ua.aw" style="color:#7dd3dc;">rendell.dekort@ua.aw</a></p>
+            <p style="text-align:center;"><a href="https://dcdc.network" style="color:#7dd3dc;">dcdc.network</a> Â· <a href="https://www.linkedin.com/company/112355986/" style="color:#7dd3dc;">LinkedIn</a> Â· <a href="https://www.instagram.com/dcdcnetwork/" style="color:#7dd3dc;">Instagram</a></p>
+            <div class="funding">
+                <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/openscience_donkerblauw.png" alt="Open Science NL">
+            </div>
+            <div class="unsubscribe">
+                You're receiving this because you joined the DCDC Network. <a href="#">Unsubscribe</a> Â· <a href="#">Update preferences</a>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
