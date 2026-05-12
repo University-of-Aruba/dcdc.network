@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>DCDC business cards — core team (draft)</title>
+<style>
+  :root {
+    --navy: #091F38;
+    --blue: #1A66B1;
+    --ink: #091F38;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    background: #f4f4f4;
+  }
+
+  .instructions {
+    max-width: 720px;
+    margin: 0 auto 32px;
+    padding: 16px 20px;
+    background: white;
+    border-left: 4px solid var(--blue);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .instructions h1 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .instructions p { margin: 6px 0; }
+  .instructions code {
+    background: #eef2f7;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+  }
+
+  /* Standard EU business card: 85 x 55 mm */
+  .card {
+    width: 85mm;
+    height: 55mm;
+    background: white;
+    color: var(--navy);
+    padding: 5mm 6mm;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    page-break-inside: avoid;
+  }
+
+  .card.back {
+    background: var(--navy);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4mm 5mm;
+  }
+
+  /* FRONT */
+  .front-grid {
+    display: grid;
+    grid-template-columns: 1fr 22mm;
+    grid-template-rows: auto auto;
+    height: 100%;
+    gap: 0;
+  }
+  .front-header {
+    grid-column: 1 / 2;
+  }
+  .front-logo {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+  .front-logo img {
+    width: 22mm;
+    height: auto;
+  }
+  .name {
+    font-size: 11pt;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 1mm;
+  }
+  .role {
+    font-size: 7.5pt;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--navy);
+    margin: 0 0 0.6mm;
+  }
+  .network {
+    font-size: 7pt;
+    font-weight: 500;
+    line-height: 1.25;
+    margin: 0 0 0.4mm;
+  }
+  .university {
+    font-size: 6.8pt;
+    font-weight: 400;
+    line-height: 1.25;
+    margin: 0;
+    color: var(--navy);
+  }
+
+  .divider {
+    grid-column: 1 / 3;
+    height: 0.3mm;
+    background: var(--navy);
+    margin: 2mm 0 1.8mm;
+  }
+
+  .contact {
+    grid-column: 1 / 3;
+    display: grid;
+    grid-template-columns: 4mm 1fr;
+    row-gap: 1.2mm;
+    column-gap: 2mm;
+    font-size: 7pt;
+    line-height: 1.15;
+    align-items: center;
+  }
+  .contact .icon {
+    width: 3mm;
+    height: 3mm;
+    background: var(--navy);
+    border-radius: 0.5mm;
+    display: inline-block;
+    text-align: center;
+    color: white;
+    font-size: 5.5pt;
+    line-height: 3mm;
+    font-weight: 700;
+  }
+  .contact a { color: var(--navy); text-decoration: none; }
+  .contact .tbc { color: #b06b00; font-style: italic; }
+
+  /* BACK */
+  .back-tagline {
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin: 0 0 4mm;
+    text-align: center;
+  }
+  .crest-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 0 4mm;
+    gap: 4mm;
+  }
+  .crest {
+    flex: 1;
+    height: 18mm;
+    border: 1px dashed rgba(255,255,255,0.45);
+    border-radius: 1mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6.5pt;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 1mm;
+  }
+  .back-url {
+    font-size: 8pt;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  /* Screen layout: show each card pair */
+  .person {
+    max-width: 720px;
+    margin: 0 auto 32px;
+    background: white;
+    padding: 18px 20px 22px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .person h2 {
+    margin: 0 0 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .pair {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .pair .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #666;
+    margin-bottom: 6px;
+  }
+
+  /* Print layout: 2 cards per row, A4 page */
+  @media print {
+    @page {
+      size: A4;
+      margin: 12mm;
+    }
+    body {
+      background: white;
+      padding: 0;
+    }
+    .instructions, .person h2, .pair .label {
+      display: none;
+    }
+    .person {
+      box-shadow: none;
+      background: none;
+      padding: 0;
+      margin: 0;
+      max-width: none;
+    }
+    .pair {
+      display: grid;
+      grid-template-columns: 85mm 85mm;
+      gap: 5mm;
+      margin-bottom: 5mm;
+    }
+    .card {
+      box-shadow: none;
+      border: 0.15mm solid #ccc;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+  <h1>DCDC business cards — core team (draft v2)</h1>
+  <p><strong>To print:</strong> use the browser <em>Print</em> command (<code>Ctrl+P</code>) and select "Save as PDF" or send to printer. Layout is A4, two cards per row.</p>
+  <p><strong>To share on WhatsApp:</strong> screenshot the card pair you want (front + back), or print-to-PDF for the full sheet.</p>
+  <p><strong>Open items in this draft:</strong> phone numbers (placeholders shown in orange), university crest images for the back (dashed placeholder boxes — drop real PNGs into the <code>.crest</code> divs when collected).</p>
+</div>
+
+<!-- =================== ESTHER PLOMP =================== -->
+<div class="person">
+  <h2>Esther Plomp · Project Lead | Local Network Coordinator Aruba</h2>
+  <div class="pair">
+    <div>
+      <div class="label">Front</div>
+      <div class="card">
+        <div class="front-grid">
+          <div class="front-header">
+            <p class="name">Esther Plomp</p>
+            <p class="role">Project Lead | Local Network Coordinator Aruba</p>
+            <p class="network">Dutch Caribbean Digital Competence (DCDC) Network</p>
+            <p class="university">University of Aruba</p>
+          </div>
+          <div class="front-logo">
+            <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC">
+          </div>
+          <div class="divider"></div>
+          <div class="contact">
+            <span class="icon">@</span><a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a>
+            <span class="icon">&#x25CF;</span><a href="https://dcdc.network">dcdc.network</a>
+            <span class="icon">&#x260E;</span><span class="tbc">+297 ___ ____ (TBC)</span>
+            <span class="icon">&#x2691;</span><span>J.E. Irausquin Plein 4, Oranjestad, Aruba</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="label">Back</div>
+      <div class="card back">
+        <p class="back-tagline">Three universities. One network.</p>
+        <div class="crest-row">
+          <div class="crest">UA<br>crest</div>
+          <div class="crest">UoC<br>crest</div>
+          <div class="crest">USM<br>crest</div>
+        </div>
+        <p class="back-url">dcdc.network</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== MARJORIE ALFONSO =================== -->
+<div class="person">
+  <h2>Marjorie Alfonso · Local Network Coordinator Curaçao</h2>
+  <div class="pair">
+    <div>
+      <div class="label">Front</div>
+      <div class="card">
+        <div class="front-grid">
+          <div class="front-header">
+            <p class="name">Marjorie Alfonso</p>
+            <p class="role">Local Network Coordinator Curaçao</p>
+            <p class="network">Dutch Caribbean Digital Competence (DCDC) Network</p>
+            <p class="university">University of Curaçao Dr. Moises da Costa Gomez</p>
+          </div>
+          <div class="front-logo">
+            <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC">
+          </div>
+          <div class="divider"></div>
+          <div class="contact">
+            <span class="icon">@</span><a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a>
+            <span class="icon">&#x25CF;</span><a href="https://dcdc.network">dcdc.network</a>
+            <span class="icon">&#x260E;</span><span class="tbc">+599 9 ___ ____ (TBC)</span>
+            <span class="icon">&#x2691;</span><span>Jan Noorduynweg 111, Willemstad, Curaçao</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="label">Back</div>
+      <div class="card back">
+        <p class="back-tagline">Three universities. One network.</p>
+        <div class="crest-row">
+          <div class="crest">UA<br>crest</div>
+          <div class="crest">UoC<br>crest</div>
+          <div class="crest">USM<br>crest</div>
+        </div>
+        <p class="back-url">dcdc.network</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== RAYMOND JESSURUN =================== -->
+<div class="person">
+  <h2>drs. Raymond Jessurun · Local Network Coordinator Sint Maarten</h2>
+  <div class="pair">
+    <div>
+      <div class="label">Front</div>
+      <div class="card">
+        <div class="front-grid">
+          <div class="front-header">
+            <p class="name">drs. Raymond Jessurun</p>
+            <p class="role">Local Network Coordinator Sint Maarten</p>
+            <p class="network">Dutch Caribbean Digital Competence (DCDC) Network</p>
+            <p class="university">University of St. Martin</p>
+          </div>
+          <div class="front-logo">
+            <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC">
+          </div>
+          <div class="divider"></div>
+          <div class="contact">
+            <span class="icon">@</span><a href="mailto:raymond.jessurun@usm.sx">raymond.jessurun@usm.sx</a>
+            <span class="icon">&#x25CF;</span><a href="https://dcdc.network">dcdc.network</a>
+            <span class="icon">&#x260E;</span><span>+1-721-522 0925 · +599-9-561 5035 (WA)</span>
+            <span class="icon">&#x2691;</span><span>1 Soualiga Boulevard, PO Box 836, Philipsburg, Sint Maarten</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="label">Back</div>
+      <div class="card back">
+        <p class="back-tagline">Three universities. One network.</p>
+        <div class="crest-row">
+          <div class="crest">UA<br>crest</div>
+          <div class="crest">UoC<br>crest</div>
+          <div class="crest">USM<br>crest</div>
+        </div>
+        <p class="back-url">dcdc.network</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== RENDELL DE KORT =================== -->
+<div class="person">
+  <h2>Rendell de Kort · Network Administrator</h2>
+  <div class="pair">
+    <div>
+      <div class="label">Front</div>
+      <div class="card">
+        <div class="front-grid">
+          <div class="front-header">
+            <p class="name">Rendell de Kort</p>
+            <p class="role">Network Administrator</p>
+            <p class="network">Dutch Caribbean Digital Competence (DCDC) Network</p>
+            <p class="university">University of Aruba</p>
+          </div>
+          <div class="front-logo">
+            <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC">
+          </div>
+          <div class="divider"></div>
+          <div class="contact">
+            <span class="icon">@</span><a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a>
+            <span class="icon">&#x25CF;</span><a href="https://dcdc.network">dcdc.network</a>
+            <span class="icon">&#x260E;</span><span class="tbc">+297 ___ ____ (TBC)</span>
+            <span class="icon">&#x2691;</span><span>J.E. Irausquin Plein 4, Oranjestad, Aruba</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="label">Back</div>
+      <div class="card back">
+        <p class="back-tagline">Three universities. One network.</p>
+        <div class="crest-row">
+          <div class="crest">UA<br>crest</div>
+          <div class="crest">UoC<br>crest</div>
+          <div class="crest">USM<br>crest</div>
+        </div>
+        <p class="back-url">dcdc.network</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
