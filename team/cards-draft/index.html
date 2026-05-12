@@ -57,8 +57,8 @@
   }
 
   .card.back {
-    background: var(--navy);
-    color: white;
+    background: white;
+    color: var(--navy);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -149,11 +149,17 @@
 
   /* BACK */
   .back-tagline {
-    font-size: 9pt;
+    font-size: 7.5pt;
     font-weight: 600;
     letter-spacing: 0.3px;
     margin: 0 0 4mm;
     text-align: center;
+    line-height: 1.25;
+  }
+  .back-tagline .sep {
+    color: var(--blue);
+    font-weight: 700;
+    margin: 0 0.8mm;
   }
   .crest-row {
     display: flex;
@@ -176,11 +182,11 @@
     max-width: 100%;
     object-fit: contain;
     align-self: end;
-    box-shadow: 0 0 0 0.15mm rgba(255,255,255,0.25);
+    box-shadow: 0 0 0 0.15mm rgba(9,31,56,0.2);
   }
   .crest .label {
     font-size: 5.5pt;
-    color: rgba(255,255,255,0.85);
+    color: rgba(9,31,56,0.78);
     letter-spacing: 0.3px;
     text-transform: uppercase;
     text-align: center;
@@ -261,7 +267,7 @@
   <h1>DCDC business cards — core team (draft v2)</h1>
   <p><strong>To print:</strong> use the browser <em>Print</em> command (<code>Ctrl+P</code>) and select "Save as PDF" or send to printer. Layout is A4, two cards per row.</p>
   <p><strong>To share on WhatsApp:</strong> screenshot the card pair you want (front + back), or print-to-PDF for the full sheet.</p>
-  <p><strong>Open items in this draft:</strong> phone numbers (placeholders shown in orange). Back uses the three island flags (UA / UoC / USM university logos can replace these if preferred — swap the <code>img</code> sources in the <code>.crest</code> divs).</p>
+  <p><strong>Open items in this draft:</strong> phone numbers (placeholders shown in orange). Back is white with the four FAIR keywords on top and the three island flags below.</p>
 </div>
 
 <!-- =================== ESTHER PLOMP =================== -->
@@ -294,7 +300,7 @@
     <div>
       <div class="label">Back</div>
       <div class="card back">
-        <p class="back-tagline">Dutch Caribbean. One network.</p>
+        <p class="back-tagline">Findable<span class="sep">·</span>Accessible<span class="sep">·</span>Interoperable<span class="sep">·</span>Reusable</p>
         <div class="crest-row">
           <div class="crest"><img src="../../Flag_of_Aruba.svg" alt="Aruba"><span class="label">Aruba</span></div>
           <div class="crest"><img src="../../Flag_of_Cura%C3%A7ao.svg" alt="Curaçao"><span class="label">Curaçao</span></div>
@@ -336,7 +342,7 @@
     <div>
       <div class="label">Back</div>
       <div class="card back">
-        <p class="back-tagline">Dutch Caribbean. One network.</p>
+        <p class="back-tagline">Findable<span class="sep">·</span>Accessible<span class="sep">·</span>Interoperable<span class="sep">·</span>Reusable</p>
         <div class="crest-row">
           <div class="crest"><img src="../../Flag_of_Aruba.svg" alt="Aruba"><span class="label">Aruba</span></div>
           <div class="crest"><img src="../../Flag_of_Cura%C3%A7ao.svg" alt="Curaçao"><span class="label">Curaçao</span></div>
@@ -378,7 +384,7 @@
     <div>
       <div class="label">Back</div>
       <div class="card back">
-        <p class="back-tagline">Dutch Caribbean. One network.</p>
+        <p class="back-tagline">Findable<span class="sep">·</span>Accessible<span class="sep">·</span>Interoperable<span class="sep">·</span>Reusable</p>
         <div class="crest-row">
           <div class="crest"><img src="../../Flag_of_Aruba.svg" alt="Aruba"><span class="label">Aruba</span></div>
           <div class="crest"><img src="../../Flag_of_Cura%C3%A7ao.svg" alt="Curaçao"><span class="label">Curaçao</span></div>
@@ -420,7 +426,7 @@
     <div>
       <div class="label">Back</div>
       <div class="card back">
-        <p class="back-tagline">Dutch Caribbean. One network.</p>
+        <p class="back-tagline">Findable<span class="sep">·</span>Accessible<span class="sep">·</span>Interoperable<span class="sep">·</span>Reusable</p>
         <div class="crest-row">
           <div class="crest"><img src="../../Flag_of_Aruba.svg" alt="Aruba"><span class="label">Aruba</span></div>
           <div class="crest"><img src="../../Flag_of_Cura%C3%A7ao.svg" alt="Curaçao"><span class="label">Curaçao</span></div>
