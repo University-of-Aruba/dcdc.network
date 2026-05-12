@@ -183,17 +183,16 @@
   .crest {
     flex: 1;
     height: 14mm;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1mm;
+    display: grid;
+    grid-template-rows: 9mm 1fr;
+    justify-items: center;
   }
   .crest img {
     height: 9mm;
     width: auto;
     max-width: 100%;
     object-fit: contain;
+    align-self: end;
     box-shadow: 0 0 0 0.15mm rgba(255,255,255,0.25);
   }
   .crest .label {
@@ -201,6 +200,10 @@
     color: rgba(255,255,255,0.85);
     letter-spacing: 0.3px;
     text-transform: uppercase;
+    text-align: center;
+    line-height: 1.1;
+    align-self: start;
+    margin-top: 1mm;
   }
   .back-url {
     font-size: 8pt;
@@ -308,7 +311,7 @@
     <div>
       <div class="label">Back</div>
       <div class="card back">
-        <p class="back-tagline">Three islands. One network.</p>
+        <p class="back-tagline">Dutch Caribbean. One network.</p>
         <div class="crest-row">
           <div class="crest"><img src="../../Flag_of_Aruba.svg" alt="Aruba"><span class="label">Aruba</span></div>
           <div class="crest"><img src="../../Flag_of_Cura%C3%A7ao.svg" alt="Curaçao"><span class="label">Curaçao</span></div>
@@ -355,7 +358,7 @@
     <div>
       <div class="label">Back</div>
       <div class="card back">
-        <p class="back-tagline">Three islands. One network.</p>
+        <p class="back-tagline">Dutch Caribbean. One network.</p>
         <div class="crest-row">
           <div class="crest"><img src="../../Flag_of_Aruba.svg" alt="Aruba"><span class="label">Aruba</span></div>
           <div class="crest"><img src="../../Flag_of_Cura%C3%A7ao.svg" alt="Curaçao"><span class="label">Curaçao</span></div>
@@ -402,7 +405,7 @@
     <div>
       <div class="label">Back</div>
       <div class="card back">
-        <p class="back-tagline">Three islands. One network.</p>
+        <p class="back-tagline">Dutch Caribbean. One network.</p>
         <div class="crest-row">
           <div class="crest"><img src="../../Flag_of_Aruba.svg" alt="Aruba"><span class="label">Aruba</span></div>
           <div class="crest"><img src="../../Flag_of_Cura%C3%A7ao.svg" alt="Curaçao"><span class="label">Curaçao</span></div>
@@ -449,7 +452,7 @@
     <div>
       <div class="label">Back</div>
       <div class="card back">
-        <p class="back-tagline">Three islands. One network.</p>
+        <p class="back-tagline">Dutch Caribbean. One network.</p>
         <div class="crest-row">
           <div class="crest"><img src="../../Flag_of_Aruba.svg" alt="Aruba"><span class="label">Aruba</span></div>
           <div class="crest"><img src="../../Flag_of_Cura%C3%A7ao.svg" alt="Curaçao"><span class="label">Curaçao</span></div>
