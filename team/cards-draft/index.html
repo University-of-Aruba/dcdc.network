@@ -167,22 +167,22 @@
     vertical-align: middle;
   }
   .crest-row {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     width: 100%;
     margin: 0 0 3mm;
-    gap: 1.8mm;
+    column-gap: 3mm;
+    row-gap: 1.5mm;
   }
   .crest {
-    flex: 1;
     height: 11mm;
     display: grid;
-    grid-template-rows: 6.5mm 1fr;
+    grid-template-rows: 7mm 1fr;
     justify-items: center;
   }
   .crest img {
-    height: 6.5mm;
+    height: 7mm;
     width: auto;
     max-width: 100%;
     object-fit: contain;
@@ -190,9 +190,9 @@
     box-shadow: 0 0 0 0.15mm rgba(9,31,56,0.2);
   }
   .crest .label {
-    font-size: 4.6pt;
+    font-size: 5pt;
     color: rgba(9,31,56,0.78);
-    letter-spacing: 0.2px;
+    letter-spacing: 0.25px;
     text-transform: uppercase;
     text-align: center;
     line-height: 1.1;
@@ -272,7 +272,7 @@
   <h1>DCDC business cards — core team (draft v2)</h1>
   <p><strong>To print:</strong> use the browser <em>Print</em> command (<code>Ctrl+P</code>) and select "Save as PDF" or send to printer. Layout is A4, two cards per row.</p>
   <p><strong>To share on WhatsApp:</strong> screenshot the card pair you want (front + back), or print-to-PDF for the full sheet.</p>
-  <p><strong>Open items in this draft:</strong> phone numbers for Marjorie and Rendell (placeholders shown in orange). Back is white with the four DCDC keywords (CONNECT · BUILD CAPACITY · SHARE · COLLABORATE) in navy caps on top, matching the poster, and all six Dutch Caribbean island flags below (Aruba · Bonaire · Curaçao · Saba · St. Eustatius · Sint Maarten).</p>
+  <p><strong>Open items in this draft:</strong> phone number for Rendell (placeholder shown in orange). Back is white with the four DCDC keywords (CONNECT · BUILD CAPACITY · SHARE · COLLABORATE) in navy caps on top, matching the poster, and all six Dutch Caribbean island flags below in a 3×2 grid (Aruba · Bonaire · Curaçao / Saba · St. Eustatius · Sint Maarten).</p>
 </div>
 
 <!-- =================== ESTHER PLOMP =================== -->
@@ -296,7 +296,7 @@
           <div class="contact">
             <span class="icon">@</span><a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a>
             <span class="icon">&#x25CF;</span><a href="https://dcdc.network">dcdc.network</a>
-            <span class="icon">&#x260E;</span><span>+297 564 4495</span>
+            <span class="icon">&#x260E;</span><span>+297 526 2200</span>
             <span class="icon">&#x2691;</span><span>J.E. Irausquin Plein 4, Oranjestad, Aruba</span>
           </div>
         </div>
@@ -341,7 +341,7 @@
           <div class="contact">
             <span class="icon">@</span><a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a>
             <span class="icon">&#x25CF;</span><a href="https://dcdc.network">dcdc.network</a>
-            <span class="icon">&#x260E;</span><span class="tbc">+599 9 ___ ____ (TBC)</span>
+            <span class="icon">&#x260E;</span><span>+599 9 515 2154</span>
             <span class="icon">&#x2691;</span><span>Jan Noorduynweg 111, Willemstad, Curaçao</span>
           </div>
         </div>
