@@ -488,14 +488,63 @@
         <!-- Long-form feature article (RDAP-style, ~1000 words) -->
         <section class="section feature-article">
             <span class="eyebrow">Feature</span>
-            <h2>[Feature article title goes here]</h2>
-            <div class="article-placeholder">
-                <span class="word-count">≈ 1000 words · RDAP-style feature</span>
-                <h3>Drop the feature article in here</h3>
-                <p>Following the RDAP newsletter format: a longer-form piece (around 1000 words) profiling a project, dataset, person, or methodological angle from the network. Possible angles for issue 1: the FIMM working paper in plain language, a researcher journey from SPSS to R, or a feature on what a "data steward" actually does day to day in a Caribbean university library.</p>
-                <p class="lorem">Body copy will go here. The RDAP feature usually opens with a short narrative hook, sets up the question or problem, walks through what the person or team is doing, and closes with what readers can take away or where to plug in. Suggested length 900–1100 words. Include 1 image if available.</p>
-                <p style="margin-top:14px; margin-bottom:0;"><strong style="color:var(--navy);">Owner:</strong> <span style="color:var(--muted);">[assign at core team meeting]</span> · <strong style="color:var(--navy); margin-left:8px;">Deadline:</strong> <span style="color:var(--muted);">[date]</span></p>
-            </div>
+            <h2>From Hubble to CRAN: the network's first R package</h2>
+
+            <figure style="margin:20px 0 18px;">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/arubabox-installation-sts109-2002.jpg" alt="An astronaut's gloved hand prepares to mate a power cable onto the A.R.U.B.A. relay unit inside Hubble during orbital night, STS-109, March 2002." style="width:100%; height:auto; border-radius:8px; display:block;">
+                <figcaption style="font-size:0.82rem; color:var(--muted); line-height:1.55; margin-top:10px; font-style:italic;">An astronaut prepares to mate Hubble's power cable to A.R.U.B.A. during orbital night, STS-109, 8 March 2002. As the connection was confirmed, "ARUBA" was heard several times over the comms loop. Image courtesy of Edward Cheung's archive (NASA STS-109).</figcaption>
+            </figure>
+
+            <p style="color:var(--text);">The first time the word "Aruba" was spoken in space was during orbital night above Earth on 8 March 2002. An astronaut on Space Shuttle Columbia's fourth Hubble servicing mission was preparing to mate a power cable from the telescope onto a small relay box. As the connection was confirmed, "ARUBA" came back over the comms loop several times. The box was called A.R.U.B.A., the ASCS/NCS Relay Unit Breaker Assembly. Its job was to cut power to Hubble's instruments instantly if a fault occurred. It had been designed by <a href="https://www.edcheung.com/job/sm3b/aruba/aruba4.htm">Edward Cheung</a>, an Aruban engineer working at NASA Goddard. Cheung engineered the backronym so children in his home country would have something concrete to point to on the telescope.</p>
+
+            <p style="color:var(--text);">The DCDC Network's first R package, released on CRAN on 15 May 2026, contains a function called <code style="background:#f0f4f7; padding:1px 5px; border-radius:3px; font-size:0.88em;">aruba()</code>. It returns a row of country-classification data, defaulting to Aruba. The function is a homage in the same style. Cheung's A.R.U.B.A. cuts power on Hubble. Ours returns metadata about an island. Both spell Aruba.</p>
+
+            <p style="color:var(--text);">More than two decades later, A.R.U.B.A. is still up there. It has been operating continuously since 2002, and because the radiator it sits on is attached to Hubble only by handrails, it stays in orbit for as long as Hubble does.</p>
+
+            <h3 style="margin-top:24px;">The actual problem</h3>
+            <p style="color:var(--text);">The reason the package exists, behind the homage, is a research-friction problem that anyone who has tried to do quantitative work on the Dutch Caribbean has hit.</p>
+
+            <p style="color:var(--text);">When you join a country-classification dataset onto your data, you rely on ISO 3166-1, the international standard for two- and three-letter country codes. Aruba has its own code, AW. Curaçao has CW. Sint Maarten (the Dutch side) has SX. So far so good. But Bonaire, Sint Eustatius, and Saba do not have their own ISO codes. They share a single code, BQ, called "Bonaire, Sint Eustatius and Saba (the)" in the standard. In a join, the three islands collapse into one row.</p>
+
+            <p style="color:var(--text);">If you are studying tourism flows, demographics, or budget allocations across the BES islands, that collapse is not a rounding error. It is a structural omission. Even where the underlying data exists at the island level, standard tooling will silently aggregate it before you see the result.</p>
+
+            <p style="color:var(--text);">There is a second, related problem. The UN-DESA list of Small Island Developing States (SIDS) and the academic classification of sub-national island jurisdictions (SNIJ) are not in any of the standard country-code packages. Joining either onto a research dataset typically means opening a PDF, copying a list of country names by hand, and crossing your fingers that you spelled everything the way your data file did. Most island researchers have a half-corrupted SIDS list living in their downloads folder. We have all written this hand-copied join more than once.</p>
+
+            <h3 style="margin-top:24px;">What the package does</h3>
+            <p style="color:var(--text);"><code style="background:#f0f4f7; padding:1px 5px; border-radius:3px; font-size:0.88em;">islandcodes</code> is a small R package. It does one thing. It ships a curated reference list of 250 countries and territories, classified by SIDS status, SNIJ status, World Bank region, World Bank income group, political association, and the four small-island defining criteria. It exposes a few predicates and a tidy joiner, and stays out of the way otherwise.</p>
+
+            <pre style="background:#0f1f2e; color:#e2e8f0; border-radius:8px; padding:16px 18px; overflow-x:auto; font-size:0.82rem; line-height:1.65; margin:16px 0; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;"><code>install.packages("islandcodes")
+library(islandcodes)
+
+is_sids(c("Aruba", "Curacao", "Bonaire", "Brazil"))
+<span style="color:#7dd3dc;">#&gt; [1]  TRUE FALSE FALSE FALSE</span>
+
+is_snij(c("Aruba", "Curacao", "Bonaire", "Brazil"))
+<span style="color:#7dd3dc;">#&gt; [1]  TRUE  TRUE  TRUE FALSE</span></code></pre>
+
+            <p style="color:var(--text);">The BES collapse is handled by carrying disambiguating codes (BQ-BO, BQ-SE, BQ-SA) alongside the ISO standard ones, so the three islands stay separable on any join you do. The package imports <code style="background:#f0f4f7; padding:1px 5px; border-radius:3px; font-size:0.88em;">countrycode</code>, the widely used package for country-name resolution, rather than replacing it. If <code style="background:#f0f4f7; padding:1px 5px; border-radius:3px; font-size:0.88em;">countrycode</code> already handles your case, you do not need <code style="background:#f0f4f7; padding:1px 5px; border-radius:3px; font-size:0.88em;">islandcodes</code>. If it does not, the predicates and the <code style="background:#f0f4f7; padding:1px 5px; border-radius:3px; font-size:0.88em;">add_island_cols()</code> joiner pick up where it stops.</p>
+
+            <h3 style="margin-top:24px;">Where the data comes from</h3>
+            <p style="color:var(--text);">The classifications in the package are mirrored from a separate repository the network maintains, <a href="https://github.com/University-of-Aruba/island-research-reference-data">island-research-reference-data</a>. That repository is the canonical source for the underlying list. The package is a wrapper that makes the data convenient inside R, but the data itself is open in its own right, under CC BY 4.0, for use in Python, Stata, SPSS, or any other tool. The build script in the package pulls the canonical CSV on each release, so updates to the dataset flow downstream cleanly.</p>
+
+            <p style="color:var(--text);">Corrections, additions, and edge cases the list does not yet handle are welcome via GitHub issues on either repository. Sub-sovereign cases in particular have judgment calls baked in. The package is opinionated on some of them and open about which.</p>
+
+            <figure style="margin:22px 0 20px;">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/hubble-finished-installation-sts109-2002.jpg" alt="Hubble Space Telescope photographed against Earth's cloud cover after the STS-109 servicing mission, with the new power-control assembly visible." style="width:100%; height:auto; border-radius:8px; display:block;">
+                <figcaption style="font-size:0.82rem; color:var(--muted); line-height:1.55; margin-top:10px; font-style:italic;">The finished installation, photographed by an astronaut with the Electronic Still Camera. The new radiator is mounted on Hubble's side; A.R.U.B.A. is the small white box on the radiator with the two black ports. Image: NASA (S109E5574).</figcaption>
+            </figure>
+
+            <h3 style="margin-top:24px;">Why CRAN</h3>
+            <p style="color:var(--text);">The package could have lived only on GitHub. Many useful R tools do. The reason for going through the CRAN review process was visibility. CRAN packages have a stable citation home, a versioned archive through CRAN's own infrastructure, and a default install path (<code style="background:#f0f4f7; padding:1px 5px; border-radius:3px; font-size:0.88em;">install.packages</code>) that researchers already trust. For a small package out of a small-island research network, the CRAN listing is itself the message: this is reusable, documented, peer-checked infrastructure, not a one-off script.</p>
+
+            <p style="color:var(--text);">Review took four days. The reviewer feedback led to one minor change in the license declaration. The package is now live at <a href="https://cran.r-project.org/package=islandcodes">cran.r-project.org/package=islandcodes</a>.</p>
+
+            <h3 style="margin-top:24px;">What is next</h3>
+            <p style="color:var(--text);">A short paper describing the package is queued for the Journal of Open Source Software, after the current grant-writing cycle wraps. A longer applied paper on how often BES collapse and SNIJ omission distort cross-island analyses is on the list after that. Anyone in the network with a use case, a missing classification, or a research project that hit the same friction is welcome to get in touch.</p>
+
+            <p style="color:var(--text);">In the meantime: <code style="background:#f0f4f7; padding:1px 5px; border-radius:3px; font-size:0.88em;">install.packages("islandcodes")</code>. The <code style="background:#f0f4f7; padding:1px 5px; border-radius:3px; font-size:0.88em;">aruba()</code> function is there if you want to wave at Hubble.</p>
+
+            <p class="signoff" style="margin-top:22px;">By Rendell de Kort, DCDC Network Administrator</p>
         </section>
 
         <!-- Recent stories -->
