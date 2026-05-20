@@ -508,6 +508,8 @@
             <h3 style="margin-top:24px;">What the package does</h3>
             <p style="color:var(--text);"><code style="background:#f0f4f7; padding:1px 5px; border-radius:3px; font-size:0.88em;">islandcodes</code> is a small R package. It does one thing. It ships a curated reference list of 250 countries and territories, classified by SIDS status, SNIJ status, World Bank region, World Bank income group, political association, and the four small-island defining criteria. It exposes a few predicates and a tidy joiner, and stays out of the way otherwise.</p>
 
+            <p style="color:var(--text);">If you do not use R, the same classification table is published as a plain CSV under CC BY 4.0 (see <a href="#resources">Resources</a> below), so Python, Stata, and SPSS users can run the same joins without installing R.</p>
+
             <pre style="background:#0f1f2e; color:#e2e8f0; border-radius:8px; padding:16px 18px; overflow-x:auto; font-size:0.82rem; line-height:1.65; margin:16px 0; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;"><code>install.packages("islandcodes")
 library(islandcodes)
 
@@ -538,6 +540,13 @@ is_snij(c("Aruba", "Curacao", "Bonaire", "Brazil"))
             <p style="color:var(--text);">A short paper describing the package is queued for the Journal of Open Source Software, after the current grant-writing cycle wraps. A longer applied paper on how often BES collapse and SNIJ omission distort cross-island analyses is on the list after that. Anyone in the network with a use case, a missing classification, or a research project that hit the same friction is welcome to get in touch.</p>
 
             <p style="color:var(--text);">In the meantime: <code style="background:#f0f4f7; padding:1px 5px; border-radius:3px; font-size:0.88em;">install.packages("islandcodes")</code>. The <code style="background:#f0f4f7; padding:1px 5px; border-radius:3px; font-size:0.88em;">aruba()</code> function is there if you want to wave at Hubble.</p>
+
+            <h3 id="resources" style="margin-top:24px;">Resources</h3>
+            <ul style="margin: 4px 0 14px 22px; padding: 0; color: var(--text); font-size: 0.95rem; line-height: 1.7;">
+                <li style="margin-bottom: 6px;">CRAN package page: <a href="https://cran.r-project.org/package=islandcodes">cran.r-project.org/package=islandcodes</a></li>
+                <li style="margin-bottom: 6px;">GitHub repository (issues, contributions, source): <a href="https://github.com/University-of-Aruba/islandcodes">github.com/University-of-Aruba/islandcodes</a></li>
+                <li>Canonical CSV data (CC BY 4.0, language-agnostic): <a href="https://github.com/University-of-Aruba/island-research-reference-data">github.com/University-of-Aruba/island-research-reference-data</a></li>
+            </ul>
 
             <p class="signoff" style="margin-top:22px;">By Rendell de Kort, DCDC Network Administrator</p>
         </section>
