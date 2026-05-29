@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>DCDC Network</title>
+    <link>https://dcdc.network/</link>
+    <description>News, training, and people across the Dutch Caribbean Digital Competence Network.</description>
+    <language>en</language>
+    <copyright>The DCDC Network. Content licensed CC BY 4.0 unless otherwise noted.</copyright>
+    <managingEditor>rendell.dekort@ua.aw (Rendell de Kort)</managingEditor>
+    <webMaster>rendell.dekort@ua.aw (Rendell de Kort)</webMaster>
+    <lastBuildDate>Fri, 29 May 2026 12:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dcdc.network/feed.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <url>https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png</url>
+      <title>DCDC Network</title>
+      <link>https://dcdc.network/</link>
+    </image>
+
+    <item>
+      <title>DCDC Network Newsletter, Issue 1</title>
+      <link>https://dcdc.network/newsletter/issue-1/</link>
+      <guid isPermaLink="true">https://dcdc.network/newsletter/issue-1/</guid>
+      <pubDate>Fri, 29 May 2026 12:00:00 +0000</pubDate>
+      <dc:creator>The DCDC Core Team</dc:creator>
+      <category>Newsletter</category>
+      <description>The first edition of the DCDC Network newsletter. Features Marjorie Alfonso (coordinator in Curaçao), the network's first CRAN package release (islandcodes), Raymond Jessurun's DCRW2026 keynote, recent posts from the blog, three open calls and opportunities, and an open invitation to contribute to the next issue.</description>
+    </item>
+
+    <item>
+      <title>From SPSS to R in two days: the first DCDC-Network workshop</title>
+      <link>https://dcdc.network/blog/from-spss-to-r-in-two-days/</link>
+      <guid isPermaLink="true">https://dcdc.network/blog/from-spss-to-r-in-two-days/</guid>
+      <pubDate>Tue, 28 Apr 2026 11:38:40 +0000</pubDate>
+      <dc:creator>Rendell de Kort</dc:creator>
+      <category>Training</category>
+      <description>On 22 and 24 April, the DCDC Network ran its first event: the Introduction to R for SPSS Users workshop in Aruba. Twenty-five participants spent two full days writing their first R code and giving generous, honest feedback that is already shaping future workshops.</description>
+    </item>
+
+    <item>
+      <title>A seed planted: the DCDC Network meets IPA</title>
+      <link>https://dcdc.network/blog/a-seed-planted-dcdc-meets-ipa/</link>
+      <guid isPermaLink="true">https://dcdc.network/blog/a-seed-planted-dcdc-meets-ipa/</guid>
+      <pubDate>Thu, 23 Apr 2026 13:04:07 +0000</pubDate>
+      <dc:creator>The DCDC Core Team</dc:creator>
+      <category>Network news</category>
+      <description>On 16 March, the DCDC Network visited Instituto Pedagogico Arubano for a "sip and learn" dialogue on open research. The honest questions in the room (what if my data is misused, what about unequal collaboration) became the starting point for the conversation, not the obstacle.</description>
+    </item>
+
+  </channel>
+</rss>

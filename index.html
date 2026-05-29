@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DCDC Network | Dutch Caribbean Digital Competence Network</title>
     <meta name="description" content="Building digital competence together across Aruba, Curaçao, and St. Martin.">
+    <link rel="alternate" type="application/rss+xml" title="DCDC Network feed" href="/feed.xml">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -224,6 +225,45 @@
             color: var(--teal);
         }
 
+        /* ── Latest newsletter ── */
+        .newsletter-teaser { margin: 48px 0; }
+        .newsletter-teaser h2 { font-size: 1.2rem; color: var(--navy); margin-bottom: 10px; }
+        .newsletter-teaser p.lead {
+            color: var(--muted);
+            font-size: 0.95rem;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+        .newsletter-card {
+            display: block;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--teal);
+            border-radius: 10px;
+            padding: 24px 28px;
+            background: linear-gradient(180deg, #fff 0%, var(--light-teal) 100%);
+            transition: box-shadow 0.2s;
+        }
+        .newsletter-card:hover { box-shadow: 0 4px 16px rgba(9,31,56,0.1); }
+        .newsletter-card-meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .newsletter-card h3 { font-size: 1.1rem; color: var(--navy); margin-bottom: 6px; }
+        .newsletter-card p {
+            font-size: 0.92rem;
+            color: var(--muted);
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        .newsletter-card .read-more {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--teal);
+        }
+
         /* ── Team teaser ── */
         .team-teaser {
             margin: 48px 0;
@@ -415,6 +455,20 @@
                 <h2>Join the network</h2>
                 <p>We're building this network by listening first. Complete our onboarding survey to help shape our priorities and connect with peers across the region.</p>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLScfqYjSIMjTNzeMU-L9vjHe5W_07rXM49Lpqxl3RJwlydzgyA/viewform?usp=header" class="btn">Complete the onboarding survey</a>
+            </section>
+
+            <section class="newsletter-teaser">
+                <h2>Latest newsletter</h2>
+                <p class="lead">Our quarterly round-up of news, training, and people across the network.</p>
+                <a href="/newsletter/issue-1/" class="newsletter-card">
+                    <div class="newsletter-card-meta">
+                        <span class="tag">Issue 1</span>
+                        <span class="blog-card-date">May 2026</span>
+                    </div>
+                    <h3>News, training, and people across the Dutch Caribbean</h3>
+                    <p>Spotlight on Marjorie Alfonso, the network's first CRAN package, Raymond's DCRW2026 keynote, three open calls, and an onboarding survey.</p>
+                    <span class="read-more">Read Issue 1 &rarr;</span>
+                </a>
             </section>
 
             <section class="blog-teaser">
