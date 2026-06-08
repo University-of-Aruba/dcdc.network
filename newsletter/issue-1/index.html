@@ -430,6 +430,45 @@
             .submit-grid { grid-template-columns: 1fr; }
             footer .coordinators { grid-template-columns: 1fr; }
         }
+
+        /* MailerLite subscribe form, restyled to match the navy survey box */
+        #mlb2-42365256.ml-form-embedContainer { width: 100% !important; box-sizing: border-box; }
+        #mlb2-42365256 .ml-form-embedWrapper { background: transparent !important; width: 100% !important; max-width: none !important; border: 0 !important; display: block !important; }
+        #mlb2-42365256 .ml-form-embedBody { padding: 0 !important; }
+        #mlb2-42365256 .ml-block-form { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; max-width: 480px; margin: 0 auto; }
+        #mlb2-42365256 .ml-form-formContent { flex: 1 1 240px; margin: 0 !important; }
+        #mlb2-42365256 .ml-form-fieldRow { margin: 0 !important; }
+        #mlb2-42365256 .ml-form-fieldRow input {
+            background: #fff !important; color: #2d3748 !important; border: 1px solid #2e8894 !important;
+            border-radius: 6px !important; padding: 12px 14px !important; font-size: 0.95rem !important;
+            width: 100% !important; box-sizing: border-box !important; height: auto;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        #mlb2-42365256 .ml-form-embedSubmit { margin: 0 !important; width: auto !important; float: none !important; }
+        #mlb2-42365256 .ml-form-embedSubmit button {
+            background: #2e8894 !important; color: #fff !important; border: 0 !important; border-radius: 6px !important;
+            font-weight: 600 !important; font-size: 0.95rem !important; padding: 12px 28px !important; width: auto !important;
+            cursor: pointer; height: auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        #mlb2-42365256 .ml-form-embedSubmit button:hover { background: #236e79 !important; }
+        #mlb2-42365256 .ml-form-successContent h4 { color: #fff; font-size: 1.1rem; margin-bottom: 6px; }
+        #mlb2-42365256 .ml-form-successContent p { color: #cbd5e0; margin: 0; }
+        #mlb2-42365256 .ml-form-fieldRow.ml-error input { border-color: #e53e3e !important; }
+        .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
+        .ml-form-embedSubmitLoad:after {
+            content: " "; display: block; width: 11px; height: 11px; margin: 1px; border-radius: 50%;
+            border: 4px solid #fff; border-color: #fff #fff #fff transparent;
+            animation: ml-form-embedSubmitLoad 1.2s linear infinite;
+        }
+        @keyframes ml-form-embedSubmitLoad { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+        .subscribe-divider { display: flex; align-items: center; text-align: center; color: #7dd3dc; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.6px; margin: 24px auto 16px; max-width: 480px; }
+        .subscribe-divider::before, .subscribe-divider::after { content: ""; flex: 1; height: 1px; background: #1e3a5a; }
+        .subscribe-divider span { padding: 0 12px; }
+        @media (max-width: 480px) {
+            #mlb2-42365256 .ml-form-formContent, #mlb2-42365256 .ml-form-embedSubmit { flex: 1 1 100%; }
+            #mlb2-42365256 .ml-form-embedSubmit button { width: 100% !important; }
+        }
     </style>
 </head>
 <body>
@@ -460,6 +499,41 @@
                 <h2>Network onboarding survey</h2>
                 <p>The onboarding survey helps us see who is in the network: what you work on, what challenges you face, and what kind of support would actually be useful. It takes about 5 to 7 minutes. If a 1:1 with a core team member on your research data, open science, or training questions would be useful, leave your contact details on the form and one of us will reach out.</p>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVxfTYc6vkhLjsBNqQ4NFNegmGyZyV9K-VCGT7iyyYnW34Kw/viewform?usp=header" class="btn">Take the survey</a>
+
+                <div class="subscribe-divider"><span>or just get the newsletter</span></div>
+
+                <div id="mlb2-42365256" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-42365256">
+                    <div class="ml-form-align-center">
+                        <div class="ml-form-embedWrapper embedForm">
+                            <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                                <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2418335/forms/189748665289541335/subscribe" data-code="" method="post" target="_blank">
+                                    <div class="ml-form-formContent">
+                                        <div class="ml-form-fieldRow ml-last-item">
+                                            <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                                                <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Your email address" autocomplete="email">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="ml-submit" value="1">
+                                    <div class="ml-form-embedSubmit">
+                                        <button type="submit" class="primary">Subscribe</button>
+                                        <button disabled="disabled" style="display: none;" type="button" class="loading">
+                                            <div class="ml-form-embedSubmitLoad"></div>
+                                            <span class="sr-only">Loading...</span>
+                                        </button>
+                                    </div>
+                                    <input type="hidden" name="anticsrf" value="true">
+                                </form>
+                            </div>
+                            <div class="ml-form-successBody row-success" style="display: none">
+                                <div class="ml-form-successContent">
+                                    <h4>Almost there</h4>
+                                    <p>Check your inbox and click the confirmation link to finish subscribing.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -696,6 +770,18 @@ is_snij(c("Aruba", "Curacao", "Bonaire", "Brazil"))
         </footer>
 
     </div>
+
+    <script>
+        function ml_webform_success_42365256() {
+            var $ = ml_jQuery || jQuery;
+            $('.ml-subscribe-form-42365256 .row-success').show();
+            $('.ml-subscribe-form-42365256 .row-form').hide();
+        }
+    </script>
+    <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+    <script>
+        fetch("https://assets.mailerlite.com/jsonp/2418335/forms/189748665289541335/takel")
+    </script>
 
 </body>
 </html>
