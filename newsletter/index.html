@@ -248,6 +248,9 @@
             #mlb2-42365256 .ml-form-successContent h4 { color: #fff; font-size: 1.1rem; margin-bottom: 6px; }
             #mlb2-42365256 .ml-form-successContent p { color: #cbd5e0; margin: 0; }
             #mlb2-42365256 .ml-form-fieldRow.ml-error input { border-color: #e53e3e !important; }
+            .subscribe-divider { display: flex; align-items: center; text-align: center; color: #7dd3dc; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.6px; margin: 24px auto 16px; max-width: 480px; }
+            .subscribe-divider::before, .subscribe-divider::after { content: ""; flex: 1; height: 1px; background: #1e3a5a; }
+            .subscribe-divider span { padding: 0 12px; }
             .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
             .ml-form-embedSubmitLoad:after {
                 content: " "; display: block; width: 11px; height: 11px; margin: 1px; border-radius: 50%;
@@ -263,8 +266,11 @@
         </style>
 
         <div class="subscribe-box">
-            <h2>Stay in the loop</h2>
-            <p>Get each new issue in your inbox. One short email when an issue lands, nothing else. You'll get a quick confirmation email to opt in.</p>
+            <h2>Join the network</h2>
+            <p>The onboarding survey is the one we really want. It tells us who is in the network, what you work on, and where support would actually help, and it puts you on the newsletter list at the same time. About 5 to 7 minutes.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVxfTYc6vkhLjsBNqQ4NFNegmGyZyV9K-VCGT7iyyYnW34Kw/viewform?usp=header" class="btn">Take the onboarding survey</a>
+
+            <div class="subscribe-divider"><span>or just get the newsletter</span></div>
 
             <div id="mlb2-42365256" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-42365256">
                 <div class="ml-form-align-center">
@@ -299,7 +305,7 @@
                 </div>
             </div>
 
-            <p style="margin-top: 18px; margin-bottom: 0; font-size: 0.88rem;">Want to tell us about your work too? <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVxfTYc6vkhLjsBNqQ4NFNegmGyZyV9K-VCGT7iyyYnW34Kw/viewform?usp=header">Complete the onboarding survey</a>. Prefer to follow without an account? <a href="/feed.xml">Subscribe via RSS</a>.</p>
+            <p style="margin-top: 18px; margin-bottom: 0; font-size: 0.88rem;">Prefer to follow without an account? <a href="/feed.xml">Subscribe via RSS</a>.</p>
         </div>
 
         <script>
