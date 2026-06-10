@@ -121,6 +121,61 @@
         .badge-open     { background: #dbeafe; color: var(--blue); }
         .badge-completed{ background: #ede9fe; color: var(--purple); }
         .badge-location { background: #fff3e0; color: #b45309; }
+        .badge-external { background: #e0f2f1; color: #00695c; }
+        .badge-online   { background: #f1f5f9; color: #475569; }
+
+        /* ── External training section ── */
+        .external-section { margin-top: 48px; }
+        .external-section > h2 { font-size: 1.3rem; color: var(--navy); margin-bottom: 8px; }
+        .external-section > p.section-intro {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.75;
+            max-width: 720px;
+            margin-bottom: 24px;
+        }
+        .ext-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 22px 26px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            transition: box-shadow 0.2s;
+        }
+        .ext-card:hover { box-shadow: 0 4px 16px rgba(9,31,56,0.08); }
+        .ext-card .ext-body { flex: 1 1 360px; }
+        .ext-card .ext-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+        .ext-card h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: 4px; }
+        .ext-card .ext-when { font-size: 0.85rem; color: var(--muted); }
+        .ext-register {
+            display: inline-block;
+            background: var(--teal);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 9px 18px;
+            border-radius: 6px;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .ext-register:hover { background: #246d77; }
+        .ext-register.disabled {
+            background: #e2e8f0;
+            color: #94a3b8;
+            cursor: default;
+            pointer-events: none;
+        }
+        .ext-note {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-top: 12px;
+        }
 
         .card-content h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 8px; }
         .card-content .subtitle { font-size: 0.95rem; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
@@ -295,6 +350,73 @@
                 <p><strong>More courses coming soon.</strong></p>
                 <p>The training program expands as the network grows. Future topics may include research data management, open science practices, reproducibility, and data visualization. Interested in suggesting or co-developing a course? <a href="mailto:rendell.dekort@ua.aw">Get in touch</a>.</p>
             </div>
+        </div>
+
+        <div class="external-section">
+            <h2>External training</h2>
+            <p class="section-intro">Beyond the courses we run ourselves, we point the network to vetted training offered by trusted partners. These are most relevant for data stewards and for PhD researchers who want to move in that direction. The sessions below are free, online, and run by the Digital Curation Centre (DCC) as part of the CaSDaR (Careers and Skills for Data Driven Research) programme, July to August 2026. All times are British Summer Time (BST).</p>
+
+            <div class="ext-card">
+                <div class="ext-body">
+                    <div class="ext-meta">
+                        <span class="badge badge-external">CaSDaR / DCC</span>
+                        <span class="badge badge-online">Online &amp; free</span>
+                    </div>
+                    <h3>Principles of Research data management (RDM), including licensing</h3>
+                    <p class="ext-when">6 July 2026, 12.30–15.30 BST</p>
+                </div>
+                <a class="ext-register" href="https://www.eventbrite.co.uk/e/casdar-data-stewardship-training-1-principles-of-research-data-management-tickets-1991040286093" target="_blank" rel="noopener">Register</a>
+            </div>
+
+            <div class="ext-card">
+                <div class="ext-body">
+                    <div class="ext-meta">
+                        <span class="badge badge-external">CaSDaR / DCC</span>
+                        <span class="badge badge-online">Online &amp; free</span>
+                    </div>
+                    <h3>Research data ethics and data protection, including sensitive data</h3>
+                    <p class="ext-when">13 July 2026, 12.30–15.30 BST</p>
+                </div>
+                <a class="ext-register" href="https://www.eventbrite.co.uk/e/casdar-data-stewardship-training-2-data-ethics-and-data-protection-tickets-1991043547849" target="_blank" rel="noopener">Register</a>
+            </div>
+
+            <div class="ext-card">
+                <div class="ext-body">
+                    <div class="ext-meta">
+                        <span class="badge badge-external">CaSDaR / DCC</span>
+                        <span class="badge badge-online">Online &amp; free</span>
+                    </div>
+                    <h3>FAIR data</h3>
+                    <p class="ext-when">20 July 2026, 12.30–15.30 BST</p>
+                </div>
+                <a class="ext-register" href="https://www.eventbrite.co.uk/e/casdar-data-stewardship-training-3-fair-data-tickets-1991044251955" target="_blank" rel="noopener">Register</a>
+            </div>
+
+            <div class="ext-card">
+                <div class="ext-body">
+                    <div class="ext-meta">
+                        <span class="badge badge-external">CaSDaR / DCC</span>
+                        <span class="badge badge-online">Online &amp; free</span>
+                    </div>
+                    <h3>Data selection and preservation</h3>
+                    <p class="ext-when">3 August 2026, 12.30–15.30 BST</p>
+                </div>
+                <a class="ext-register" href="https://www.eventbrite.co.uk/e/casdar-data-stewardship-training-4-data-selection-and-preservation-tickets-1991048668164" target="_blank" rel="noopener">Register</a>
+            </div>
+
+            <div class="ext-card">
+                <div class="ext-body">
+                    <div class="ext-meta">
+                        <span class="badge badge-external">CaSDaR / DCC</span>
+                        <span class="badge badge-online">Online &amp; free</span>
+                    </div>
+                    <h3>Repeat of the most popular workshop</h3>
+                    <p class="ext-when">10 August 2026, 12.30–15.30 BST</p>
+                </div>
+                <a class="ext-register disabled" aria-disabled="true">Opens soon</a>
+            </div>
+
+            <p class="ext-note">These sessions are organised by CaSDaR and the DCC, not by the DCDC Network. Registration is handled on Eventbrite.</p>
         </div>
 
         <div class="value-section">
