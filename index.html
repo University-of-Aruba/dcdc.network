@@ -182,6 +182,17 @@
         }
         .btn:hover { background: var(--navy); }
 
+        /* ── Survey hero (primary CTA) ── */
+        .survey-hero {
+            background: var(--light-teal);
+            border: none;
+            border-radius: 12px;
+            padding: 44px 32px;
+            margin: 0 0 48px;
+        }
+        .survey-hero .training-badge { background: #fff; }
+        .survey-hero .btn { padding: 16px 40px; font-size: 1.05rem; }
+
         /* ── Latest from the blog ── */
         .blog-teaser { margin: 48px 0; }
         .blog-teaser h2 { font-size: 1.2rem; color: var(--navy); margin-bottom: 10px; }
@@ -377,6 +388,7 @@
                 <li><a href="/team/">Team</a></li>
                 <li><a href="/about/fair-and-reproducibility/">FAIR &amp; Reproducibility</a></li>
                 <li><a href="/blog/">Blog</a></li>
+                <li><a href="/newsletter/#subscribe" style="background:#2e8894;color:#fff;padding:6px 14px;border-radius:5px;">Subscribe</a></li>
                 <li><a href="mailto:rendell.dekort@ua.aw">Contact</a></li>
             </ul>
         </div>
@@ -405,6 +417,13 @@
 
             <section class="intro">
                 <p>The DCDC Network connects researchers, institutions, and professionals across Aruba, Curaçao, and St. Martin who share a commitment to open data, collaborative research, and building digital capacity in our region.</p>
+            </section>
+
+            <section class="cta survey-hero">
+                <span class="training-badge">Start here</span>
+                <h2>Join the network: take the onboarding survey</h2>
+                <p>The onboarding survey is the one thing we really want from you. It tells us who is in the network, what you work on, and where support would actually help, and it puts you on the newsletter list at the same time. About 5 to 7 minutes.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVxfTYc6vkhLjsBNqQ4NFNegmGyZyV9K-VCGT7iyyYnW34Kw/viewform?usp=header" class="btn">Take the onboarding survey</a>
             </section>
 
             <section class="islands">
@@ -445,16 +464,10 @@
             </section>
 
             <section class="training-highlight">
-                <span class="training-badge">Upcoming course</span>
-                <h2>Introduction to R for SPSS users</h2>
-                <p>A free, hands-on workshop for researchers and students ready to switch from expensive SPSS licenses to a powerful open-source alternative. No programming experience required. Piloting at the University of Aruba in 2026.</p>
-                <a href="/training/r-for-spss-users-aruba-2026/" class="btn-outline">View course details</a>
-            </section>
-
-            <section class="cta">
-                <h2>Join the network</h2>
-                <p>We're building this network by listening first. Complete our onboarding survey to help shape our priorities and connect with peers across the region.</p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVxfTYc6vkhLjsBNqQ4NFNegmGyZyV9K-VCGT7iyyYnW34Kw/viewform?usp=header" class="btn">Complete the onboarding survey</a>
+                <span class="training-badge">Training</span>
+                <h2>Free, open-source training that stays in the region</h2>
+                <p>Our first course, Introduction to R for SPSS users, ran at the University of Aruba in April 2026. More courses are in the pipeline, and we point the network to trusted external training in research data management, data ethics, and FAIR data.</p>
+                <a href="/training/" class="btn-outline">Browse training</a>
             </section>
 
             <section class="newsletter-teaser">
