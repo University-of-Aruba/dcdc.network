@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>"Our stories are not footnotes": Raymond Jessurun's DCRW2026 keynote | DCDC Network</title>
+    <meta name="description" content="Raymond Jessurun, DCDC's St. Martin coordinator, delivered the keynote at Dutch Caribbean Research Week 2026. A reflection on culture, memory, language, and the right to shape Caribbean research.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:       #091f38;
+            --teal:       #2e8894;
+            --purple:     #2e3192;
+            --light-teal: #e8f5f7;
+            --text:       #2d3748;
+            --muted:      #4a5568;
+            --border:     #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* ── Nav ── */
+        .site-nav {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+        }
+        .site-nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo img { height: 36px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 24px; list-style: none; }
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--navy); }
+        .nav-links a.active {
+            color: var(--navy);
+            border-bottom: 2px solid var(--teal);
+            padding-bottom: 2px;
+        }
+
+        /* ── Draft banner ── */
+        .draft-banner {
+            background: #fff7ed;
+            border: 1px solid #fdba74;
+            border-left: 4px solid #f97316;
+            color: #9a3412;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin: 20px 0 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .draft-banner strong { color: #7c2d12; }
+
+        /* ── Breadcrumb ── */
+        .breadcrumb { padding: 16px 0 0; font-size: 0.85rem; color: #718096; }
+        .breadcrumb a { color: var(--muted); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb .sep { margin: 0 6px; }
+
+        /* ── Article header ── */
+        .article-header { padding: 32px 0 0; max-width: 720px; }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            display: inline-block;
+            background: var(--light-teal);
+            color: var(--teal);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+        .post-date { font-size: 0.85rem; color: var(--muted); }
+
+        .article-header h1 {
+            font-size: 2rem;
+            color: var(--navy);
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+        .article-header .lead {
+            font-size: 1.1rem;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 32px;
+        }
+
+        /* ── Article body ── */
+        .article-body {
+            max-width: 720px;
+            padding: 8px 0 56px;
+        }
+        .article-body h2 {
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin: 40px 0 14px;
+        }
+        .article-body p {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+        .article-body p:last-child { margin-bottom: 0; }
+
+        /* ── Pull quote ── */
+        .pull-quote {
+            border-left: 4px solid var(--teal);
+            background: var(--light-teal);
+            padding: 20px 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 32px 0;
+        }
+        .pull-quote p {
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .pull-quote cite {
+            font-size: 0.85rem;
+            color: var(--teal);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* ── About box ── */
+        .about-box {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 40px 0;
+        }
+        .about-box h3 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--teal);
+            margin-bottom: 10px;
+        }
+        .about-box p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        .about-box p:last-child { margin-bottom: 0; }
+
+        /* ── CTA ── */
+        .post-cta {
+            background: var(--navy);
+            border-radius: 10px;
+            padding: 32px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .post-cta p {
+            color: #cbd5e0;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--teal);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #236e79; }
+
+        /* ── Back link ── */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        /* ── Footer ── */
+        footer { background: var(--navy); color: #e2e8f0; padding: 40px 0; margin-top: 48px; }
+        footer .container { text-align: center; }
+        footer h3 { font-size: 1.05rem; margin-bottom: 14px; color: white; }
+        footer p  { margin-bottom: 7px; font-size: 0.92rem; }
+        footer a  { color: #7dd3dc; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .funding {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid #1e3a5a;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 600px) {
+            .article-header h1 { font-size: 1.5rem; }
+            .nav-logo { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav">
+        <div class="container">
+            <a href="/" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC Network">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/training/">Training</a></li>
+                <li><a href="/team/">Team</a></li>
+                <li><a href="/about/fair-and-reproducibility/">FAIR &amp; Reproducibility</a></li>
+                <li><a href="/blog/" class="active">Blog</a></li>
+                <li><a href="/newsletter/#subscribe" style="background:#2e8894;color:#fff;padding:6px 14px;border-radius:5px;">Subscribe</a></li>
+                <li><a href="mailto:rendell.dekort@ua.aw">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="draft-banner">
+            <strong>Draft, pending review.</strong> This post is shared for the speaker and core team to review. It is not yet linked from the blog or announced, and it quotes Raymond Jessurun's own words, so nothing here is final until he has signed off.
+        </div>
+
+        <div class="breadcrumb">
+            <a href="/">Home</a><span class="sep">/</span>
+            <a href="/blog/">Blog</a><span class="sep">/</span>
+            "Our stories are not footnotes"
+        </div>
+
+        <div class="article-header">
+            <div class="post-meta">
+                <span class="tag">Network news</span>
+                <span class="post-date">June 2026</span>
+            </div>
+            <h1>"Our stories are not footnotes": Raymond Jessurun's DCRW2026 keynote</h1>
+            <p class="lead">DCDC's St. Martin coordinator opened Dutch Caribbean Research Week 2026 with a keynote on culture, memory, language, and the right of the islands to shape the research done about them. We share what stayed with us.</p>
+        </div>
+
+        <div class="article-body">
+
+            <p>When Raymond Jessurun opened the keynote at Dutch Caribbean Research Week 2026, he set aside the usual conference warm-up and said what he came to say. "Our stories are not footnotes." Our culture is not decoration. Our language is not a problem to be corrected. For a room joined from Sint Maarten, St. Martin, Aruba, Curaçao, Bonaire, Saba, Sint Eustatius, the Netherlands, and the wider Caribbean, it was a fitting place to begin, because the talk was about who gets to shape research in the first place.</p>
+
+            <div class="pull-quote">
+                <p>"Our stories are not footnotes. Our culture is not decoration. Our language is not a problem to be corrected."</p>
+                <cite>Raymond Jessurun, DCRW2026 keynote</cite>
+            </div>
+
+            <p>Raymond is the DCDC Network's local coordinator for St. Martin, and his argument cuts close to why this network exists. Too often, he reminded us, the islands are studied separately, invited in only after the framework is already built, and asked to fit into categories shaped somewhere else. Questions of culture, memory, language, and labour get treated as side themes. He rejects that. Culture, he argued, is serious business: it is how a people remember when the official record leaves them out, and how they explain themselves when outsiders explain them badly.</p>
+
+            <h2>Culture as archive</h2>
+
+            <p>He made the point concrete through the work of St. Martin writer Lasana M. Sekou, where the Great Salt Pond is not just geography but archive. Salt as memory, labour, and resistance. Read that way, an island's history lives not only in government documents but in ponds, family names, burial grounds, songs, and silences. The job of research, then, is not only to collect data but to listen for the silences, and to ask what broke the chain when a record is missing or a family line cannot be traced.</p>
+
+            <h2>Why this matters for an open-data network</h2>
+
+            <p>For a network built around open data and FAIR principles, one passage deserves to be sat with. Digitization, Raymond said, is not the same as decolonization. A colonial record remains a colonial record even when it is scanned, cleaned, linked, and placed online. A database can follow a person through ownership and sale more clearly than it reconstructs a mother, a family, a name remembered by kin. That is not an argument against building digital archives. It is an argument for building them with descendant knowledge, oral memory, and community truth, so the tools do not quietly reproduce the blindness of the records they preserve. It is exactly the kind of question a digital competence network should keep asking out loud.</p>
+
+            <div class="pull-quote">
+                <p>"Digitization is not the same as decolonization."</p>
+                <cite>Raymond Jessurun, DCRW2026 keynote</cite>
+            </div>
+
+            <p>His keynote ranged further than we can do justice to here, into colonial schooling and the talent it filtered outward, into the long arc of labour from slavery through contract work to skilled migration, and into what real repair would have to touch. We will not summarise those threads; they are his to make, and the full text and slides are linked below for anyone who wants the whole argument in his own voice.</p>
+
+            <h2>The research ethic we are taking forward</h2>
+
+            <p>What we will carry forward is the research ethic he laid out at the end. Start from island reality. Work in the languages people actually use. Return the knowledge to schools, families, and communities. Strengthen local institutions instead of only extracting from them. Leave behind tools, training, and capacity. Measure success by community benefit, not only by publication. Multilingual life, he insisted, is not confusion but competence, intelligence shaped by history, and any method that cannot hear the language of the people will not understand them.</p>
+
+            <p>That standard is a challenge to all of us, this network included, and we intend to take it seriously rather than applaud and move on. In the coming weeks we will be revisiting how we describe our own way of working, so that the principles Raymond named show up in how the DCDC Network actually operates, onboards new members, and shows up across the islands.</p>
+
+            <p>Our thanks to Raymond, to the organisers of Dutch Caribbean Research Week 2026, and to everyone building research that stands with the people of the islands rather than only studying them.</p>
+
+            <div class="about-box">
+                <h3>About the keynote</h3>
+                <p>Raymond Jessurun delivered "Our Stories Are Not Footnotes: Culture, Memory, and the Right to Shape Caribbean Research" as the keynote of Dutch Caribbean Research Week 2026. He is the DCDC Network's local coordinator for St. Martin.</p>
+                <p>The full keynote text and slides will be linked here once finalised.</p>
+            </div>
+
+            <div class="post-cta">
+                <p>Building research that stands with the islands? Learn more about the DCDC Network.</p>
+                <a href="mailto:rendell.dekort@ua.aw" class="btn">Get in touch</a>
+            </div>
+
+            <a href="/blog/" class="back-link">&#8592; Back to blog</a>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <h3>Contact</h3>
+            <p>For questions about the DCDC Network, reach out to your local coordinator:</p>
+            <p><strong>Aruba:</strong> <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a></p>
+            <p><strong>Curaçao:</strong> <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></p>
+            <p><strong>St. Martin:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
+            <p style="margin-top: 14px;"><strong>Network Administrator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
+            <div style="margin-top: 22px; display: flex; gap: 22px; justify-content: center; align-items: center; flex-wrap: wrap;">
+                <a href="https://www.linkedin.com/company/112355986/" target="_blank" rel="noopener" aria-label="DCDC Network on LinkedIn" style="display: inline-flex; align-items: center; gap: 8px; color: #7dd3dc; text-decoration: none; font-size: 0.9rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.86 3.38-1.86 3.61 0 4.28 2.38 4.28 5.47v6.28zM5.34 7.43a2.07 2.07 0 01-2.07-2.07 2.07 2.07 0 112.07 2.07zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://www.instagram.com/dcdcnetwork/" target="_blank" rel="noopener" aria-label="DCDC Network on Instagram" style="display: inline-flex; align-items: center; gap: 8px; color: #7dd3dc; text-decoration: none; font-size: 0.9rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.26.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.26.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 01-1.38-.9 3.72 3.72 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.88 5.88 0 00-2.13 1.38A5.88 5.88 0 00.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.8.73 1.47 1.38 2.13a5.88 5.88 0 002.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.88 5.88 0 002.13-1.38 5.88 5.88 0 001.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 00-1.38-2.13A5.88 5.88 0 0019.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1012 18.16 6.16 6.16 0 0012 5.84zm0 10.16A4 4 0 1112 8a4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+                    Instagram
+                </a>
+            </div>
+            <div class="funding">
+                <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/openscience_donkerblauw.png" alt="Open Science NL" style="height:40px;width:auto;margin-top:14px;opacity:0.85;">
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
