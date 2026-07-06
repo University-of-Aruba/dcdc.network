@@ -8,13 +8,23 @@
     <copyright>The DCDC Network. Content licensed CC BY 4.0 unless otherwise noted.</copyright>
     <managingEditor>rendell.dekort@ua.aw (Rendell de Kort)</managingEditor>
     <webMaster>rendell.dekort@ua.aw (Rendell de Kort)</webMaster>
-    <lastBuildDate>Fri, 29 May 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://dcdc.network/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png</url>
       <title>DCDC Network</title>
       <link>https://dcdc.network/</link>
     </image>
+
+    <item>
+      <title>"Our stories are not footnotes": Raymond Jessurun's DCRW2026 keynote</title>
+      <link>https://dcdc.network/blog/our-stories-are-not-footnotes-dcrw2026/</link>
+      <guid isPermaLink="true">https://dcdc.network/blog/our-stories-are-not-footnotes-dcrw2026/</guid>
+      <pubDate>Mon, 06 Jul 2026 12:00:00 +0000</pubDate>
+      <dc:creator>The DCDC Core Team</dc:creator>
+      <category>Network news</category>
+      <description>Raymond Jessurun, DCDC's St. Martin coordinator, opened Dutch Caribbean Research Week 2026 with a keynote on culture, memory, language, and the right of the islands to shape the research done about them. A reflection on what stayed with us, and on why digitization is not the same as decolonization.</description>
+    </item>
 
     <item>
       <title>DCDC Network Newsletter, Issue 1</title>
