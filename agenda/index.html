@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda | DCDC Network</title>
+    <meta name="description" content="Deadlines, calls, and events relevant to open science and research data across the Dutch Caribbean.">
+    <link rel="alternate" type="application/rss+xml" title="DCDC Network feed" href="/feed.xml">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:       #091f38;
+            --teal:       #2e8894;
+            --purple:     #2e3192;
+            --blue:       #1a66b1;
+            --light-teal: #e8f5f7;
+            --text:       #2d3748;
+            --muted:      #4a5568;
+            --border:     #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* Nav */
+        .site-nav { background: #fff; border-bottom: 1px solid var(--border); padding: 12px 0; }
+        .site-nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo img { height: 36px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .site-nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .site-nav a:hover { color: var(--navy); }
+        .site-nav a.active { color: var(--navy); border-bottom: 2px solid var(--teal); padding-bottom: 2px; }
+
+        /* Breadcrumb */
+        .breadcrumb { padding: 16px 0 0; font-size: 0.85rem; color: #718096; }
+        .breadcrumb a { color: var(--muted); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb .sep { margin: 0 6px; }
+
+        /* Page header */
+        .page-header { padding: 32px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+        .page-header h1 { font-size: 2rem; color: var(--navy); margin-bottom: 12px; }
+        .page-header .lead { font-size: 1.1rem; color: var(--muted); max-width: 720px; line-height: 1.75; }
+
+        /* Events */
+        .events { display: grid; grid-template-columns: 1fr; gap: 20px; margin-bottom: 48px; }
+
+        .event {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 24px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px 28px;
+            transition: box-shadow 0.2s;
+        }
+        .event:hover { box-shadow: 0 4px 16px rgba(9,31,56,0.08); }
+
+        .event-date {
+            text-align: center;
+            border-right: 1px solid var(--border);
+            padding-right: 24px;
+        }
+        .event-date .day { font-size: 1.9rem; font-weight: 800; color: var(--navy); line-height: 1; }
+        .event-date .month { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--teal); margin-top: 4px; }
+        .event-date .year { font-size: 0.78rem; color: #a0aec0; margin-top: 2px; }
+        .event-date .range { font-size: 1.05rem; font-weight: 800; color: var(--navy); line-height: 1.25; }
+        .event-date .range span { display: block; color: var(--teal); font-weight: 700; }
+
+        .event-body h3 { font-size: 1.12rem; color: var(--navy); margin-bottom: 4px; }
+        .event-body .tagline { font-size: 0.82rem; color: #718096; margin-bottom: 10px; }
+        .event-body p { color: var(--muted); font-size: 0.94rem; line-height: 1.65; margin-bottom: 12px; }
+        .event-body p:last-child { margin-bottom: 0; }
+        .event-link { font-size: 0.88rem; font-weight: 600; color: var(--teal); text-decoration: none; }
+        .event-link:hover { text-decoration: underline; }
+
+        .tag {
+            display: inline-block;
+            background: var(--light-teal);
+            color: var(--teal);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 9px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .submit-note {
+            background: var(--light-teal);
+            border-radius: 8px;
+            padding: 24px 28px;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .submit-note a { color: var(--teal); text-decoration: none; font-weight: 600; }
+        .submit-note a:hover { text-decoration: underline; }
+
+        /* Footer */
+        footer { background: var(--navy); color: #e2e8f0; padding: 40px 0; margin-top: 56px; }
+        footer .container { text-align: center; }
+        footer h3 { font-size: 1.05rem; margin-bottom: 14px; color: white; }
+        footer p { margin-bottom: 7px; font-size: 0.92rem; }
+        footer a { color: #7dd3dc; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .funding { margin-top: 28px; padding-top: 20px; border-top: 1px solid #1e3a5a; font-size: 0.85rem; color: #94a3b8; }
+
+        @media (max-width: 600px) {
+            .page-header h1 { font-size: 1.5rem; }
+            .event { grid-template-columns: 1fr; gap: 14px; }
+            .event-date { display: flex; align-items: baseline; gap: 8px; border-right: none; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 12px; text-align: left; }
+            .event-date .month, .event-date .year { margin-top: 0; }
+            .nav-logo { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav">
+        <div class="container">
+            <a href="/" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC Network">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/training/">Training</a></li>
+                <li><a href="/team/">Team</a></li>
+                <li><a href="/about/fair-and-reproducibility/">FAIR</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/agenda/" class="active">Agenda</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/newsletter/#subscribe" style="background:#2e8894;color:#fff;padding:6px 14px;border-radius:5px;">Subscribe</a></li>
+                <li><a href="mailto:rendell.dekort@ua.aw">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="breadcrumb">
+            <a href="/">Home</a><span class="sep">/</span>
+            Agenda
+        </div>
+
+        <div class="page-header">
+            <h1>Agenda</h1>
+            <p class="lead">One central calendar for the network: courses, training from partners, open calls, deadlines, and events relevant to open science and research data across the Dutch Caribbean. Our own training schedule lives in full on the <a href="/training/" style="color:var(--teal);text-decoration:none;font-weight:600;">Training</a> page; the highlights and everything else are gathered here.</p>
+        </div>
+
+        <div class="events">
+
+            <div class="event">
+                <div class="event-date">
+                    <div class="range">6 Jul<span>&rarr; 10 Aug</span></div>
+                    <div class="year">2026</div>
+                </div>
+                <div class="event-body">
+                    <span class="tag">Training series</span>
+                    <h3>Data stewardship training (CaSDaR / DCC)</h3>
+                    <div class="tagline">Online &amp; free &middot; weekly, Atlantic Standard Time</div>
+                    <p>A six-part series on research data management, data ethics, FAIR data, and preservation, run by CaSDaR and the Digital Curation Centre. Most relevant for data stewards and for PhD researchers moving in that direction. Registration is on Eventbrite.</p>
+                    <a href="/training/#external" class="event-link">See dates &amp; register &rarr;</a>
+                </div>
+            </div>
+
+            <div class="event">
+                <div class="event-date">
+                    <div class="day">30</div>
+                    <div class="month">Sep</div>
+                    <div class="year">2026</div>
+                </div>
+                <div class="event-body">
+                    <span class="tag">Open call</span>
+                    <h3>Dutch Data Prize 2026: nominations close</h3>
+                    <div class="tagline">Research Data Netherlands (RDNL)</div>
+                    <p>The Dutch Data Prize recognises researchers and teams who make their data Findable, Accessible, Interoperable, and Reusable. This round is open to the Dutch Caribbean, teams as well as individuals, and you can nominate your own work. Each category winner receives €3,500 to further improve the FAIRness of their data, and this year accompanying code and software count too.</p>
+                    <a href="https://researchdata.nl/en/dutch-data-prize/" class="event-link" target="_blank" rel="noopener">Nomination details &amp; criteria &rarr;</a>
+                </div>
+            </div>
+
+            <div class="event">
+                <div class="event-date">
+                    <div class="day">03</div>
+                    <div class="month">Dec</div>
+                    <div class="year">2026</div>
+                </div>
+                <div class="event-body">
+                    <span class="tag">Ceremony</span>
+                    <h3>Dutch Data Prize 2026: award ceremony</h3>
+                    <div class="tagline">Trippenhuis, KNAW, Amsterdam</div>
+                    <p>Winners are announced at the Royal Netherlands Academy of Arts and Sciences. Finalists present their work and share how they applied FAIR data practices across different disciplines.</p>
+                    <a href="https://researchdata.nl/en/dutch-data-prize/" class="event-link" target="_blank" rel="noopener">About the prize &rarr;</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="submit-note">
+            Organising an event, a call, or a deadline the network should hear about? Send the details to <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a> and we will add it here.
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <h3>Contact</h3>
+            <p>For questions about the DCDC Network, reach out to your local coordinator:</p>
+            <p><strong>Aruba:</strong> <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a></p>
+            <p><strong>Curaçao:</strong> <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></p>
+            <p><strong>St. Martin:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
+            <p style="margin-top: 14px;"><strong>Network Administrator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
+            <div class="funding">
+                <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/openscience_donkerblauw.png" alt="Open Science NL" style="height:40px;width:auto;margin-top:14px;opacity:0.85;">
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

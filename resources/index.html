@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | DCDC Network</title>
+    <meta name="description" content="Openly licensed guides and materials from the DCDC Network on research data management, FAIR data, and reproducibility in the Dutch Caribbean.">
+    <link rel="alternate" type="application/rss+xml" title="DCDC Network feed" href="/feed.xml">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:       #091f38;
+            --teal:       #2e8894;
+            --purple:     #2e3192;
+            --blue:       #1a66b1;
+            --light-teal: #e8f5f7;
+            --text:       #2d3748;
+            --muted:      #4a5568;
+            --border:     #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* Nav */
+        .site-nav { background: #fff; border-bottom: 1px solid var(--border); padding: 12px 0; }
+        .site-nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo img { height: 36px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .site-nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .site-nav a:hover { color: var(--navy); }
+        .site-nav a.active { color: var(--navy); border-bottom: 2px solid var(--teal); padding-bottom: 2px; }
+
+        /* Breadcrumb */
+        .breadcrumb { padding: 16px 0 0; font-size: 0.85rem; color: #718096; }
+        .breadcrumb a { color: var(--muted); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb .sep { margin: 0 6px; }
+
+        /* Page header */
+        .page-header { padding: 32px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+        .page-header h1 { font-size: 2rem; color: var(--navy); margin-bottom: 12px; }
+        .page-header .lead { font-size: 1.1rem; color: var(--muted); max-width: 720px; line-height: 1.75; }
+
+        /* Resource cards */
+        .resource-list { display: grid; grid-template-columns: 1fr; gap: 24px; margin-bottom: 48px; }
+
+        .resource-card {
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--teal);
+            border-radius: 10px;
+            padding: 28px 32px;
+        }
+        .resource-card .kicker {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--teal);
+            margin-bottom: 8px;
+        }
+        .resource-card h2 { font-size: 1.3rem; color: var(--navy); margin-bottom: 10px; }
+        .resource-card p { color: var(--muted); font-size: 0.98rem; line-height: 1.7; margin-bottom: 16px; }
+
+        .resource-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .resource-meta .pill {
+            background: var(--light-teal);
+            color: var(--teal);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .resource-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+        .btn {
+            display: inline-block;
+            background: var(--teal);
+            color: #fff;
+            padding: 11px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: var(--navy); }
+        .btn-outline {
+            display: inline-block;
+            border: 2px solid var(--teal);
+            color: var(--teal);
+            padding: 9px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s, color 0.2s;
+        }
+        .btn-outline:hover { background: var(--teal); color: #fff; }
+
+        .cite {
+            font-size: 0.82rem;
+            color: #718096;
+            line-height: 1.6;
+            border-top: 1px solid var(--border);
+            padding-top: 14px;
+        }
+        .cite a { color: var(--teal); text-decoration: none; }
+        .cite a:hover { text-decoration: underline; }
+
+        .more-note {
+            background: var(--light-teal);
+            border-radius: 8px;
+            padding: 24px 28px;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .more-note a { color: var(--teal); text-decoration: none; font-weight: 600; }
+        .more-note a:hover { text-decoration: underline; }
+
+        /* Footer */
+        footer { background: var(--navy); color: #e2e8f0; padding: 40px 0; margin-top: 56px; }
+        footer .container { text-align: center; }
+        footer h3 { font-size: 1.05rem; margin-bottom: 14px; color: white; }
+        footer p { margin-bottom: 7px; font-size: 0.92rem; }
+        footer a { color: #7dd3dc; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .funding { margin-top: 28px; padding-top: 20px; border-top: 1px solid #1e3a5a; font-size: 0.85rem; color: #94a3b8; }
+
+        @media (max-width: 600px) {
+            .page-header h1 { font-size: 1.5rem; }
+            .resource-card { padding: 22px; }
+            .nav-logo { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav">
+        <div class="container">
+            <a href="/" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC Network">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/training/">Training</a></li>
+                <li><a href="/team/">Team</a></li>
+                <li><a href="/about/fair-and-reproducibility/">FAIR</a></li>
+                <li><a href="/resources/" class="active">Resources</a></li>
+                <li><a href="/agenda/">Agenda</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/newsletter/#subscribe" style="background:#2e8894;color:#fff;padding:6px 14px;border-radius:5px;">Subscribe</a></li>
+                <li><a href="mailto:rendell.dekort@ua.aw">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="breadcrumb">
+            <a href="/">Home</a><span class="sep">/</span>
+            Resources
+        </div>
+
+        <div class="page-header">
+            <h1>Resources</h1>
+            <p class="lead">Short, openly licensed guides from the DCDC Network on managing and sharing research data. Everything here is free to read, download, and reuse across the islands, with a persistent identifier so it stays findable and citable.</p>
+        </div>
+
+        <div class="resource-list">
+
+            <div class="resource-card">
+                <div class="kicker">Two-pager</div>
+                <h2>Sharing research data</h2>
+                <p>A plain-language, two-page guide to sharing research data in the Dutch Caribbean: what is worth sharing, how to describe and license it, where to deposit it, and how a persistent identifier such as a DOI keeps your work findable and reusable long after the project ends. Written for anyone who works with data, no technical background assumed.</p>
+                <div class="resource-meta">
+                    <span class="pill">PDF &amp; editable Word</span>
+                    <span class="pill">CC BY 4.0</span>
+                    <span class="pill">Published 2026</span>
+                </div>
+                <div class="resource-actions">
+                    <a href="https://doi.org/10.5281/zenodo.21076044" class="btn" target="_blank" rel="noopener">Read on Zenodo</a>
+                    <a href="https://doi.org/10.5281/zenodo.21076044" class="btn-outline" target="_blank" rel="noopener">Download (PDF / DOCX)</a>
+                </div>
+                <p class="cite">Cite as: DCDC-Network (2026). <em>Sharing Research Data</em>. Zenodo. <a href="https://doi.org/10.5281/zenodo.21076044" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.21076044</a></p>
+            </div>
+
+        </div>
+
+        <div class="more-note">
+            More resources are on the way. If there is a topic in research data management, FAIR data, or reproducibility you would like the network to cover, <a href="mailto:rendell.dekort@ua.aw">let us know</a>.
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <h3>Contact</h3>
+            <p>For questions about the DCDC Network, reach out to your local coordinator:</p>
+            <p><strong>Aruba:</strong> <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a></p>
+            <p><strong>Curaçao:</strong> <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></p>
+            <p><strong>St. Martin:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
+            <p style="margin-top: 14px;"><strong>Network Administrator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
+            <div class="funding">
+                <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/openscience_donkerblauw.png" alt="Open Science NL" style="height:40px;width:auto;margin-top:14px;opacity:0.85;">
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
