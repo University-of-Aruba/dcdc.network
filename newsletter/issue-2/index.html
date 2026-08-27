@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCDC Network Newsletter — Issue 2 · August 2026</title>
+    <meta name="description" content="Second issue of the DCDC Network newsletter. A UNESCO call for remote access to AI and HPC infrastructure open to all Small Island Developing States, Blue Wave Analytics, the Introduction to R course coming to Curaçao on 23 and 25 September, the network's new DataCite consortium membership, the DCRW2026 keynote, an islandcodes update, and more open calls.">
+    <link rel="canonical" href="https://dcdc.network/newsletter/issue-2/">
+    <link rel="alternate" type="application/rss+xml" title="DCDC Network feed" href="/feed.xml">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:       #091f38;
+            --teal:       #2e8894;
+            --purple:     #2e3192;
+            --blue:       #1a66b1;
+            --light-teal: #e8f5f7;
+            --light-bg:   #f7fafb;
+            --text:       #2d3748;
+            --muted:      #4a5568;
+            --border:     #e2e8f0;
+            --gold:       #d4a017;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.65;
+            color: var(--text);
+            background: var(--light-bg);
+            padding: 24px 12px;
+        }
+
+        .newsletter {
+            max-width: 720px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 6px 32px rgba(9,31,56,0.08);
+        }
+
+        /* Draft banner — remove on go-live */
+
+        /* Masthead */
+        .masthead {
+            background: var(--navy);
+            color: #fff;
+            padding: 36px 32px 28px;
+            text-align: center;
+        }
+        .masthead img { height: 104px; width: auto; display: block; margin: 0 auto 18px; }
+        .masthead .issue-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            color: #7dd3dc;
+            background: rgba(125, 211, 220, 0.12);
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+        }
+        .masthead h1 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        .masthead .date {
+            color: #94a3b8;
+            font-size: 0.92rem;
+        }
+
+        /* Section frame */
+        .section {
+            padding: 36px 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        .section:last-of-type { border-bottom: none; }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--teal);
+            background: var(--light-teal);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            color: var(--navy);
+            margin-bottom: 14px;
+            line-height: 1.3;
+            font-weight: 600;
+        }
+        h3 {
+            font-size: 1.05rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        p { margin-bottom: 14px; color: var(--muted); }
+        p:last-child { margin-bottom: 0; }
+
+        a { color: var(--teal); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Editor's letter */
+        .from-the-network p {
+            font-size: 1rem;
+            color: var(--text);
+        }
+        .signoff {
+            margin-top: 18px;
+            font-style: italic;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        /* Headline call box (navy, reused for the lead call) */
+        .call-box {
+            background: var(--navy);
+            color: #fff;
+            border-radius: 10px;
+            padding: 28px 30px;
+        }
+        .call-box .eyebrow { background: rgba(125, 211, 220, 0.12); color: #7dd3dc; }
+        .call-box h2 { color: #fff; margin-bottom: 12px; }
+        .call-box p { color: #cbd5e0; font-size: 0.95rem; }
+        .deadline-pill {
+            display: inline-block;
+            background: rgba(212, 160, 23, 0.18);
+            color: #f5c542;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+            letter-spacing: 0.4px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--teal);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+            margin-top: 4px;
+        }
+        .btn:hover { background: #236e79; text-decoration: none; }
+        .btn-outline {
+            display: inline-block;
+            border: 1.5px solid var(--teal);
+            color: var(--teal);
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Featured / spotlight member card */
+        .feature-member {
+            background: linear-gradient(180deg, #fff 0%, var(--light-teal) 100%);
+        }
+        .member-card {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 24px;
+            align-items: start;
+            margin-top: 8px;
+        }
+        .member-card img {
+            width: 160px;
+            height: 160px;
+            border-radius: 10px;
+            object-fit: cover;
+            display: block;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 12px rgba(9,31,56,0.12);
+        }
+        .member-name { font-size: 1.2rem; color: var(--navy); font-weight: 600; margin-bottom: 2px; }
+        .member-role { color: var(--teal); font-size: 0.92rem; font-weight: 500; margin-bottom: 2px; }
+        .member-affiliation { color: var(--muted); font-size: 0.88rem; margin-bottom: 12px; }
+        .member-bio { font-size: 0.95rem; color: var(--text); line-height: 1.7; margin-bottom: 12px; }
+        .member-contact a { font-size: 0.9rem; color: var(--navy); font-weight: 500; }
+
+        /* Placeholder (team-input needed) */
+
+        /* Stories grid */
+        .story {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 20px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 18px;
+            background: #fff;
+        }
+        .story:last-child { margin-bottom: 0; }
+        .story img { width: 100%; height: 100%; min-height: 140px; object-fit: cover; object-position: center; display: block; }
+        .story-body { padding: 18px 20px 18px 0; }
+        .story .post-meta { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; flex-wrap: wrap; }
+        .tag {
+            display: inline-block;
+            background: var(--light-teal);
+            color: var(--teal);
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        .post-date { font-size: 0.8rem; color: var(--muted); }
+        .story h3 { font-size: 1.02rem; margin-bottom: 6px; line-height: 1.35; }
+        .story p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 10px; }
+        .read-more { font-size: 0.86rem; font-weight: 600; color: var(--teal); }
+
+        /* Calls & opportunities */
+        .opportunity {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 18px;
+            align-items: center;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            background: #fff;
+        }
+        .opportunity:last-child { margin-bottom: 0; }
+        .opp-deadline { text-align: center; background: var(--light-teal); border-radius: 6px; padding: 8px 4px; }
+        .opp-deadline .day { display: block; font-size: 1.4rem; font-weight: 700; color: var(--navy); line-height: 1; }
+        .opp-deadline .month { display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--teal); letter-spacing: 0.6px; margin-top: 2px; }
+        .opp-body h3 { font-size: 0.98rem; margin-bottom: 4px; }
+        .opp-body p { font-size: 0.85rem; line-height: 1.55; margin-bottom: 0; }
+        .opp-body .opp-meta { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; }
+        .opp-cta { font-size: 0.84rem; font-weight: 600; color: var(--teal); white-space: nowrap; }
+
+        @media (max-width: 600px) {
+            .opportunity { grid-template-columns: 70px 1fr; }
+            .opp-cta { grid-column: 1 / -1; padding-top: 4px; }
+        }
+
+        /* Small update note */
+        .note-card {
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--teal);
+            border-radius: 8px;
+            padding: 18px 22px;
+            background: #fff;
+            margin-top: 8px;
+        }
+        .note-card p { font-size: 0.92rem; line-height: 1.65; }
+
+        /* Call for contributions */
+        .submit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 14px; }
+        .submit-card { border: 1px solid var(--border); border-radius: 10px; padding: 22px 22px 24px; background: #fff; }
+        .submit-card h3 { font-size: 0.98rem; margin-bottom: 8px; }
+        .submit-card p { font-size: 0.88rem; line-height: 1.6; margin-bottom: 14px; }
+
+        /* Feature */
+        .feature-article { background: #fff; }
+
+        /* Footer */
+        footer { background: var(--navy); color: #cbd5e0; padding: 32px 32px 28px; font-size: 0.88rem; }
+        footer .coordinators { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 22px; }
+        footer .coord-block strong { color: #fff; display: block; margin-bottom: 2px; font-size: 0.85rem; }
+        footer .coord-block a { color: #7dd3dc; font-size: 0.82rem; }
+        footer .funding { border-top: 1px solid #1e3a5a; padding-top: 18px; text-align: center; font-size: 0.8rem; color: #94a3b8; }
+        footer .funding img { height: 32px; margin-top: 10px; opacity: 0.85; }
+        .unsubscribe { text-align: center; font-size: 0.78rem; color: #94a3b8; margin-top: 14px; }
+        .unsubscribe a { color: #7dd3dc; }
+
+        @media (max-width: 600px) {
+            .section { padding: 28px 22px; }
+            .masthead { padding: 28px 22px 22px; }
+            .member-card { grid-template-columns: 1fr; }
+            .member-card img { width: 140px; height: 140px; margin: 0 auto; }
+            .story { grid-template-columns: 1fr; }
+            .story img { height: 180px; min-height: unset; }
+            .story-body { padding: 0 18px 18px; }
+            .submit-grid { grid-template-columns: 1fr; }
+            footer .coordinators { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="newsletter">
+
+        <!-- DRAFT BANNER — delete this div on go-live -->
+        <!-- Masthead -->
+        <div class="masthead">
+            <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Dark_BG_DCDC_Network_logo.png" alt="DCDC Network">
+            <span class="issue-label">Issue 2 · August 2026</span>
+            <h1>First survey results, a UNESCO call that closes 31 August, and the November Kick-Off Conference</h1>
+            <p class="date">Dutch Caribbean Digital Competence Network</p>
+        </div>
+
+        <!-- From the network -->
+        <section class="section from-the-network">
+            <span class="eyebrow">From the network</span>
+            <h2>What is in this issue</h2>
+            <p>This edition goes out as the network comes back from the summer, and it opens with a deadline that will not wait. UNESCO and the AI-Lab in Rio have a call for remote access to AI and high-performance computing that closes on 31 August, and every one of the six islands is eligible for it.</p>
+            <p>Alongside that: the first results from the network survey and what they are already changing, the Kick-Off Conference on Aruba in November, our <em>Introduction to R</em> course landing in Curaçao as Blue Wave Analytics, Raymond Jessurun's DCRW2026 keynote, an update on the network's first CRAN package, two pieces worth reading, and three more calls worth a look.</p>
+            <p class="signoff">— The DCDC Core Team</p>
+        </section>
+
+        <!-- Headline call: UNESCO / AI-Lab CBPF -->
+        <section class="section">
+            <div class="call-box">
+                <span class="deadline-pill">★ Deadline 31 August 2026</span>
+                <span class="eyebrow">Headline call</span>
+                <h2>Remote access to AI and supercomputing, open to all Small Island Developing States</h2>
+                <p>UNESCO and the Computing and Artificial Intelligence Laboratory at the Brazilian Center for Physics Research (AI-Lab/CBPF) have opened a joint call for remote access to artificial intelligence and high-performance computing infrastructure. The LAB-IA facility pairs HPC, machine learning, and scientific instrumentation for research across astrophysics, geophysics, materials science, quantum technologies, and biophysics. The call sits under UNESCO's Remote Access to Lab Equipment initiative and its Recommendation on Open Science.</p>
+                <p>Every one of the six Dutch Caribbean islands is a Small Island Developing State, which means the whole network is eligible. The call is open to MSc and PhD students, postdoctoral researchers, and junior faculty from SIDS, as well as from Latin America and the Caribbean, Africa, and Ukraine. You need a clearly defined research project and strong English. Projects start in October.</p>
+                <a href="https://unesco-2023.limesurvey.net/418663?lang=en" class="btn">Read the call and apply &rarr;</a>
+            </div>
+        </section>
+
+
+        <!-- Feature: preliminary survey results -->
+        <section class="section feature-article">
+            <span class="eyebrow">Feature</span>
+            <h2>What the first twenty survey responses tell us</h2>
+            <p class="byline">By Esther Plomp, DCDC Project Lead</p>
+
+            <p>Twenty people have now filled out the network survey. Seventeen are on Aruba, two on Cura&ccedil;ao, and one answered from Belgium. Nothing has come in yet from Bonaire, St. Martin, Saba, or Sint Eustatius, so what follows is a picture of the network's Aruban core rather than of the network. That is the honest caveat, and it is also the clearest reason to fill the survey out if you have not: the islands that answer are the islands the programme gets built around.</p>
+
+            <p>Even so, the patterns in these twenty responses are clear enough to act on. English is the language every respondent is comfortable in, followed by Dutch (18), Papiamento/u (16), Spanish (7), and French (2). We will keep English as the primary working language and extend into Dutch and Papiamento/u where we can.</p>
+
+            <p>Members come from a wider range of places than we expected. Research and education accounts for eleven respondents and government or public service for seven, with the rest working in healthcare, the private sector, as independent researchers and consultants, or across several sectors at once. That range matters, because the network is meant to reach the wider research community and not only the universities.</p>
+
+            <p>Asked about the main difficulties they face in their work with data, nineteen of the twenty named something. Only one respondent reported no major issues. Two problems tie at the top: not enough time or staff, and data that does not move between organisations. Concerns about sharing data follow, then unclear rules and policies, and the plain difficulty of finding data in the first place.</p>
+            <figure style="margin:20px 0;">
+                <img src="/survey-difficulties-podium.png" alt="Podium graphic ranking the data difficulties DCDC Network survey respondents reported: not enough time or staff and data not shared between organizations in first place, data sharing concerns second, unclear rules and policies and finding data third." style="width:100%; height:auto; border-radius:8px; display:block;">
+            </figure>
+
+            <p>The open answers go further. Reaching a usable sample size in a small island population. Storing and publishing datasets without risking a leak. Public trust, and how rarely the purpose of collecting data gets explained. Data quality and interpretation. The absence of a shared vocabulary. Working without a team. Lacking the tools to run the analysis at all.</p>
+
+            <p>What would make sharing easier turns out to be less technical than it looks. Respondents point to collaboration and trust between colleagues. People keep their own storage systems, which do not always produce clean data, and they hesitate to hand anything over when ownership is unclear. Organisations do not compile data on any regular footing. Red tape between institutions makes cooperation impossible in practice. Two members named the missing piece directly: a platform that satisfies the relevant legislation and lets institutions exchange data. Another framed it as mindset, arguing that responsibility and accountability have to be settled before sharing can happen at all.</p>
+
+            <blockquote class="pullquote">&ldquo;Data sharing is frustrated by the lack of an accessible platform for data sharing and the lack of an open data culture in research in Aruba.&rdquo;</blockquote>
+
+            <p>We asked what people would change if they had a magic wand. Skills came back loudest: R, data coding and cleaning, visualisation, web design, and a working knowledge of the legislation. Awareness followed, particularly around reuse. Close behind sat the platform again, a Caribbean repository where data is stored structurally, shared easily, in a format someone can actually use, and where the contributors' work is respected. Political permission to share made the list, as did knowing how to make data attractive to decision makers.</p>
+
+            <p>One answer stood out. Rather than asking for funding to cover expensive licences, a respondent asked for access to tools that replace them, naming open source options that can be customised, R instead of SPSS. Funding did appear on the wishlist, but to expand the capacity to make data available rather than to keep paying for software.</p>
+
+            <p>Respondents also offered to help. They volunteered support with access to software and tools, with training in data management and visualisation, and with sharing data and handling sensitive data. They want to connect to people working on similar problems, to international networks, and across the islands. Advocacy for open data and engagement with the wider public came up repeatedly.</p>
+
+            <p>On format, training and workshops win, online or in person, alongside step-by-step guides. Peer-to-peer learning drew interest. One-on-one support drew the least.</p>
+
+            <p>Most members want to stay informed and want to attend training and online sessions. That enthusiasm for online formats is changing our thinking, and we are now looking seriously at running some future activities online. The next chances to join in person are the <a href="https://dcdc.network/training/"><em>Blue Wave Analytics: Introduction to R</em> workshop in Cura&ccedil;ao</a> in September and the Kick-Off Conference on Aruba in November.</p>
+
+            <p>We will build the Kick-Off Conference programme around these responses, which is the plainest reason to answer the survey now. The programme is not fixed yet.</p>
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVxfTYc6vkhLjsBNqQ4NFNegmGyZyV9K-VCGT7iyyYnW34Kw/viewform?usp=header" class="btn">Fill out the survey, 5 to 7 minutes &rarr;</a>
+
+        </section>
+
+        <!-- Training: Blue Wave Analytics, Curaçao -->
+        <section class="section">
+            <span class="eyebrow">Training</span>
+            <h2>Blue Wave Analytics: Introduction to R comes to Curaçao</h2>
+            <p><em>Introduction to R for SPSS Users</em>, the two-day course that ran for the first time in Aruba this April, comes to Curaçao this autumn as <strong>Blue Wave Analytics: Introduction to R</strong>. Same structure and the same objectives: read a CSV, filter and summarise it, plot it, and walk out with a script that still runs tomorrow. What changes is the data. The worked examples run on Curaçao's undefeated CONCACAF qualifying campaign, so participants learn the tools on numbers they already argue about. The football is the vehicle and not the payload: the objectives stay import, dplyr, ggplot, a basic test, and a script that reruns.</p>
+            <p>It is aimed at researchers, students and analysts moving off SPSS toward reproducible, open tools, and it assumes no prior R. It runs over two days, <strong>Wednesday 23 and Friday 25 September</strong>, at the University of Curaçao, with a free day in between to let the first day settle. Rendell de Kort, the network's administrator, teaches it, and Marjorie Alfonso, our coordinator in Curaçao, hosts. The two days are one course rather than two, so plan to come to both.</p>
+            <p>Registration is open now and places are limited. An optional R installation clinic runs before the first day, and we send setup instructions to everyone who signs up.</p>
+            <p style="text-align:center; margin:26px 0 6px;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeYusEW7Acveg00SUy5cWhLCE7Cj-T0Hwweng7GFDQsuI5DwA/viewform" style="display:inline-block; background:var(--teal); color:#fff; text-decoration:none; font-weight:600; padding:13px 30px; border-radius:6px;">Register for Blue Wave Analytics</a></p>
+            <p style="text-align:center; font-size:0.9em; color:var(--muted); margin-bottom:4px;">Questions: <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></p>
+        </section>
+
+
+        <!-- DataCite consortium -->
+        <section class="section">
+            <span class="eyebrow">Network news</span>
+            <h2>The DCDC Network is now a DataCite consortium</h2>
+            <p>In August the network became a DataCite member, as a consortium. That means we can mint persistent identifiers for the research outputs our universities share, which is the practical machinery behind the F in FAIR: an output with a DOI can be found, cited and counted, and one without it usually cannot.</p>
+            <p>Two things follow for members. Our outputs become visible in the wider research ecosystem rather than only on our own repositories, and we can finally see what the network is producing and what happens to it afterwards. If you have connected your <a href="https://orcid.org/">ORCID</a> to DataCite, anything deposited also appears on your ORCID profile without you lifting a finger.</p>
+        </section>
+
+        <!-- Kick-Off Conference -->
+        <section class="section">
+            <span class="eyebrow">Save the date</span>
+            <h2>DCDC Kick-Off Conference, 10 to 12 November, University of Aruba</h2>
+            <p>The network's Kick-Off Conference takes place on Aruba from 10 to 12 November. The programme is being built directly from what members tell us in the survey, which is why the survey is still open and still worth five minutes of your time.</p>
+            <p>We are also looking at co-locating events on 9 and 10 November, and a further event on the 13th is under discussion, so the whole week is worth holding.</p>
+            <p>Registration, the call for contributions, and the draft programme follow in the next issue.</p>
+        </section>
+
+        <!-- Member spotlight -->
+        <section class="section">
+            <span class="eyebrow">Member spotlight</span>
+            <h2>Kareline van der Linden</h2>
+            <p><strong>University of Aruba</strong></p>
+            <p>Kareline is at the University of Aruba, where she works on carrying capacity: how much pressure a small island can absorb before the thing people came for stops being there. It is a question that runs on data, which is roughly how she ended up in a room learning R.</p>
+            <p>She took <em>Introduction to R for SPSS Users</em> in Aruba this April, in the first cohort the network ran.</p>
+        </section>
+
+        <!-- Recent stories -->
+        <section class="section">
+            <span class="eyebrow">Recent stories</span>
+            <h2>From the blog</h2>
+
+            <a href="https://dcdc.network/blog/our-stories-are-not-footnotes-dcrw2026/" class="story" style="text-decoration:none; color:inherit;">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/raymond-jessurun-headshot.jpeg" alt="Drs. Raymond Jessurun delivering the DCRW2026 keynote">
+                <div class="story-body">
+                    <div class="post-meta">
+                        <span class="tag">Network news</span>
+                        <span class="post-date">June 2026</span>
+                    </div>
+                    <h3>"Our stories are not footnotes": Raymond Jessurun's DCRW2026 keynote</h3>
+                    <p>On the St. Martin conference day of Dutch Caribbean Research Week 2026, our St. Martin coordinator anchored the Culture, Literature and Arts plenary with a case for Caribbean people shaping the research done about them, with them, and for them. A write-up of the keynote and why it matters for the network.</p>
+                    <span class="read-more">Read the post &rarr;</span>
+                </div>
+            </a>
+        </section>
+
+        <!-- islandcodes update -->
+        <section class="section">
+            <span class="eyebrow">Package update</span>
+            <h2>islandcodes: version 0.2.0 on the way</h2>
+            <div class="note-card">
+                <p>The network's first CRAN package, <code style="background:#f0f4f7; padding:1px 5px; border-radius:3px; font-size:0.88em;">islandcodes</code>, featured in Issue 1, keeps the BES islands separable in country-classification joins. Version 0.2.0 has been submitted to CRAN, and a short paper describing the package is queued for the Journal of Open Source Software. Use cases, missing classifications, and edge cases are welcome via GitHub issues or at <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a>.</p>
+            </div>
+        </section>
+
+        <!-- Worth reading -->
+        <section class="section">
+            <span class="eyebrow">Worth reading</span>
+            <h2>Three pieces close to what the survey asked for</h2>
+            <div class="note-card">
+                <p><strong><a href="https://diff.wikimedia.org/2026/07/03/building-a-wikimedia-community-in-aruba-reflecting-on-the-wikipedia-on-aruba-pilot-project/">Building a Wikimedia community in Aruba</a>.</strong> A reflection on the Wikipedia on Aruba pilot, published on Wikimedia's Diff blog in July. It is a rare written account of open-knowledge work done on one of our own islands, and it sits next to the survey's finding that awareness matters as much as skills.</p>
+            </div>
+            <div class="note-card">
+                <p><strong><a href="https://www.techpolicy.press/open-washing-is-everywhere-in-ai-four-criteria-cut-through-it/">Open-washing is everywhere in AI, and four criteria cut through it</a>.</strong> Tech Policy Press on how loosely the word "open" gets used in AI, and a practical test for telling genuine openness from the marketing version. Useful for anyone in the network being sold an "open" tool.</p>
+            </div>
+            <div class="note-card">
+                <p><strong><a href="https://www.linkedin.com/pulse/bread-butter-hopearuba-movement-4odce">Bread and butter: the HopeAruba movement</a>.</strong> An account of a grassroots movement on Aruba and what it takes to keep one going. It is here because the survey's clearest finding was that awareness and public trust matter as much as technical skill, and this is what that work looks like outside a university.</p>
+            </div>
+        </section>
+
+        <!-- Calls & opportunities -->
+        <section class="section">
+            <span class="eyebrow">Calls &amp; opportunities</span>
+            <h2>More worth a look</h2>
+            <p>Three further calls open to network members across the Dutch Caribbean, alongside the UNESCO call above.</p>
+
+            <a href="https://caribox.site.ox.ac.uk/articles/caribox-visiting-fellowship-scheme-2027" class="opportunity" style="text-decoration:none; color:inherit;">
+                <div class="opp-deadline">
+                    <span class="day">15</span>
+                    <span class="month">Sep</span>
+                </div>
+                <div class="opp-body">
+                    <div class="opp-meta">Funding · Deadline 15 September 2026 · University of Oxford</div>
+                    <h3>Caribbean Oxford Initiative (CaribOx) 2027</h3>
+                    <p>Funded routes for Caribbean-based researchers to spend time at Oxford in 2027: visiting fellowships for mid-career to established academics, and travel grants for doctoral to mid-career researchers. Both run during Trinity Term, late April to mid-June 2027.</p>
+                </div>
+                <span class="opp-cta">Learn more &rarr;</span>
+            </a>
+
+            <a href="https://researchdata.nl/en/dutch-data-prize/" class="opportunity" style="text-decoration:none; color:inherit;">
+                <div class="opp-deadline">
+                    <span class="day">30</span>
+                    <span class="month">Sep</span>
+                </div>
+                <div class="opp-body">
+                    <div class="opp-meta">Open call · Nominations close 30 September 2026 · RDNL</div>
+                    <h3>Dutch Data Prize 2026</h3>
+                    <p>Recognises researchers and teams who make their data Findable, Accessible, Interoperable, and Reusable. Open to the Dutch Caribbean, teams as well as individuals, and you can nominate your own work. Each category winner receives €3,500; this year accompanying code and software count too.</p>
+                </div>
+                <span class="opp-cta">Nominate &rarr;</span>
+            </a>
+
+            <a href="https://latin-r.com/en/" class="opportunity" style="text-decoration:none; color:inherit;">
+                <div class="opp-deadline">
+                    <span class="day">10</span>
+                    <span class="month">Oct</span>
+                </div>
+                <div class="opp-body">
+                    <div class="opp-meta">Conference · 10 to 14 October 2026 · virtual</div>
+                    <h3>LatinR 2026</h3>
+                    <p>The annual virtual conference of the Latin American R users community, run in Spanish, Portuguese, and English. A strong fit for anyone in the network working with R who wants to follow regional conversations.</p>
+                </div>
+                <span class="opp-cta">Visit site &rarr;</span>
+            </a>
+        </section>
+
+        <!-- Call for contributions -->
+        <section class="section">
+            <span class="eyebrow">Get involved</span>
+            <h2>Help shape the next issue</h2>
+            <p>The newsletter works best when it carries voices from across the network. Two ways to contribute, both light-touch:</p>
+
+            <div class="submit-grid">
+                <div class="submit-card">
+                    <h3>Suggest the next member feature</h3>
+                    <p>Who in the network should we feature next? Yourself, a colleague, a student doing interesting work? Send a suggestion for a coming issue.</p>
+                    <a href="mailto:rendell.dekort@ua.aw?subject=DCDC%20newsletter%20—%20member%20feature%20suggestion" class="btn-outline">Email a suggestion</a>
+                </div>
+                <div class="submit-card">
+                    <h3>Submit a post or short note</h3>
+                    <p>A workshop reflection, a tool you love, a dataset you wish existed, or a story from your institution? Send a paragraph or a full draft for consideration.</p>
+                    <a href="mailto:rendell.dekort@ua.aw?subject=DCDC%20Newsletter%20submission" class="btn-outline">Email a submission</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="coordinators">
+                <div class="coord-block">
+                    <strong>Aruba</strong>
+                    Esther Plomp<br>
+                    <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a>
+                </div>
+                <div class="coord-block">
+                    <strong>Curaçao</strong>
+                    Marjorie Alfonso<br>
+                    <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a>
+                </div>
+                <div class="coord-block">
+                    <strong>St. Martin</strong>
+                    Raymond Jessurun<br>
+                    <a href="mailto:raymond.jessurun@usm.sx">raymond.jessurun@usm.sx</a>
+                </div>
+            </div>
+            <p style="text-align:center; margin-bottom:6px;"><strong style="color:#fff;">Network Administrator:</strong> <a href="mailto:rendell.dekort@ua.aw" style="color:#7dd3dc;">rendell.dekort@ua.aw</a></p>
+            <p style="text-align:center;"><a href="https://dcdc.network" style="color:#7dd3dc;">dcdc.network</a> · <a href="https://www.linkedin.com/company/112355986/" style="color:#7dd3dc;">LinkedIn</a> · <a href="https://www.instagram.com/dcdcnetwork/" style="color:#7dd3dc;">Instagram</a></p>
+            <div class="funding">
+                <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/openscience_donkerblauw.png" alt="Open Science NL">
+            </div>
+            <div class="unsubscribe">
+                You're receiving this because you joined the DCDC Network. <a href="#">Unsubscribe</a> · <a href="#">Update preferences</a>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
