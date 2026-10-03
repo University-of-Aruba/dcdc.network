@@ -196,14 +196,21 @@
 
         /* ── Survey hero (primary CTA) ── */
         .survey-hero {
-            background: var(--light-teal);
+            background:
+                linear-gradient(rgba(9, 31, 56, 0.52), rgba(9, 31, 56, 0.44)),
+                url('https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/start-here-library-bg.jpg') 30% center / cover no-repeat,
+                var(--navy);
             border: none;
             border-radius: 12px;
-            padding: 44px 32px;
+            padding: 56px 32px;
             margin: 0 0 48px;
         }
         .survey-hero .training-badge { background: #fff; }
+        .survey-hero h2 { color: #fff; }
+        .survey-hero p  { color: #e8f5f7; }
+        .survey-hero h2, .survey-hero p { text-shadow: 0 1px 3px rgba(9, 31, 56, 0.6); }
         .survey-hero .btn { padding: 16px 40px; font-size: 1.05rem; }
+        .survey-hero .btn:hover { background: #236e79; }
 
         /* ── Latest from the blog ── */
         .blog-teaser { margin: 48px 0; }
