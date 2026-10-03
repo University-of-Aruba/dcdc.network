@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>DCDC tools and platforms registry (draft)</title>
+<link rel="canonical" href="https://dcdc.network/tools/">
+<link rel="icon" type="image/png" href="assets/dcdc-logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="draftbar" role="note">
+  <div class="wrap draftbar-inner">
+    <span class="draft-tag">Draft</span>
+    <span>Shared for comment with the DCDC core team and coordinators. Institution entries appear once each institution has confirmed them.</span>
+    <span id="source" class="source"></span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap head">
+    <a href="/"><img src="assets/dcdc-logo.png" alt="DCDC, Dutch Caribbean Digital Competence" class="logo" width="200" height="104"></a>
+    <div class="head-text">
+      <p class="kicker">Baseline assessment, institutional offering</p>
+      <h1>Tools and platforms registry</h1>
+      <p class="lede">What the institutions in the network already offer for storing, collecting, publishing
+        and analysing data, and how well each tool supports FAIR work. The individual survey tells us what
+        people need. This shows what is already there.</p>
+    </div>
+  </div>
+  <nav class="wrap tabs" aria-label="Views">
+    <a href="#explore" data-view="explore">Find by need</a>
+    <a href="#matrix" data-view="matrix">Who offers what</a>
+    <a href="#profiles" data-view="profiles">Institution profiles</a>
+    <a href="#ai" data-view="ai">AI and your data</a>
+    <a href="#about" data-view="about">About</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <p id="loading" class="loading">Loading the registry…</p>
+
+  <section id="view-explore" class="view" hidden>
+    <div class="needs-block">
+      <h2 class="label">What do you need to do?</h2>
+      <div id="need-chips" class="chips" role="group" aria-label="Needs"></div>
+      <div id="need-info" class="need-info" aria-live="polite"></div>
+    </div>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Search tools, for example SPSS or repository" aria-label="Search tools">
+      <select id="stream" aria-label="Stream"><option value="">All streams</option></select>
+      <label class="check"><input type="checkbox" id="free"> No licence cost</label>
+      <label class="check check-net"><input type="checkbox" id="net"> Already offered in the network</label>
+    </div>
+    <div id="legend" class="legend" aria-label="Offering status legend"></div>
+    <p id="count" class="count" aria-live="polite"></p>
+    <div id="cards" class="cards"></div>
+  </section>
+
+  <section id="view-matrix" class="view" hidden>
+    <h2>Who offers what</h2>
+    <p class="intro">Every tool in the catalogue against every institution. Most cells are empty
+      because most questions have not been asked yet; each IT conversation fills a column.</p>
+    <div id="inst-summary" class="inst-summary"></div>
+    <div class="legend" id="legend2"></div>
+    <div class="table-scroll"><table id="matrix" class="matrix"></table></div>
+  </section>
+
+  <section id="view-profiles" class="view" hidden>
+    <h2>Institution profiles</h2>
+    <p class="intro">The questions for a meeting with an institution's IT or library staff, and the
+      answers so far. UA answers are pre-filled drafts until UA confirms them; entries marked
+      "checked" come from public registries.</p>
+    <div class="table-scroll"><table id="profile" class="profile"></table></div>
+  </section>
+
+  <section id="view-ai" class="view ai-view" hidden>
+    <h2>AI and your data</h2>
+    <p class="intro">Everything typed or uploaded into a cloud AI tool leaves your computer and is processed on the
+      vendor's servers. That holds for chat assistants and for coding agents such as Claude Code, which run on
+      your own laptop but send your prompts and every file they read to the vendor. So the useful question is
+      what happens to the data once it arrives: is it used to train models, how long is it kept, and does an
+      agreement with your institution cover it?</p>
+
+    <h3>Three ways to use AI, by where the data goes</h3>
+    <div class="tiers">
+      <div class="tier t-local">
+        <h4>Stays on your computer</h4>
+        <p>Open models run on your own machine with LM Studio or Ollama, and Whisper-based tools such as noScribe
+          transcribe interviews offline. Nothing leaves the device. The models are weaker than the hosted ones and
+          need a reasonably recent laptop, about 16 GB of memory.</p>
+        <p class="eg">For confidential material: interview transcripts, student records, health data.</p>
+      </div>
+      <div class="tier t-inst">
+        <h4>Leaves, under your institution's agreement</h4>
+        <p>Microsoft Copilot Chat signed in with a work or school account, Gemini under Google Workspace for
+          Education, or an institution-wide ChatGPT Edu or Claude for Education account. Data is processed by the
+          vendor, but under a contract with the institution: not used to train models, kept according to the
+          agreement, and the institution controls the accounts.</p>
+        <p class="eg">For internal work: drafts, internal documents, published data, teaching material. Personal
+          data only where the institution's policy allows it and consent covers the use.</p>
+      </div>
+      <div class="tier t-personal">
+        <h4>Leaves, under your own personal terms</h4>
+        <p>A free or paid personal ChatGPT, Claude or Gemini account. The terms are between you and the vendor.
+          ChatGPT's personal plans train on conversations unless you switch it off; Claude's personal plans ask
+          you to choose, and keep conversations for five years if training is on and 30 days if it is off. The
+          institution has no say in any of it.</p>
+        <p class="eg">For public information only.</p>
+      </div>
+    </div>
+
+    <h3>Which data, which tool</h3>
+    <div class="table-scroll">
+      <table class="datarule">
+        <thead><tr><th>The data</th><th>Examples</th><th>Where it may go</th></tr></thead>
+        <tbody>
+          <tr><td>Public</td><td>Published reports, open statistics, your own published articles</td><td>Any of the three</td></tr>
+          <tr><td>Internal</td><td>Drafts, minutes, internal documents, course material</td><td>Your own computer, or an institutional account</td></tr>
+          <tr><td>Personal or confidential</td><td>Student records and grades, interview transcripts, health or HR data, unpublished data about people</td><td>Your own computer. An institutional account only if the policy explicitly allows it and the consent people gave covers it</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>If your institution has no AI accounts yet</h3>
+    <p>Check what the existing licence already includes before buying anything. Microsoft 365 education plans
+      (A1, A3 and A5) include Copilot Chat at no extra licence cost for staff, and for students aged 13 and over
+      once an administrator switches it on. Google Workspace for Education includes the Gemini app and Gemini
+      Notebook in every edition. Switching these on gives people a protected option. Without one, staff and
+      students keep using personal accounts, and institutional data goes with them.</p>
+    <p>Two settings are worth asking IT about. Copilot Chat sends its web searches to Bing under consumer terms,
+      and an administrator can switch that off. And outside the EU, Microsoft may route the processing to other
+      regions when capacity is short.</p>
+
+    <h3>AI in teaching and assessment</h3>
+    <p>Detectors that claim to spot AI-written text are unreliable as evidence. A study in <em>Patterns</em>
+      (Liang et al., 2023) found that detectors flagged 61 percent of essays by non-native English writers as
+      AI-written, against very few essays by native writers. OpenAI withdrew its own detector in July 2023 for
+      low accuracy. In multilingual Caribbean classrooms, those false positives land on the students least able
+      to contest them. A detector score can open a conversation with a student and should never decide a case
+      on its own. Assessment design, such as drafts handed in along the way and a short oral follow-up, does more.</p>
+
+    <h3>A policy can start small</h3>
+    <p>Four decisions cover most of it: which accounts are sanctioned, which data may go into which tool (the
+      table above), how AI use is acknowledged in student and staff work, and how suspected misuse is handled
+      without relying on detectors. UNESCO's <a href="https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research" target="_blank" rel="noopener">guidance
+      on generative AI in education and research</a> is a common starting point. A September 2026 UNESCO IESALC
+      survey of 200 higher education institutions in Latin America and the Caribbean found that 87 percent use AI
+      and 26 percent have a formal strategy, so an institution without one is in the majority.</p>
+    <p>The tools themselves are in the catalogue under <a href="#explore?need=Use%20AI%20tools%20safely">Use AI
+      tools safely</a> and <a href="#explore?need=Set%20AI%20rules%20for%20teaching">Set AI rules for teaching</a>.</p>
+
+    <h3>Sources, checked 3 October 2026</h3>
+    <ul class="src-list">
+      <li>Microsoft: <a href="https://learn.microsoft.com/en-us/copilot/privacy-and-protections" target="_blank" rel="noopener">Copilot Chat privacy and protections</a>; <a href="https://learn.microsoft.com/en-us/copilot/manage" target="_blank" rel="noopener">availability and eligibility</a></li>
+      <li>Google: <a href="https://knowledge.workspace.google.com/admin/getting-started/editions/quickstart-guide-to-gemini-and-gemini-notebook-for-education" target="_blank" rel="noopener">Gemini and Gemini Notebook for Education</a></li>
+      <li>OpenAI: <a href="https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt" target="_blank" rel="noopener">data controls in ChatGPT</a>; <a href="https://openai.com/index/introducing-chatgpt-edu/" target="_blank" rel="noopener">ChatGPT Edu</a>; <a href="https://openai.com/index/new-ai-classifier-for-indicating-ai-written-text/" target="_blank" rel="noopener">classifier withdrawal</a></li>
+      <li>Anthropic: <a href="https://www.anthropic.com/news/updates-to-our-consumer-terms" target="_blank" rel="noopener">consumer terms</a>; <a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data" target="_blank" rel="noopener">commercial data retention</a>; <a href="https://code.claude.com/docs/en/data-usage" target="_blank" rel="noopener">Claude Code data usage</a></li>
+      <li>Local tools: <a href="https://lmstudio.ai/docs/app/offline" target="_blank" rel="noopener">LM Studio offline operation</a>; <a href="https://docs.ollama.com/cloud" target="_blank" rel="noopener">Ollama cloud models</a></li>
+      <li>Liang, W., Yuksekgonul, M., Mao, Y., Wu, E. and Zou, J. (2023). GPT detectors are biased against non-native English writers. <em>Patterns</em>. <a href="https://doi.org/10.1016/j.patter.2023.100779" target="_blank" rel="noopener">doi:10.1016/j.patter.2023.100779</a></li>
+      <li>UNESCO IESALC (2026). <a href="https://www.iesalc.unesco.org/en/articles/ai-implementation-higher-education-latin-america-and-caribbean" target="_blank" rel="noopener">AI implementation in higher education in Latin America and the Caribbean</a></li>
+    </ul>
+    <p class="src-list">Vendor terms change often, and two products were renamed in 2026 (Microsoft 365 Copilot Chat
+      became Microsoft Copilot Chat; NotebookLM became Gemini Notebook). Check the source before relying on a detail.</p>
+  </section>
+
+  <section id="view-about" class="view prose" hidden>
+    <h2>About this registry</h2>
+    <p>It started with a question from IPA: which platforms work well for storing, publishing and analysing
+      data? The answers existed, spread over four institutions and a handful of people. The registry puts
+      them in one place, as the institutional half of the DCDC baseline assessment. The survey measures what
+      individuals need; the registry records what institutions offer, to whom, and with what support.</p>
+
+    <div class="inst-only">
+    <h3>Reading the institution badges</h3>
+    <div id="legend3" class="legend legend-long"></div>
+    <p>A dashed badge means nobody has asked that institution yet, which is different from "Not offered".
+      A badge marked draft has not been confirmed by the institution.</p>
+    </div>
+
+    <h3>FAIR ratings</h3>
+    <p>The four letters rate the tool, never the institution: how well does it help people produce outputs
+      that are Findable, Accessible, Interoperable and Reusable?</p>
+    <dl class="fairkey">
+      <dt>F</dt><dd>Findable: persistent identifiers and rich, indexed metadata.</dd>
+      <dt>A</dt><dd>Accessible: retrievable through open standards without the tool's own licence, with metadata that outlives the data.</dd>
+      <dt>I</dt><dd>Interoperable: open file formats and shared standards such as CSV, XLSForm and REFI-QDA.</dd>
+      <dt>R</dt><dd>Reusable: licences, provenance, and scripted work that can be repeated.</dd>
+    </dl>
+    <p class="fair-scale"><span class="pill f-strong">Strong</span> does this well by default
+      <span class="pill f-partial">Partial</span> depends on how it is used
+      <span class="pill f-weak">Weak</span> works against it
+      <span class="pill f-na">n/a</span> not what the tool is for</p>
+
+    <h3>Ground rules</h3>
+    <p>The registry describes and does not rank. No institution gets a score, for the same reason the FIMM
+      design uses profiles instead of an index: in a network this small, a league table costs the goodwill of
+      the partners it measures. Each institution's column is filled from that institution. Tool assessments
+      are the network's working judgement and open to correction by anyone who uses the tool. Costs appear as
+      a model instead of an amount, because prices vary by region and change every year.</p>
+
+    <h3>Where the data comes from</h3>
+    <p>The page reads the registry's Google Sheet each time it opens, so an edit in the Sheet shows here on the
+      next reload. When the Sheet cannot be reached it falls back to a stored snapshot, and the bar at the top
+      says which one you are looking at.</p>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <span>DCDC Network · tools and platforms registry · draft</span>
+  <span id="source2"></span>
+</footer>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
