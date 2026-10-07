@@ -4,5 +4,5 @@
 window.REGISTRY_CONFIG = {
   sheetId: "",
   showInstitutions: false,
-  snapshotLabel: "v0.3 snapshot, 3 October 2026"
+  snapshotLabel: "v0.4 snapshot, 7 October 2026"
 };

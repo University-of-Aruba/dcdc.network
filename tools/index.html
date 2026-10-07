@@ -11,6 +11,19 @@
 </head>
 <body>
 
+<nav class="sitebar" aria-label="DCDC Network">
+  <div class="wrap sitebar-inner">
+    <a href="/" class="home">&larr; dcdc.network</a>
+    <a href="/training/">Training</a>
+    <a href="/team/">Team</a>
+    <a href="/about/fair-and-reproducibility/">FAIR</a>
+    <a href="/resources/">Resources</a>
+    <a href="/tools/" class="on" aria-current="page">Tools</a>
+    <a href="/agenda/">Agenda</a>
+    <a href="/blog/">Blog</a>
+  </div>
+</nav>
+
 <div class="draftbar" role="note">
   <div class="wrap draftbar-inner">
     <span class="draft-tag">Draft</span>
@@ -52,6 +65,7 @@
       <input id="q" type="search" placeholder="Search tools, for example SPSS or repository" aria-label="Search tools">
       <select id="stream" aria-label="Stream"><option value="">All streams</option></select>
       <label class="check"><input type="checkbox" id="free"> No licence cost</label>
+      <label class="check"><input type="checkbox" id="oss"> Open source only</label>
       <label class="check check-net"><input type="checkbox" id="net"> Already offered in the network</label>
     </div>
     <div id="legend" class="legend" aria-label="Offering status legend"></div>
@@ -192,7 +206,15 @@
     <p class="fair-scale"><span class="pill f-strong">Strong</span> does this well by default
       <span class="pill f-partial">Partial</span> depends on how it is used
       <span class="pill f-weak">Weak</span> works against it
-      <span class="pill f-na">n/a</span> not what the tool is for</p>
+      <span class="pill f-na">n/a</span> not rated, because it is not what the tool is for</p>
+    <p>Findable and Accessible are rated only for tools that publish, host or identify research outputs:
+      repositories, identifier services and code platforms. A file becomes findable through the repository it is
+      deposited in, with a DOI and indexed metadata, not through the storage, analysis or dashboard software that
+      produced it. So Microsoft 365, SPSS or Power BI show a grey n/a there. That is not a shortcoming. It marks
+      the point where the work has to move to a repository. Working storage gets n/a for Reusable too, since the
+      licence and provenance are set at deposit.</p>
+    <p>The ratings were last reviewed on 7 October 2026. They are the network's working judgement; if you use a
+      tool and disagree, tell us.</p>
 
     <h3>Ground rules</h3>
     <p>The registry describes and does not rank. No institution gets a score, for the same reason the FIMM
@@ -202,9 +224,8 @@
       a model instead of an amount, because prices vary by region and change every year.</p>
 
     <h3>Where the data comes from</h3>
-    <p>The page reads the registry's Google Sheet each time it opens, so an edit in the Sheet shows here on the
-      next reload. When the Sheet cannot be reached it falls back to a stored snapshot, and the bar at the top
-      says which one you are looking at.</p>
+    <p>This page shows a dated snapshot of the registry; the bar at the top gives the version and date.
+      Corrections and additions go to the network administrator and appear in the next snapshot.</p>
   </section>
 </main>
 

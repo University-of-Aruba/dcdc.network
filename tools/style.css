@@ -184,3 +184,17 @@ tr.grp th { background: var(--soft); color: var(--teal); text-transform: upperca
 .datarule th, .datarule td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
 .datarule thead th { background: var(--soft); color: var(--navy); }
 .ai-view .src-list { font-size: 13.5px; color: var(--muted); }
+
+/* Licence label on each card: open source, open core or proprietary */
+.meta li.lic { font-weight: 700; border-radius: 4px; padding: 0 6px; }
+.meta li.lic-open { background: #d9eef1; color: #155e68; }
+.meta li.lic-core { background: #e6eef6; color: #2b4a6b; }
+.meta li.lic-prop { background: #eeeeee; color: #4a4a4a; }
+
+/* Bar back to the main site */
+.sitebar { background: #091f38; font-size: 14px; }
+.sitebar-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; padding-top: 9px; padding-bottom: 9px; }
+.sitebar a { color: #e8f5f7; text-decoration: none; }
+.sitebar a:hover { color: #7dd3dc; }
+.sitebar .home { font-weight: 700; margin-right: auto; }
+.sitebar .on { color: #7dd3dc; font-weight: 700; }

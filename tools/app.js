@@ -30,7 +30,7 @@
   var SNAPSHOT = { catalogue: "data/catalogue.csv", offering: "data/offering.csv", needs: "data/needs.csv", profile: "data/profile.csv" };
 
   var model = null;
-  var state = { view: "explore", need: "", q: "", tool: "", stream: "", free: false, net: false };
+  var state = { view: "explore", need: "", q: "", tool: "", stream: "", free: false, oss: false, net: false };
 
   // ---- Data -------------------------------------------------------------------
   function parseCSV(text) {
@@ -107,7 +107,8 @@
         cost: r["cost model"], open: r["open source"], platform: r["runs on"],
         learning: r["learning curve"], teaching: r["teaching fit"], pros: r.pros, cons: r.cons,
         fair: { F: r.f, A: r.a, I: r.i, R: r.r }, fairNote: r["fair note"],
-        smallNote: r["fit for small institutions"], link: r.link, offer: {}
+        smallNote: r["fit for small institutions"], link: r.link, offer: {},
+        contacts: (r["network contacts"] || "").split(";").map(function (s) { return s.trim(); }).filter(Boolean)
       };
     });
     var byId = {}, byName = {};
@@ -122,7 +123,7 @@
       t.offer[inst] = {
         status: r["offering status"] || "", draft: !r["confirmed on"], confirmed: r["confirmed on"] || "",
         who: r["who can use it"] || "", arrangement: r.arrangement || "", support: r["support available"] || "",
-        source: r.source || "", notes: r["notes and questions to ask"] || ""
+        source: r.source || "", notes: r["notes and questions to ask"] || "", contact: r.contact || ""
       };
     });
     var needs = d.needs.filter(function (r) { return r.need; }).map(function (r) {
@@ -152,6 +153,19 @@
   function fairCls(v) {
     v = (v || "").toLowerCase();
     return v === "strong" ? "f-strong" : v === "partial" ? "f-partial" : v === "weak" ? "f-weak" : "f-na";
+  }
+  // Licence, kept apart from cost: free is not the same as open source (REDCap, QDA Miner Lite),
+  // and open source can still be sold as a service (GitLab, Posit Cloud).
+  function licence(t) {
+    var v = (t.open || "").toLowerCase();
+    if (v === "yes") return { label: "Open source", cls: "lic-open" };
+    if (v.indexOf("partly") === 0) return { label: "Open core", cls: "lic-core" };
+    if (v === "no") return { label: "Proprietary", cls: "lic-prop" };
+    return null;
+  }
+  function contactHTML(c) {
+    var m = /^(.*?)\s*<([^>]+@[^>]+)>$/.exec(c);
+    return m ? '<a href="mailto:' + esc(m[2]) + '">' + esc(m[1]) + '</a>' : esc(c);
   }
   function badge(inst, o) {
     var s = statusOf(o), label = inst.short || inst.key;
@@ -195,6 +209,7 @@
     if (state.need && t.needs.indexOf(state.need) < 0) return false;
     if (state.stream && t.stream !== state.stream) return false;
     if (state.free && FREE_COSTS.indexOf((t.cost || "").toLowerCase()) < 0) return false;
+    if (state.oss && !(licence(t) && licence(t).cls !== "lic-prop")) return false;
     if (state.net && offeredCount(t) === 0) return false;
     if (state.q) {
       var hay = [t.name, t.what, t.category, t.stream, t.needs.join(" "), t.pros, t.cons].join(" ").toLowerCase();
@@ -210,6 +225,7 @@
       if (o.arrangement) bits.push(esc(o.arrangement));
       if (o.who) bits.push("For: " + esc(o.who));
       if (o.support) bits.push("Support: " + esc(o.support));
+      if (o.contact) bits.push("Contact: " + contactHTML(o.contact));
       var src = o.source ? esc(o.source) : "";
       src += o.confirmed ? " Confirmed " + esc(o.confirmed) + "." : "";
       return '<li><div class="oh">' + esc(inst.short || inst.key) + ' <span class="st ' + (s ? s.cls : "s-none") +
@@ -222,8 +238,9 @@
       : '<p class="muted">No institution has recorded anything for this tool yet.</p>';
   }
   function card(t) {
-    var meta = [t.cost, t.open === "Yes" ? "Open source" : t.open && t.open !== "No" && t.open !== "n/a" && t.open !== "n/k" ? "Open source: " + t.open : "",
-      t.learning ? "Learning curve: " + t.learning.toLowerCase() : "", t.teaching && t.teaching !== "n/a" ? "Teaching fit: " + t.teaching.toLowerCase() : ""]
+    var lic = licence(t);
+    var meta = (lic ? '<li class="lic ' + lic.cls + '">' + esc(lic.label) + '</li>' : "") +
+      [/^open source \(free\)$/i.test(t.cost || "") ? "Free" : t.cost, t.learning ? "Learning curve: " + t.learning.toLowerCase() : "", t.teaching && t.teaching !== "n/a" ? "Teaching fit: " + t.teaching.toLowerCase() : ""]
       .filter(Boolean).map(function (m) { return '<li>' + esc(m) + '</li>'; }).join("");
     var fair = FAIR.map(function (f) {
       return '<span class="pill ' + fairCls(t.fair[f[0]]) + '" title="' + esc(f[1] + ": " + (t.fair[f[0]] || "not rated")) + '">' +
@@ -242,6 +259,7 @@
       '<div class="pc"><div><h4>Pros</h4><p>' + esc(t.pros) + '</p></div><div><h4>Cons</h4><p>' + esc(t.cons) + '</p></div></div>' +
       (t.fairNote ? '<h4>FAIR</h4><p>' + esc(t.fairNote) + '</p>' : "") +
       (t.smallNote ? '<h4>Fit for small institutions</h4><p>' + esc(t.smallNote) + '</p>' : "") +
+      (t.contacts.length ? '<h4>Ask someone in the network</h4><p>' + t.contacts.map(contactHTML).join(", ") + '</p>' : "") +
       (SHOW_INST ? offerDetails(t) : "") +
       '<p class="tail">' + (t.platform ? 'Runs on: ' + esc(t.platform) + '. ' : "") +
       (t.link ? '<a href="' + esc(t.link) + '" target="_blank" rel="noopener">Website</a>' : "") +
@@ -390,6 +408,7 @@
       $("q").addEventListener("input", function () { state.q = this.value.trim(); state.tool = ""; writeHash(); renderCards(); });
       $("stream").addEventListener("change", function () { state.stream = this.value; renderCards(); });
       $("free").addEventListener("change", function () { state.free = this.checked; renderCards(); });
+      $("oss").addEventListener("change", function () { state.oss = this.checked; renderCards(); });
       $("net").addEventListener("change", function () { state.net = this.checked; renderCards(); });
       window.addEventListener("hashchange", function () { readHash(); show(); });
       readHash(); show();
