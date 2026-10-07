@@ -1,0 +1,26 @@
+Need,What it means,Example question
+Store and share files,"Keep working files in one place the team can reach, with access that survives staff turnover.",Where should our project team keep interview files while the study runs?
+Collaborate across islands,"Work on the same files, data or analysis with people at another institution.",Can a researcher at USM edit our shared folder?
+Handle sensitive data,"Store, analyse or share personal or confidential data under proper control.",Where may we keep student records for a study?
+Collect survey data,"Build and run questionnaires, online or on paper-replacement devices.",What should we use for a survey of 400 teachers?
+Collect data offline,Collect data in the field without a reliable internet connection.,Can enumerators collect household data offline and sync later?
+Publish a dataset,"Make a dataset openly findable and downloadable, with documentation and a licence.",Where do we put the data behind a published article?
+Mint DOIs,"Give outputs a persistent, citable identifier (DOI).",How do we get DOIs for our reports and datasets?
+Run own repository,Host an institution's own branded repository.,Should we set up our own repository or use an existing one?
+Archive long term,"Keep outputs preserved and accessible for decades, beyond any one website or staff member.",How do we make sure this survey is still available in 2040?
+Publish reports and theses,"Make theses, reports and working-paper series openly available.",Where do our bachelor and master theses go?
+Identify people and organisations,Persistent identifiers for researchers (ORCID) and institutions (ROR).,How do we make sure outputs are credited to our institution?
+Statistical analysis,Descriptive and inferential statistics on quantitative data.,What can replace our SPSS licence for everyday analysis?
+Econometrics and time series,"Regression, panel and time-series models, forecasting.",What can students use to learn econometrics without an EViews licence?
+Teach data analysis,"Teach statistics, coding or data skills to students and staff.",What should we use in the first-year statistics course?
+Reproducible analysis,Analysis that can be rerun and checked from a script or saved workflow.,How do we make sure next year's report can be rebuilt from the data?
+Qualitative coding,"Code interviews, focus groups, field notes and documents.",What can our master students use to code interviews?
+Transcribe interviews,Turn recorded interviews into text.,How can we transcribe interviews without uploading them to a cloud service?
+Mixed methods,Combine qualitative and quantitative data in one project.,How do we link interview codes to survey answers?
+Machine learning,"Prediction, classification, clustering and text mining.",Where can staff start with machine learning?
+Dashboards and visualisation,Charts and dashboards to communicate results.,How do we publish our key figures as a dashboard?
+Version control,"Track changes to code, lessons and documents over time.",How do we keep track of versions of our analysis scripts?
+Publish teaching materials,Share course materials openly and citably so others can reuse them.,How can another island reuse our course?
+Data management planning,Write a data management plan for a grant or project.,The funder asks for a data management plan. Where do we start?
+Use AI tools safely,Use AI assistants for work without putting personal or confidential data where it should not go.,Can a lecturer paste student essays into a chatbot to help with grading?
+Set AI rules for teaching,"Decide how students and teachers may use AI, and how AI use is checked.",What should our AI policy say about detectors and grading?
