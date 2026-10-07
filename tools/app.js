@@ -5,7 +5,7 @@
   // showInstitutions: false hides every institution column, for a public copy published
   // before the institutions have confirmed their entries.
   var SHOW_INST = CFG.showInstitutions !== false;
-  var VIEWS = SHOW_INST ? ["explore", "matrix", "profiles", "ai", "about"] : ["explore", "ai", "about"];
+  var VIEWS = SHOW_INST ? ["start", "theme", "explore", "matrix", "profiles", "ai", "about"] : ["start", "theme", "explore", "ai", "about"];
 
   var INSTITUTIONS = [
     { key: "UA", name: "University of Aruba" },
@@ -26,11 +26,11 @@
   STATUS.forEach(function (s) { STATUS_MAP[s[0].toLowerCase()] = { label: s[0], cls: s[1], meaning: s[2] }; });
   var FAIR = [["F", "Findable"], ["A", "Accessible"], ["I", "Interoperable"], ["R", "Reusable"]];
   var FREE_COSTS = ["free", "open source (free)", "free tier + paid"];
-  var TABS = { catalogue: "Catalogue", offering: "Institutional offering", needs: "Needs", profile: "Institution profile" };
-  var SNAPSHOT = { catalogue: "data/catalogue.csv", offering: "data/offering.csv", needs: "data/needs.csv", profile: "data/profile.csv" };
+  var TABS = { catalogue: "Catalogue", offering: "Institutional offering", needs: "Needs", profile: "Institution profile", themes: "Themes" };
+  var SNAPSHOT = { catalogue: "data/catalogue.csv", offering: "data/offering.csv", needs: "data/needs.csv", profile: "data/profile.csv", themes: "data/themes.csv" };
 
   var model = null;
-  var state = { view: "explore", need: "", q: "", tool: "", stream: "", free: false, oss: false, net: false };
+  var state = { view: "start", theme: "", need: "", q: "", tool: "", stream: "", free: false, oss: false, net: false };
 
   // ---- Data -------------------------------------------------------------------
   function parseCSV(text) {
@@ -81,7 +81,10 @@
   }
   function loadSet(urls) {
     var keys = Object.keys(urls);
-    return Promise.all(keys.map(function (k) { return fetchText(urls[k]); })).then(function (texts) {
+    // Themes are optional, so a Sheet without a Themes tab still loads
+    return Promise.all(keys.map(function (k) {
+      return k === "themes" ? fetchText(urls[k]).catch(function () { return ""; }) : fetchText(urls[k]);
+    })).then(function (texts) {
       var d = {};
       keys.forEach(function (k, i) { d[k] = toObjects(parseCSV(texts[i])); });
       if (!d.catalogue.length || !("id" in d.catalogue[0]) || !("tool" in d.catalogue[0])) {
@@ -130,7 +133,19 @@
       return { need: r.need, meaning: r["what it means"] || "", example: r["example question"] || "" };
     });
     var profile = d.profile.filter(function (r) { return r.question; });
-    return { tools: tools, insts: insts, needs: needs, profile: profile, source: d.source, error: d.error };
+    // Themes: a handful of entry points, each with two or three recommended tools ("picks").
+    // Picks are written as "ID=reason | ID+ID=reason"; a "+" joins tools that fill the same role.
+    var themes = (d.themes || []).filter(function (r) { return r.key && r.theme; }).map(function (r) {
+      var streams = (r.streams || "").split(";").map(function (s) { return s.trim(); }).filter(Boolean);
+      var picks = (r.picks || "").split("|").map(function (p) {
+        var i = p.indexOf("=");
+        var ids = (i < 0 ? p : p.slice(0, i)).split("+").map(function (s) { return s.trim(); });
+        return { tools: ids.map(function (id) { return byId[id]; }).filter(Boolean), why: i < 0 ? "" : p.slice(i + 1).trim() };
+      }).filter(function (p) { return p.tools.length; });
+      return { key: r.key, title: r.theme, summary: r.summary || "", streams: streams, picks: picks,
+        guidance: r.guidance || "", linkLabel: r["link label"] || "", link: r.link || "" };
+    });
+    return { tools: tools, insts: insts, needs: needs, profile: profile, themes: themes, source: d.source, error: d.error };
   }
 
   // ---- Helpers ------------------------------------------------------------------
@@ -283,6 +298,49 @@
   }
   function renderExplore() { renderChips(); renderCards(); }
 
+  // ---- Start and theme views --------------------------------------------------------
+  // Short names on the theme pages: "Google Workspace (Drive, ...)" becomes "Google Workspace"
+  function shortName(t) { return t.name.replace(/\s*\(.*\)\s*$/, ""); }
+  function pickNames(p) { return p.tools.map(function (t) { return esc(shortName(t)); }).join(" or "); }
+  function themeTools(th) { return model.tools.filter(function (t) { return th.streams.indexOf(t.stream) >= 0; }); }
+  function renderStart() {
+    $("themes").innerHTML = model.themes.map(function (th) {
+      return '<a class="theme" href="#theme?t=' + encodeURIComponent(th.key) + '">' +
+        '<h3>' + esc(th.title) + '</h3><p class="sum">' + esc(th.summary) + '</p>' +
+        '<p class="picks-l">Our picks</p><ul class="picks-s">' + th.picks.map(function (p) {
+          return '<li>' + pickNames(p) + '</li>';
+        }).join("") + '</ul><span class="more">' + themeTools(th).length + ' tools in this theme &rarr;</span></a>';
+    }).join("");
+  }
+  // A tool collapsed to one line; opening it shows the full card.
+  function toolRow(t, label) {
+    var lic = licence(t);
+    return '<details class="trow"><summary><span class="tn">' + esc(label || shortName(t)) + '</span>' +
+      (lic ? '<span class="lic ' + lic.cls + '">' + esc(lic.label) + '</span>' : "") +
+      '<span class="tw">' + esc(t.what) + '</span></summary>' + card(t) + '</details>';
+  }
+  function renderTheme() {
+    var th = model.themes.filter(function (x) { return x.key === state.theme; })[0];
+    if (!th) { state.view = "start"; show(); return; }
+    var picked = [];
+    th.picks.forEach(function (p) { p.tools.forEach(function (t) { picked.push(t.id); }); });
+    var rest = themeTools(th).filter(function (t) { return picked.indexOf(t.id) < 0; });
+    var link = th.link ? '<p class="tlink"><a href="' + esc(th.link) + '"' + (th.link.charAt(0) === "#" ? "" : ' target="_blank" rel="noopener"') +
+      '>' + esc(th.linkLabel || th.link) + '</a></p>' : "";
+    $("theme-body").innerHTML =
+      '<p class="back"><a href="#start">&larr; All themes</a></p>' +
+      '<h2>' + esc(th.title) + '</h2><p class="intro">' + esc(th.summary) + '</p>' +
+      (th.guidance ? '<p class="guidance">' + esc(th.guidance) + '</p>' : "") + link +
+      '<h3 class="sub">Our picks</h3><div class="picks">' + th.picks.map(function (p) {
+        return '<div class="pick"><p class="pn">' + pickNames(p) + '</p><p class="pw">' + esc(p.why) + '</p>' +
+          p.tools.map(function (t) { return toolRow(t, p.tools.length > 1 ? "" : "Details, pros and cons"); }).join("") + '</div>';
+      }).join("") + '</div>' +
+      (rest.length ? '<details class="rest"><summary>Other tools in this theme (' + rest.length + ')</summary>' +
+        '<p class="muted">Also in use across the network. Open a tool for its pros, cons and FAIR notes.</p>' +
+        rest.map(function (t) { return toolRow(t); }).join("") + '</details>' : "");
+    window.scrollTo(0, 0);
+  }
+
   // ---- Matrix view ------------------------------------------------------------------
   function renderMatrix() {
     var summary = model.insts.map(function (inst) {
@@ -343,7 +401,8 @@
     var h = location.hash.replace(/^#/, "");
     var parts = h.split("?");
     var p = new URLSearchParams(parts[1] || "");
-    state.view = VIEWS.indexOf(parts[0]) >= 0 ? parts[0] : "explore";
+    state.view = VIEWS.indexOf(parts[0]) >= 0 ? parts[0] : "start";
+    if (state.view === "theme") state.theme = p.get("t") || "";
     if (state.view === "explore") {
       state.need = p.get("need") || "";
       state.q = p.get("q") || "";
@@ -360,13 +419,15 @@
     history.replaceState(null, "", "#explore" + (qs ? "?" + qs : ""));
   }
   function show() {
-    ["explore", "matrix", "profiles", "ai", "about"].forEach(function (v) {
+    ["start", "theme", "explore", "matrix", "profiles", "ai", "about"].forEach(function (v) {
       $("view-" + v).hidden = v !== state.view;
     });
     Array.prototype.forEach.call(document.querySelectorAll(".tabs a"), function (a) {
-      if (a.getAttribute("data-view") === state.view) a.setAttribute("aria-current", "page");
+      if (a.getAttribute("data-view") === (state.view === "theme" ? "start" : state.view)) a.setAttribute("aria-current", "page");
       else a.removeAttribute("aria-current");
     });
+    if (state.view === "start") renderStart();
+    if (state.view === "theme") renderTheme();
     if (state.view === "explore") renderExplore();
     if (state.view === "matrix") renderMatrix();
     if (state.view === "profiles") renderProfiles();

@@ -198,3 +198,31 @@ tr.grp th { background: var(--soft); color: var(--teal); text-transform: upperca
 .sitebar a:hover { color: #7dd3dc; }
 .sitebar .home { font-weight: 700; margin-right: auto; }
 .sitebar .on { color: #7dd3dc; font-weight: 700; }
+
+/* Start here: themes with a few recommended tools; the rest collapsed */
+.themes { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.theme { display: block; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; text-decoration: none; color: var(--ink); }
+.theme:hover { border-color: var(--teal-2); box-shadow: 0 2px 8px rgba(11, 31, 56, .06); }
+.theme h3 { margin: 0 0 4px; color: var(--navy); font-size: 18px; }
+.theme .sum { margin: 0 0 10px; color: var(--muted); font-size: 14px; }
+.picks-l { margin: 0 0 4px; font-size: 11.5px; text-transform: uppercase; letter-spacing: .09em; color: var(--teal); font-weight: 700; }
+.picks-s { margin: 0 0 10px; padding-left: 18px; font-size: 14.5px; }
+.theme .more { font-size: 13.5px; font-weight: 600; color: var(--teal); }
+.back { margin: 0 0 6px; font-size: 14px; }
+.back a { text-decoration: none; font-weight: 600; }
+.guidance { background: var(--soft); border-left: 3px solid var(--teal); padding: 10px 14px; border-radius: 0 6px 6px 0; max-width: 80ch; }
+.tlink { margin: 8px 0 0; font-weight: 600; }
+h3.sub { margin: 22px 0 10px; color: var(--navy); }
+.picks { display: grid; gap: 12px; max-width: 900px; }
+.pick { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 16px; }
+.pick .pn { margin: 0; font-weight: 700; color: var(--navy); font-size: 16.5px; }
+.pick .pw { margin: 2px 0 8px; color: var(--muted); }
+.trow { border-top: 1px solid var(--line); }
+.trow > summary { cursor: pointer; font-weight: 400; padding: 8px 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.trow > summary .tn { font-weight: 600; color: var(--navy); }
+.trow > summary .tw { flex-basis: 100%; color: var(--muted); font-size: 13.5px; }
+.trow > .card { margin: 4px 0 12px; }
+.lic { font-size: 12px; font-weight: 700; border-radius: 4px; padding: 0 6px; }
+.lic-open { background: #d9eef1; color: #155e68; } .lic-core { background: #e6eef6; color: #2b4a6b; } .lic-prop { background: #eeeeee; color: #4a4a4a; }
+.rest { margin: 22px 0 8px; max-width: 900px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 16px; }
+.rest > summary { cursor: pointer; font-weight: 700; color: var(--navy); }

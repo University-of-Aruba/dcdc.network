@@ -44,7 +44,8 @@
     </div>
   </div>
   <nav class="wrap tabs" aria-label="Views">
-    <a href="#explore" data-view="explore">Find by need</a>
+    <a href="#start" data-view="start">Start here</a>
+    <a href="#explore" data-view="explore">All tools</a>
     <a href="#matrix" data-view="matrix">Who offers what</a>
     <a href="#profiles" data-view="profiles">Institution profiles</a>
     <a href="#ai" data-view="ai">AI and your data</a>
@@ -54,6 +55,17 @@
 
 <main class="wrap">
   <p id="loading" class="loading">Loading the registry…</p>
+
+  <section id="view-start" class="view" hidden>
+    <h2>Start here</h2>
+    <p class="intro">Pick what you are trying to do. Each theme recommends two or three tools that work well across
+      the islands, with the rest one click away. Everything in the registry is under All tools.</p>
+    <div id="themes" class="themes"></div>
+  </section>
+
+  <section id="view-theme" class="view" hidden>
+    <div id="theme-body"></div>
+  </section>
 
   <section id="view-explore" class="view" hidden>
     <div class="needs-block">
