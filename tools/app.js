@@ -437,7 +437,7 @@
     var t = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     if (model.source === "live") return "Live from the registry Google Sheet, loaded at " + t + ".";
     if (model.source === "fallback") return "Could not reach the Google Sheet (" + model.error.message + "). Showing the " + (CFG.snapshotLabel || "snapshot") + ".";
-    return "Showing the " + (CFG.snapshotLabel || "snapshot") + ". Not yet connected to the Google Sheet.";
+    return "Registry data: " + (CFG.snapshotLabel || "snapshot") + ".";
   }
 
   function init() {

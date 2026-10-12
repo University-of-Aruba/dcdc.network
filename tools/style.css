@@ -30,10 +30,10 @@ img { max-width: 100%; height: auto; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* Draft bar */
-.draftbar { background: var(--warn); border-bottom: 1px solid #ecd98a; font-size: 13.5px; position: sticky; top: 0; z-index: 10; }
+.draftbar { background: var(--soft); border-bottom: 1px solid var(--line); font-size: 13.5px; position: sticky; top: 0; z-index: 10; }
 .draftbar-inner { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; padding-top: 7px; padding-bottom: 7px; }
 .draft-tag { background: var(--navy); color: #fff; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: 11px; padding: 2px 8px; border-radius: 4px; }
-.source { color: #5c4a10; }
+.source { color: var(--muted); }
 .is-fallback .draftbar { background: #fde2dc; border-color: #f0b3a6; }
 
 /* Header */
