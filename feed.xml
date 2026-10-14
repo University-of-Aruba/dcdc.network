@@ -8,13 +8,23 @@
     <copyright>The DCDC Network. Content licensed CC BY 4.0 unless otherwise noted.</copyright>
     <managingEditor>rendell.dekort@ua.aw (Rendell de Kort)</managingEditor>
     <webMaster>rendell.dekort@ua.aw (Rendell de Kort)</webMaster>
-    <lastBuildDate>Mon, 06 Jul 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://dcdc.network/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png</url>
       <title>DCDC Network</title>
       <link>https://dcdc.network/</link>
     </image>
+
+    <item>
+      <title>Registration open: DCDC Kick-Off Conference, 10 to 12 November, University of Aruba</title>
+      <link>https://dcdc.network/kickoff/</link>
+      <guid isPermaLink="true">https://dcdc.network/kickoff/#registration-2026-10-14</guid>
+      <pubDate>Wed, 14 Oct 2026 12:00:00 +0000</pubDate>
+      <dc:creator>The DCDC Core Team</dc:creator>
+      <category>Network news</category>
+      <description>Sign up before 3 November for the DCDC Network Kick-Off Conference at the University of Aruba: a public opening evening on 10 November (6 to 9 PM) with talks on data privacy, AI, data accessibility and data sharing, then workshops on 11 and 12 November on Wikidata, data competency, electoral data, family history and open science.</description>
+    </item>
 
     <item>
       <title>"Our stories are not footnotes": Raymond Jessurun's DCRW2026 keynote</title>
