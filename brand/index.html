@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand and logos | DCDC Network</title>
+    <meta name="description" content="DCDC Network logos and brand guidelines for partners, venues and media.">
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:       #091f38;
+            --teal:       #2e8894;
+            --purple:     #2e3192;
+            --light-teal: #e8f5f7;
+            --text:       #2d3748;
+            --muted:      #4a5568;
+            --border:     #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* Nav */
+        .site-nav { background: #fff; border-bottom: 1px solid var(--border); padding: 12px 0; }
+        .site-nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo img { height: 36px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+        .site-nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .site-nav a:hover { color: var(--navy); }
+
+        /* Page header */
+        .page-header { padding: 40px 0 36px; border-bottom: 1px solid var(--border); margin-bottom: 44px; }
+        .page-header h1 { font-size: 2rem; color: var(--navy); margin-bottom: 12px; }
+        .page-header .lead { font-size: 1.1rem; color: var(--muted); max-width: 720px; line-height: 1.75; margin-bottom: 22px; }
+
+        section { margin-bottom: 52px; }
+        section h2 { font-size: 1.35rem; color: var(--navy); margin-bottom: 10px; }
+        section > p { color: var(--muted); max-width: 720px; line-height: 1.75; margin-bottom: 14px; }
+        section > p a, .note a { color: var(--teal); font-weight: 600; text-decoration: none; }
+        section > p a:hover, .note a:hover { text-decoration: underline; }
+
+        .btn {
+            display: inline-block;
+            background: var(--teal);
+            color: #fff;
+            padding: 11px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: var(--navy); }
+
+        /* Logo cards */
+        .logo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 22px; }
+        .logo-card { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+        .logo-card .preview { display: flex; align-items: center; justify-content: center; padding: 36px 32px; min-height: 170px; }
+        .logo-card .preview img { width: 100%; max-width: 300px; height: auto; display: block; }
+        .logo-card .preview.square img { max-width: 140px; }
+        .preview.on-white { background: #fff; border-bottom: 1px solid var(--border); }
+        .preview.on-navy  { background: var(--navy); }
+        .preview.on-dark  { background: #1a2332; }
+        .preview.on-light { background: var(--light-teal); }
+        .logo-card .meta { padding: 16px 20px 18px; }
+        .logo-card h3 { font-size: 1rem; color: var(--navy); margin-bottom: 4px; }
+        .logo-card .use { font-size: 0.88rem; color: var(--muted); margin-bottom: 10px; line-height: 1.55; }
+        .downloads { display: flex; gap: 8px; flex-wrap: wrap; }
+        .downloads a {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--teal);
+            background: var(--light-teal);
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+        .downloads a:hover { background: var(--teal); color: #fff; }
+
+        /* Rules */
+        .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 18px; }
+        .rule-box { border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; }
+        .rule-box.do   { border-top: 4px solid var(--teal); }
+        .rule-box.dont { border-top: 4px solid var(--purple); }
+        .rule-box h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 10px; }
+        .rule-box.do h3   { color: var(--teal); }
+        .rule-box.dont h3 { color: var(--purple); }
+        .rule-box ul { padding-left: 18px; color: var(--muted); font-size: 0.93rem; line-height: 1.7; }
+
+        /* Colours */
+        .swatches { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 18px; }
+        .swatch { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+        .swatch .chip { height: 76px; }
+        .swatch .label { padding: 10px 12px; font-size: 0.82rem; line-height: 1.45; }
+        .swatch .label strong { display: block; color: var(--navy); }
+        .swatch .label code { color: var(--muted); font-size: 0.8rem; }
+
+        .name-table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 0.93rem; }
+        .name-table th, .name-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        .name-table th { color: var(--navy); width: 34%; font-weight: 600; }
+        .name-table td { color: var(--muted); }
+
+        .note {
+            background: var(--light-teal);
+            border-radius: 8px;
+            padding: 22px 26px;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer { background: var(--navy); color: #e2e8f0; padding: 40px 0; margin-top: 56px; }
+        footer .container { text-align: center; }
+        footer h3 { font-size: 1.05rem; margin-bottom: 14px; color: white; }
+        footer p { margin-bottom: 7px; font-size: 0.92rem; }
+        footer a { color: #7dd3dc; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .funding { margin-top: 28px; padding-top: 20px; border-top: 1px solid #1e3a5a; font-size: 0.85rem; color: #94a3b8; }
+
+        @media (max-width: 700px) {
+            .logo-grid, .rules { grid-template-columns: 1fr; }
+            .swatches { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .page-header h1 { font-size: 1.5rem; }
+            .nav-logo { display: none; }
+            .name-table th { width: 40%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav">
+        <div class="container">
+            <a href="/" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC Network">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/training/">Training</a></li>
+                <li><a href="/team/">Team</a></li>
+                <li><a href="/about/fair-and-reproducibility/">FAIR</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/tools/">Tools</a></li>
+                <li><a href="/agenda/">Agenda</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/newsletter/#subscribe" style="background:#2e8894;color:#fff;padding:6px 14px;border-radius:5px;">Subscribe</a></li>
+                <li><a href="mailto:rendell.dekort@ua.aw">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="page-header">
+            <h1>Brand and logos</h1>
+            <p class="lead">Logos and basic guidelines for partners, venues and media who want to show the DCDC Network on a poster, a slide, a programme or a web page. All files are cut from the designer's vector master, so they stay sharp at any size.</p>
+            <a href="/brand/dcdc-logos.zip" class="btn" download>Download all logos (ZIP)</a>
+        </div>
+
+        <section>
+            <h2>Logo versions</h2>
+            <p>Pick the version that matches your background. SVG is the vector file and suits print and design software; PNG has a transparent background and suits Word, PowerPoint, Canva and the web.</p>
+
+            <div class="logo-grid">
+                <div class="logo-card">
+                    <div class="preview on-white"><img src="/brand/logos/dcdc-logo-colour.png" alt="DCDC logo, full colour"></div>
+                    <div class="meta">
+                        <h3>Full colour</h3>
+                        <p class="use">The default. Use it on white or very light backgrounds.</p>
+                        <div class="downloads">
+                            <a href="/brand/logos/dcdc-logo-colour.svg" download>SVG</a>
+                            <a href="/brand/logos/dcdc-logo-colour.png" download>PNG</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logo-card">
+                    <div class="preview on-navy"><img src="/brand/logos/dcdc-logo-reverse.png" alt="DCDC logo, reverse for dark backgrounds"></div>
+                    <div class="meta">
+                        <h3>Reverse</h3>
+                        <p class="use">White lettering with the colour accents, for navy or other dark backgrounds.</p>
+                        <div class="downloads">
+                            <a href="/brand/logos/dcdc-logo-reverse.svg" download>SVG</a>
+                            <a href="/brand/logos/dcdc-logo-reverse.png" download>PNG</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logo-card">
+                    <div class="preview on-dark"><img src="/brand/logos/dcdc-logo-mono-white.png" alt="DCDC logo, monochrome white"></div>
+                    <div class="meta">
+                        <h3>Monochrome, light</h3>
+                        <p class="use">For dark photographs, black-and-white layouts, or where colour would clash.</p>
+                        <div class="downloads">
+                            <a href="/brand/logos/dcdc-logo-mono-white.svg" download>SVG</a>
+                            <a href="/brand/logos/dcdc-logo-mono-white.png" download>PNG</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logo-card">
+                    <div class="preview on-white"><img src="/brand/logos/dcdc-logo-mono-dark.png" alt="DCDC logo, monochrome dark"></div>
+                    <div class="meta">
+                        <h3>Monochrome, dark</h3>
+                        <p class="use">For black-and-white print, newspapers and greyscale sponsor bands.</p>
+                        <div class="downloads">
+                            <a href="/brand/logos/dcdc-logo-mono-dark.svg" download>SVG</a>
+                            <a href="/brand/logos/dcdc-logo-mono-dark.png" download>PNG</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logo-card">
+                    <div class="preview on-light square"><img src="/brand/logos/dcdc-avatar-navy.png" alt="DCDC square logo on navy"></div>
+                    <div class="meta">
+                        <h3>Square, navy</h3>
+                        <p class="use">Profile pictures, tagging the network on social media, app icons.</p>
+                        <div class="downloads">
+                            <a href="/brand/logos/dcdc-avatar-navy.png" download>PNG 1080 × 1080</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logo-card">
+                    <div class="preview on-light square"><img src="/brand/logos/dcdc-avatar-white.png" alt="DCDC square logo on white"></div>
+                    <div class="meta">
+                        <h3>Square, white</h3>
+                        <p class="use">The same square format on white, for logo walls that use white tiles.</p>
+                        <div class="downloads">
+                            <a href="/brand/logos/dcdc-avatar-white.png" download>PNG 1080 × 1080</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Using the logo</h2>
+            <p>Leave clear space around the logo of at least a quarter of its height on every side, so it does not crowd other logos in a sponsor band. Below about 160 pixels or 35 mm wide the tagline stops being readable; at that size it is better to use the square version.</p>
+
+            <div class="rules">
+                <div class="rule-box do">
+                    <h3>Please do</h3>
+                    <ul>
+                        <li>Use the files on this page as they are</li>
+                        <li>Scale proportionally, holding Shift when you resize</li>
+                        <li>Match the version to the background</li>
+                        <li>Give the logo the same visual weight as other partners in a logo row</li>
+                    </ul>
+                </div>
+                <div class="rule-box dont">
+                    <h3>Please don't</h3>
+                    <ul>
+                        <li>Stretch, squash, rotate or crop the logo</li>
+                        <li>Recolour the letters or the coloured dots</li>
+                        <li>Add shadows, outlines or effects</li>
+                        <li>Place the full-colour version on a busy photo or a mid-tone background</li>
+                        <li>Rebuild the logo or retype the tagline</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Colours</h2>
+            <p>The network's main colours, as used on this website. Use them for accents around the logo, never to recolour the logo itself.</p>
+
+            <div class="swatches">
+                <div class="swatch"><div class="chip" style="background:#091f38;"></div><div class="label"><strong>Navy</strong><code>#091f38</code></div></div>
+                <div class="swatch"><div class="chip" style="background:#2e8894;"></div><div class="label"><strong>Teal</strong><code>#2e8894</code></div></div>
+                <div class="swatch"><div class="chip" style="background:#7dd3dc;"></div><div class="label"><strong>Light teal</strong><code>#7dd3dc</code></div></div>
+                <div class="swatch"><div class="chip" style="background:#2e3192;"></div><div class="label"><strong>Purple</strong><code>#2e3192</code></div></div>
+                <div class="swatch"><div class="chip" style="background:#e8f5f7;"></div><div class="label"><strong>Mist</strong><code>#e8f5f7</code></div></div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Naming the network</h2>
+            <p>In running text, write the name out in full the first time and use the short form after that.</p>
+
+            <table class="name-table">
+                <tr><th>Full name</th><td>Dutch Caribbean Digital Competence Network</td></tr>
+                <tr><th>Short form</th><td>DCDC Network, or DCDC</td></tr>
+                <tr><th>Partner universities</th><td>University of Aruba, University of Curaçao and University of St. Martin</td></tr>
+                <tr><th>Funding line</th><td>The DCDC Network is funded by NWO through the Open Science NL programme.</td></tr>
+                <tr><th>Website</th><td>dcdc.network</td></tr>
+            </table>
+        </section>
+
+        <div class="note">
+            If you are describing the network's part in your event or publication, please use the wording we agreed with you, such as "hosted by" or "in partnership with". Do not present the network as a funder, sponsor or organiser unless that has been agreed in writing. For questions, other formats or a quick check of a layout before it goes to print, write to <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a>.
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <h3>Contact</h3>
+            <p>For questions about the DCDC Network, reach out to your local coordinator:</p>
+            <p><strong>Aruba:</strong> <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a></p>
+            <p><strong>Curaçao:</strong> <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></p>
+            <p><strong>St. Martin:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
+            <p style="margin-top: 14px;"><strong>Network Administrator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
+            <div class="funding">
+                <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/openscience_donkerblauw.png" alt="Open Science NL" style="height:40px;width:auto;margin-top:14px;opacity:0.85;">
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
