@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building digital competence through dialogue in St. Martin | DCDC Network</title>
+    <meta name="description" content="A week of listening in St. Martin: what USM, public institutions, heritage organisations, businesses and students told the DCDC Network about their data and digital skills needs.">
+    <meta property="og:title" content="Building digital competence through dialogue in St. Martin">
+    <meta property="og:description" content="A week of listening in St. Martin: what USM, public institutions, heritage organisations, businesses and students told the DCDC Network about their data and digital skills needs.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/blog-2026-10-st-martin-card.jpg">
+    <meta property="og:url" content="https://dcdc.network/blog/building-digital-competence-through-dialogue-st-martin/">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:       #091f38;
+            --teal:       #2e8894;
+            --purple:     #2e3192;
+            --light-teal: #e8f5f7;
+            --text:       #2d3748;
+            --muted:      #4a5568;
+            --border:     #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* ── Nav ── */
+        .site-nav {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+        }
+        .site-nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo img { height: 36px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 24px; list-style: none; }
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--navy); }
+        .nav-links a.active {
+            color: var(--navy);
+            border-bottom: 2px solid var(--teal);
+            padding-bottom: 2px;
+        }
+
+        /* ── Breadcrumb ── */
+        .breadcrumb { padding: 16px 0 0; font-size: 0.85rem; color: #718096; }
+        .breadcrumb a { color: var(--muted); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb .sep { margin: 0 6px; }
+
+        /* ── Article header ── */
+        .article-header { padding: 32px 0 0; max-width: 720px; }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            display: inline-block;
+            background: var(--light-teal);
+            color: var(--teal);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+        .post-date { font-size: 0.85rem; color: var(--muted); }
+
+        .article-header h1 {
+            font-size: 2rem;
+            color: var(--navy);
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+        .article-header .lead {
+            font-size: 1.1rem;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 32px;
+        }
+
+        /* ── Hero image ── */
+        .hero-image {
+            width: 100%;
+            border-radius: 10px;
+            margin: 8px 0 40px;
+            display: block;
+            border: 1px solid var(--border);
+        }
+        .image-caption {
+            font-size: 0.82rem;
+            color: #94a3b8;
+            text-align: center;
+            margin-top: -32px;
+            margin-bottom: 40px;
+        }
+
+        /* ── Article body ── */
+        .article-body {
+            max-width: 720px;
+            padding-bottom: 56px;
+        }
+        .article-body h2 {
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin: 40px 0 14px;
+        }
+        .article-body p {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+        .article-body p:last-child { margin-bottom: 0; }
+
+        /* ── Pull quote ── */
+        .pull-quote {
+            border-left: 4px solid var(--teal);
+            background: var(--light-teal);
+            padding: 20px 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 32px 0;
+        }
+        .pull-quote p {
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .pull-quote cite {
+            font-size: 0.85rem;
+            color: var(--teal);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* ── About box ── */
+        .about-box {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 40px 0;
+        }
+        .about-box h3 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--teal);
+            margin-bottom: 10px;
+        }
+        .about-box p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        .about-box p:last-child { margin-bottom: 0; }
+
+        /* ── CTA ── */
+        .post-cta {
+            background: var(--navy);
+            border-radius: 10px;
+            padding: 32px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .post-cta p {
+            color: #cbd5e0;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--teal);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #236e79; }
+
+        /* ── Back link ── */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        /* ── Footer ── */
+        footer { background: var(--navy); color: #e2e8f0; padding: 40px 0; margin-top: 48px; }
+        footer .container { text-align: center; }
+        footer h3 { font-size: 1.05rem; margin-bottom: 14px; color: white; }
+        footer p  { margin-bottom: 7px; font-size: 0.92rem; }
+        footer a  { color: #7dd3dc; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .funding {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid #1e3a5a;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 600px) {
+            .article-header h1 { font-size: 1.5rem; }
+            .nav-logo { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav">
+        <div class="container">
+            <a href="/" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC Network">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/training/">Training</a></li>
+                <li><a href="/team/">Team</a></li>
+                <li><a href="/about/fair-and-reproducibility/">FAIR</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/tools/">Tools</a></li>
+                <li><a href="/agenda/">Agenda</a></li>
+                <li><a href="/blog/" class="active">Blog</a></li>
+                <li><a href="/newsletter/#subscribe" style="background:#2e8894;color:#fff;padding:6px 14px;border-radius:5px;">Subscribe</a></li>
+                <li><a href="mailto:rendell.dekort@ua.aw">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="breadcrumb">
+            <a href="/">Home</a><span class="sep">/</span>
+            <a href="/blog/">Blog</a><span class="sep">/</span>
+            Building digital competence through dialogue in St. Martin
+        </div>
+
+        <div class="article-header">
+            <div class="post-meta">
+                <span class="tag">Network news</span>
+                <span class="post-date">October 2026</span>
+                <span class="post-date">By drs. Raymond Jessurun, Local Network Coordinator for St. Martin</span>
+            </div>
+            <h1>Building digital competence through dialogue in St. Martin</h1>
+            <p class="lead">The DCDC Network administrator's working visit connected public institutions, education, civil society and the private sector.</p>
+        </div>
+
+        <img
+            src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/blog-2026-10-st-martin-card.jpg"
+            alt="Building digital competence through dialogue in St. Martin"
+            class="hero-image"
+        >
+
+        <div class="article-body">
+
+            <div class="about-box">
+                <h3>About the DCDC Network</h3>
+                <p>The Dutch Caribbean Digital Competence (DCDC) Network was established in 2025 with funding from Open Science NL. It connects the Universities of Aruba, Curaçao, and St. Martin, and Instituto Pedagogico Arubano, with a shared mission: to make research data more reusable, accessible, and transparent across the Dutch Caribbean.</p>
+                <p>The current data landscape in our region is fragmented, which makes research collaboration and validation harder than it needs to be. The Network addresses this through peer-to-peer exchange, a training program, and strategic partnerships between institutions.</p>
+            </div>
+
+            <p>From 28 September to 2 October 2026, the University of St. Martin hosted a working visit by Rendell de Kort, Network Administrator of the Dutch Caribbean Digital Competence Network. The visit was locally coordinated by drs. Raymond Jessurun, DCDC Local Network Coordinator for St. Martin and Research Coordinator at USM.</p>
+
+            <p>The purpose of the visit was not simply to present the DCDC Network. It was primarily an opportunity to listen: to learn how organisations in St. Martin collect, manage, protect, preserve and use information, and to identify the digital knowledge and skills they require.</p>
+
+            <p>The DCDC Network brings together people working with research and data across Aruba, Curaçao, St. Martin, Bonaire, Sint Eustatius and Saba. It promotes cooperation, peer learning, responsible data management, open science and the development of practical digital competencies. The network is funded through the NWO Open Science programme and works through the University of Aruba, University of Curaçao, University of St. Martin and Instituto Pedagogico Arubano.</p>
+
+            <h2>Starting with USM</h2>
+
+            <p>The visit began with discussions at the University of St. Martin. Meetings were organised with USM Interim Management, members of the USM Foundation Board, the Research Coordinator, and representatives responsible for the library and information technology at USM.</p>
+
+            <p>These discussions addressed USM&rsquo;s role as the institutional base for the St. Martin node of the DCDC Network. Attention was given to research support, access to digital information, institutional data management, library services, digital infrastructure and the support that students, faculty, staff and researchers need.</p>
+
+            <p>The discussions also underlined that digital competence is not limited to learning how to use software. It includes knowing how to find trustworthy information, document research properly, protect sensitive data, preserve records, share knowledge responsibly and make research results accessible to society.</p>
+
+            <h2>Listening to public institutions</h2>
+
+            <p>A major part of the visit was dedicated to government departments and other public institutions. Invitations were extended to the Civil Registry and Census Office, the Department of Statistics, the Ministry of Education, Culture, Youth and Sport, the Department of Labour and Social Affairs, SZV, the Social Economic Council, Kadaster, the Sint Maarten Library, the Fire Department, the Office of Disaster Management, the Meteorological Department, the Electoral Council and the Central Voting Bureau.</p>
+
+            <p>The sessions showed that public institutions face different but connected information challenges. These include the digitisation of historical records, access to statistical information, protection of personal data, long-term preservation, institutional memory, secure storage, disaster recovery and the ability of different information systems to work together.</p>
+
+            <p>The discussions concerning historical civil-registry records were particularly relevant. These records are important not only for public administration, but also for families, historians and descendants seeking information about their ancestors. Digitisation must therefore be approached carefully. Scanning documents is only one part of the process. Questions of ownership, legal authority, privacy, metadata, physical restoration, secure storage, public access and long-term maintenance must also be resolved.</p>
+
+            <p>The meeting with the Department of Statistics highlighted the importance of making reliable public information accessible and understandable in a timely manner. Statistical data can support research, public planning and democratic decision-making, but only when users can locate the information, understand how it was produced and assess its limitations.</p>
+
+            <p>Discussions with disaster-management and meteorological representatives reinforced another important lesson: on a hurricane-prone island, digital resilience is part of disaster resilience. Institutions need secure backups, continuity plans and recovery procedures so that essential information remains available after a crisis.</p>
+
+            <h2>Exploring electoral data as a possible working area</h2>
+
+            <p>A discussion was also held with representatives connected to the Electoral Council and Central Voting Bureau. Electoral information is essential for public accountability, democratic participation and research into representation.</p>
+
+            <p>One of the ideas emerging from the visit was to explore a possible regional working group on electoral data and digital competencies, potentially convened with USM involvement. Such a group could examine how electoral information is collected, preserved, explained and made available for research and public understanding. This work will continue during the <a href="/kickoff/">DCDC Network kick-off meeting</a> on 10 to 12 November.</p>
+
+            <p>This remains a proposal requiring further discussion within the DCDC Core Team and with electoral bodies in Aruba and Curaçao. Its value lies in connecting a concrete institutional need in St. Martin with possible regional learning and cooperation.</p>
+
+            <h2>Engaging civil society and heritage organisations</h2>
+
+            <p>Civil-society organisations and members of the St. Martin Archives and Heritage Platform were invited to discuss their digital needs. Heritage organisations, community groups and families hold documents, photographs, recordings, stories and other sources that are important to the collective memory of the island.</p>
+
+            <p>However, many of these materials remain vulnerable. They may be stored on personal devices, in deteriorating paper files or in formats that may become inaccessible. Organisations may also be uncertain about what can be shared publicly, what requires consent and how culturally sensitive information should be protected.</p>
+
+            <p>The discussion therefore went beyond technology. It addressed questions of trust, ownership, consent and the right of communities to participate in decisions about how their knowledge is used.</p>
+
+            <p>The DCDC Network can support this work through training in digital preservation, documentation, research data management, responsible sharing and the use of reliable online research resources. The network should not remove knowledge from local custodians. It should strengthen their ability to protect, describe and share that knowledge on conditions they understand and help determine.</p>
+
+            <h2>Private-sector perspectives</h2>
+
+            <p>Private-sector professionals were invited to share their perspectives on information management, digital services, legal responsibilities and the practical skills required in their work.</p>
+
+            <p>Businesses and professional service providers manage sensitive information and must respond to growing expectations concerning data protection, cybersecurity, digital recordkeeping and continuity of operations. They may also provide expertise, technology and training that can strengthen the wider network.</p>
+
+            <p>The discussion demonstrated that the private sector should not be approached only as a possible source of funding. Businesses and professionals are potential knowledge partners who can contribute practical experience while also benefiting from regional training and cooperation.</p>
+
+            <h2>Including students and community learners</h2>
+
+            <p>Information sessions were also organised for USM students and community participants. These discussions helped connect the DCDC Network to everyday questions: How do we know whether online information is reliable? How do we preserve our family histories? How do businesses protect their information? How can students gain the skills needed to conduct research and participate in a digital society?</p>
+
+            <p>Digital competence must be accessible to people with different levels of experience. The DCDC Network is not intended only for data scientists or university researchers. Students, teachers, librarians, public servants, community organisations, professionals and interested citizens should all be able to participate.</p>
+
+            <h2>From consultation to concrete action</h2>
+
+            <p>The visit confirmed that St. Martin does not have one single digital-competence need. Different organisations face different challenges, but several common priorities emerged:</p>
+
+            <ul>
+                <li>responsible management and sharing of research and institutional data;</li>
+                <li>digitisation and long-term preservation of records;</li>
+                <li>privacy, consent, ownership and information security;</li>
+                <li>reliable access to public and statistical data;</li>
+                <li>disaster-resilient storage and continuity planning;</li>
+                <li>digital research skills for students, professionals and communities;</li>
+                <li>stronger connections among institutions facing similar problems;</li>
+                <li>practical training based on locally identified needs.</li>
+            </ul>
+
+            <p>The next step is to convert these discussions into an organised follow-up process. The information gathered should contribute to the DCDC stakeholder map, baseline survey, training programme and the formation of member-led working groups.</p>
+
+            <p>Not every issue raised during the visit can be resolved directly by the DCDC Network. Some matters require institutional decisions, legal advice, investment or collaboration with specialised partners. Being clear about these boundaries is important. The network should promise only what it can realistically support, while helping organisations identify appropriate partners for needs outside its mandate.</p>
+
+            <h2>Building the network together</h2>
+
+            <p>The working visit demonstrated the importance of face-to-face dialogue. Digital cooperation ultimately depends on human relationships, trust and a willingness to share knowledge.</p>
+
+            <p>The St. Martin node should not be built around one institution or one individual. It must connect the university with government, archives, libraries, businesses, civil society, researchers, students and communities. Each participant brings knowledge, and each has needs that others may be able to help address.</p>
+
+            <p>The DCDC Network invites organisations and individuals in St. Martin to help shape this process. The starting point is simple: identify one practical problem involving research, data, digital preservation, access to information or digital skills. From there, we can determine what knowledge already exists, what support is needed and what we can build together across our islands.</p>
+
+            <div class="post-cta">
+                <p>Based in St. Martin and want to take part?</p>
+                <a href="mailto:raymond.Jessurun@usm.sx" class="btn">Contact Raymond Jessurun</a>
+            </div>
+
+            <a href="/blog/" class="back-link">&#8592; Back to blog</a>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <h3>Contact</h3>
+            <p>For questions about the DCDC Network, reach out to your local coordinator:</p>
+            <p><strong>Aruba:</strong> <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a></p>
+            <p><strong>Curaçao:</strong> <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></p>
+            <p><strong>St. Martin:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
+            <p style="margin-top: 14px;"><strong>Network Administrator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
+            <div style="margin-top: 22px; display: flex; gap: 22px; justify-content: center; align-items: center; flex-wrap: wrap;">
+                <a href="https://www.linkedin.com/company/112355986/" target="_blank" rel="noopener" aria-label="DCDC Network on LinkedIn" style="display: inline-flex; align-items: center; gap: 8px; color: #7dd3dc; text-decoration: none; font-size: 0.9rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.86 3.38-1.86 3.61 0 4.28 2.38 4.28 5.47v6.28zM5.34 7.43a2.07 2.07 0 01-2.07-2.07 2.07 2.07 0 112.07 2.07zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://www.instagram.com/dcdcnetwork/" target="_blank" rel="noopener" aria-label="DCDC Network on Instagram" style="display: inline-flex; align-items: center; gap: 8px; color: #7dd3dc; text-decoration: none; font-size: 0.9rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.26.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.26.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 01-1.38-.9 3.72 3.72 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.88 5.88 0 00-2.13 1.38A5.88 5.88 0 00.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.8.73 1.47 1.38 2.13a5.88 5.88 0 002.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.88 5.88 0 002.13-1.38 5.88 5.88 0 001.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 00-1.38-2.13A5.88 5.88 0 0019.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1012 18.16 6.16 6.16 0 0012 5.84zm0 10.16A4 4 0 1112 8a4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+                    Instagram
+                </a>
+            </div>
+            <div class="funding">
+                <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/openscience_donkerblauw.png" alt="Open Science NL" style="height:40px;width:auto;margin-top:14px;opacity:0.85;">
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

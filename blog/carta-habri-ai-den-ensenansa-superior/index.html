@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta habri: Stop cu introduccion sin critica di tecnologia di AI den enseñansa superior | DCDC Network</title>
+    <meta name="description" content="A Papiamento translation of the open letter &quot;Stop the Uncritical Adoption of AI Technologies in Academia&quot;.">
+    <meta property="og:title" content="Carta habri: Stop cu introduccion sin critica di tecnologia di AI den enseñansa superior">
+    <meta property="og:description" content="A Papiamento translation of the open letter &quot;Stop the Uncritical Adoption of AI Technologies in Academia&quot;.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/blog-2026-10-carta-habri-card.jpg">
+    <meta property="og:url" content="https://dcdc.network/blog/carta-habri-ai-den-ensenansa-superior/">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:       #091f38;
+            --teal:       #2e8894;
+            --purple:     #2e3192;
+            --light-teal: #e8f5f7;
+            --text:       #2d3748;
+            --muted:      #4a5568;
+            --border:     #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* ── Nav ── */
+        .site-nav {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+        }
+        .site-nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo img { height: 36px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 24px; list-style: none; }
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--navy); }
+        .nav-links a.active {
+            color: var(--navy);
+            border-bottom: 2px solid var(--teal);
+            padding-bottom: 2px;
+        }
+
+        /* ── Breadcrumb ── */
+        .breadcrumb { padding: 16px 0 0; font-size: 0.85rem; color: #718096; }
+        .breadcrumb a { color: var(--muted); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb .sep { margin: 0 6px; }
+
+        /* ── Article header ── */
+        .article-header { padding: 32px 0 0; max-width: 720px; }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            display: inline-block;
+            background: var(--light-teal);
+            color: var(--teal);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+        .post-date { font-size: 0.85rem; color: var(--muted); }
+
+        .article-header h1 {
+            font-size: 2rem;
+            color: var(--navy);
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+        .article-header .lead {
+            font-size: 1.1rem;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 32px;
+        }
+
+        /* ── Hero image ── */
+        .hero-image {
+            width: 100%;
+            border-radius: 10px;
+            margin: 8px 0 40px;
+            display: block;
+            border: 1px solid var(--border);
+        }
+        .image-caption {
+            font-size: 0.82rem;
+            color: #94a3b8;
+            text-align: center;
+            margin-top: -32px;
+            margin-bottom: 40px;
+        }
+
+        /* ── Article body ── */
+        .article-body {
+            max-width: 720px;
+            padding-bottom: 56px;
+        }
+        .article-body h2 {
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin: 40px 0 14px;
+        }
+        .article-body p {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+        .article-body p:last-child { margin-bottom: 0; }
+
+        /* ── Pull quote ── */
+        .pull-quote {
+            border-left: 4px solid var(--teal);
+            background: var(--light-teal);
+            padding: 20px 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 32px 0;
+        }
+        .pull-quote p {
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .pull-quote cite {
+            font-size: 0.85rem;
+            color: var(--teal);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* ── About box ── */
+        .about-box {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 40px 0;
+        }
+        .about-box h3 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--teal);
+            margin-bottom: 10px;
+        }
+        .about-box p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        .about-box p:last-child { margin-bottom: 0; }
+
+        /* ── CTA ── */
+        .post-cta {
+            background: var(--navy);
+            border-radius: 10px;
+            padding: 32px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .post-cta p {
+            color: #cbd5e0;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--teal);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #236e79; }
+
+        /* ── Back link ── */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        /* ── Footer ── */
+        footer { background: var(--navy); color: #e2e8f0; padding: 40px 0; margin-top: 48px; }
+        footer .container { text-align: center; }
+        footer h3 { font-size: 1.05rem; margin-bottom: 14px; color: white; }
+        footer p  { margin-bottom: 7px; font-size: 0.92rem; }
+        footer a  { color: #7dd3dc; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .funding {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid #1e3a5a;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 600px) {
+            .article-header h1 { font-size: 1.5rem; }
+            .nav-logo { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav">
+        <div class="container">
+            <a href="/" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC Network">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/training/">Training</a></li>
+                <li><a href="/team/">Team</a></li>
+                <li><a href="/about/fair-and-reproducibility/">FAIR</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/tools/">Tools</a></li>
+                <li><a href="/agenda/">Agenda</a></li>
+                <li><a href="/blog/" class="active">Blog</a></li>
+                <li><a href="/newsletter/#subscribe" style="background:#2e8894;color:#fff;padding:6px 14px;border-radius:5px;">Subscribe</a></li>
+                <li><a href="mailto:rendell.dekort@ua.aw">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="breadcrumb">
+            <a href="/">Home</a><span class="sep">/</span>
+            <a href="/blog/">Blog</a><span class="sep">/</span>
+            Carta habri: Stop cu introduccion sin critica di tecnologia di AI den enseñansa superior
+        </div>
+
+        <div class="article-header">
+            <div class="post-meta">
+                <span class="tag">Open science</span>
+                <span class="post-date">October 2026</span>
+                <span class="post-date">Translated into Papiamento by Esther Plomp</span>
+            </div>
+            <h1>Carta habri: Stop cu introduccion sin critica di tecnologia di AI den enseñansa superior</h1>
+            <p class="lead">A Papiamento translation of the open letter &ldquo;Stop the Uncritical Adoption of AI Technologies in Academia&rdquo;, addressed to the Dutch universities, the Vereniging Hogescholen and their boards. The original letter and its signatories are on openletter.earth, in <a href="https://openletter.earth/open-letter-stop-the-uncritical-adoption-of-ai-technologies-in-academia-b65bba1e">English</a> and <a href="https://openletter.earth/nl/open-letter-stop-the-uncritical-adoption-of-ai-technologies-in-academia-b65bba1e?limit=0">Nederlands</a>. Publishing the translation here does not mean the DCDC Network has signed the letter. Anyone who wishes to can sign it on the original site.</p>
+        </div>
+
+        <img
+            src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/blog-2026-10-carta-habri-card.jpg"
+            alt="Carta habri: Stop cu introduccion sin critica di tecnologia di AI den enseñansa superior"
+            class="hero-image"
+        >
+
+        <div class="article-body">
+
+            <div class="about-box">
+                <h3>About the DCDC Network</h3>
+                <p>The Dutch Caribbean Digital Competence (DCDC) Network was established in 2025 with funding from Open Science NL. It connects the Universities of Aruba, Curaçao, and St. Martin, and Instituto Pedagogico Arubano, with a shared mission: to make research data more reusable, accessible, and transparent across the Dutch Caribbean.</p>
+                <p>The current data landscape in our region is fragmented, which makes research collaboration and validation harder than it needs to be. The Network addresses this through peer-to-peer exchange, a training program, and strategic partnerships between institutions.</p>
+            </div>
+
+            <p>Apreciado Universidadnan di Hulanda, Vereniging Hogescholen, y respectivo Colegionan di Directiva,</p>
+
+            <p>Cu e carta aki nos ta tuma un posicion di principio contra e expansion di e asina yama tecnologianan <em>"Inteligencia Artificial"</em> (AI) na universidadnan y scolnan superior. Como institucionnan di enseñansa, nos no por aproba cu studiante, docente of lidernan ta haci uzo di AI sin un actitud critico. Tambe nos ta boga pa revisa e relacion financiero directo entre universidad y scol superior y compania di AI. E introduccion di tecnologia di AI sin restriccion ta bay contra e spirito di e <em>EU AI Act</em>. E ta debilita nos balornan pedagogico fundamental y e principio di integridad cientifico. E ta stroba nos di mantene nos standardnan di independencia y transparencia halto. Y loke ta preocupa nos mas ainda, uzo di AI ta impedi demonstrablemente e siñamento di studiante y ta afecta nan capacidad pa pensa criticamente.</p>
+
+            <p>Como academico, y specialmente como docente den enseñansa superior, nos tin e responsabilidad di forma nos studiantenan. Nos no ta existi pa reparti diploma cu no tin relacion cu competencia na nivel di enseñansa superior. Nos deber como docente ta pa cultiva pensamento critico y honestidad intelectual. No ta nos tarea pa actua como polis, ni tampoco pa stimula engaño; ni pa normalisa cu studiantenan ta evita pensamento profundo. Den institucion di enseñansa superior enfoke mester ta riba estudio di materia profundo. E meta di enseñansa superior no ta pa soluciona problema mas lihe y eficiente posibel, sino pa desaroya e habilidadnan necesario pa identifica y trata problema nobo cu no a soluciona ainda. Nos ta verwacht cu studiantenan ta haya espacio y tempo pa forma nan mes opinion profundo, basa riba nos experencia y alimenta pa nos espacionan educativo. E espacionan ey mester wordo proteha contra propaganda comercial di compania. Nos financiamento no mester wordo gasta riba empresanan cu fin di lucro, cu tin poco di ofrece y cu ta debilita activamente e habilidadnan di nos studiantenan. Hasta e termino <em>"Artificial Intelligence"</em> (cu cientificamente ta referi na un campo academico; inteligencia artificial) ta wordo abusa hopi biaha, uzando confusion conceptual pa promove interes comercial y pa debilita discucion cientifico. Ta nos tarea pa desmistifica y cuestiona e termino "AI" den nos enseñansa, investigacion y nos envolvimento cu sociedad.</p>
+
+            <p>Nos mester proteha y cultiva e ecosistema di conocemento humano. Modelo di AI por imita e aparencia di trabou cientifico, pero (pa definicion) nan no ta ocupa cu berdad. E resultado ta un inundacion di "informacion" cu no ta controla, pero cu ta zona convincente. Den e miho caso, e resultado ta berdad pa casualidad, pero sin referencia corecto y separa di rasonamento humano y di trabou cientifico for di cua el a horta. Den e pio caso, e ta incorecto pero presenta cu siguridad. Tur dos situacion ta peligroso pa e ecosistema di conocemento.</p>
+
+            <p>Tecnologia di "AI" exageradamente promociona manera chatbot, <em>large language models</em> y otro producto relaciona, no ta nada mas cu esey; producto cu e industria tecnologico &mdash; manera a sosode cu e industrianan di tabaco y petroleo &mdash; ta explota pa haci ganashi, en contra di balornan di sostenibilidad ecologico, dignidad humano, calidad pedagogico, privacidad di dato, integridad cientifico y democracia. E producto di AI aki ta materialmente y psicologicamente dañino pa e habilidad di nos studiantenan pa pensa y skirbi nan mes. Nan ta existi principalmente pa sirbi interes di inversionista y multinacional. Como strategia di marketing pa introduci e medionan aki den collegezaal, companianan ta afirma, sin base, cu studiantenan ta floho of cu nan no tin habilidad pa skirbi. Nos ta condena afirmacion asina y nos ta pone autonomia di studiante riba influencia comercial.</p>
+
+            <p>Nos a mira esaki prome, cu tabaco, petroleo y hopi otro industria dañino cu no ta sirbi nos interesnan y cu no ta preocupa cu e progreso academico di nos studiantenan ni cu e integridad di nos procesonan cientifico.</p>
+
+            <p>Nos ta haci un yamada na boso pa:</p>
+
+            <ul>
+                <li><strong>Resisti e introduccion di AI den nos propio sistemanan di software</strong>, for di Microsoft te OpenAI y Apple. No ta den nos interes pa laga nos procesonan corumpi ni pa regala nos datonan pa entrenamento di modelonan cu no ta solamente inutil pa nos, sino tambe ta dañino.</li>
+                <li><strong>Prohibi uzo di AI den klas</strong> durante tarea di studiante, mescos cu nos ta prohibi sistema di produccion industrial di ensayo y otro forma di plagio. Studiante mester wordo proteha contra e debilitamento di nan habilidad y mester haya e espacio y tempo pa haci nan tarea nan mes.</li>
+                <li><strong>Stop di normalisa e hype rond di AI</strong> y e mentiranan cu e industria tecnologico ta uza pa presenta e tecnologianan aki. Nan no tin e capacidad cu ta wordo propaganda, y nan implementacion ta pone studiante y academico na riesgo di viola e standardnan etico, huridico, academico y cientifico tocante confiabilidad, sostenibilidad y siguridad.</li>
+                <li><strong>Fortifica nos libertad academico</strong> como empleado di institucion di enseñansa superior pa por mantene principio y e standard aki den nos collegezaalnan, nos investigacion y riba e sistemanan di computer cu nos tin cu uza como parti di nos trabou. Nos academiconan tin derecho riba nos propio espacionan.</li>
+                <li><strong>Mantene pensamento critico tocante AI</strong> y stimula e tratamento di tecnologia critico, basa riba un fundeshi academico fuerte. Discusion academico mester ta liber di conflicto di interes cu financiamento di compania ta causa, y oposicion bon fundamenta semper mester keda un opcion.</li>
+            </ul>
+
+            <p>Saludo,</p>
+
+            <a href="/blog/" class="back-link">&#8592; Back to blog</a>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <h3>Contact</h3>
+            <p>For questions about the DCDC Network, reach out to your local coordinator:</p>
+            <p><strong>Aruba:</strong> <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a></p>
+            <p><strong>Curaçao:</strong> <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></p>
+            <p><strong>St. Martin:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
+            <p style="margin-top: 14px;"><strong>Network Administrator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
+            <div style="margin-top: 22px; display: flex; gap: 22px; justify-content: center; align-items: center; flex-wrap: wrap;">
+                <a href="https://www.linkedin.com/company/112355986/" target="_blank" rel="noopener" aria-label="DCDC Network on LinkedIn" style="display: inline-flex; align-items: center; gap: 8px; color: #7dd3dc; text-decoration: none; font-size: 0.9rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.86 3.38-1.86 3.61 0 4.28 2.38 4.28 5.47v6.28zM5.34 7.43a2.07 2.07 0 01-2.07-2.07 2.07 2.07 0 112.07 2.07zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://www.instagram.com/dcdcnetwork/" target="_blank" rel="noopener" aria-label="DCDC Network on Instagram" style="display: inline-flex; align-items: center; gap: 8px; color: #7dd3dc; text-decoration: none; font-size: 0.9rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.26.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.26.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 01-1.38-.9 3.72 3.72 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.88 5.88 0 00-2.13 1.38A5.88 5.88 0 00.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.8.73 1.47 1.38 2.13a5.88 5.88 0 002.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.88 5.88 0 002.13-1.38 5.88 5.88 0 001.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 00-1.38-2.13A5.88 5.88 0 0019.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1012 18.16 6.16 6.16 0 0012 5.84zm0 10.16A4 4 0 1112 8a4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+                    Instagram
+                </a>
+            </div>
+            <div class="funding">
+                <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/openscience_donkerblauw.png" alt="Open Science NL" style="height:40px;width:auto;margin-top:14px;opacity:0.85;">
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
