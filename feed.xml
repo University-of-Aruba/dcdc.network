@@ -8,13 +8,33 @@
     <copyright>The DCDC Network. Content licensed CC BY 4.0 unless otherwise noted.</copyright>
     <managingEditor>rendell.dekort@ua.aw (Rendell de Kort)</managingEditor>
     <webMaster>rendell.dekort@ua.aw (Rendell de Kort)</webMaster>
-    <lastBuildDate>Wed, 14 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://dcdc.network/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png</url>
       <title>DCDC Network</title>
       <link>https://dcdc.network/</link>
     </image>
+
+    <item>
+      <title>Building digital competence through dialogue in Sint Maarten</title>
+      <link>https://dcdc.network/blog/building-digital-competence-through-dialogue-sint-maarten/</link>
+      <guid isPermaLink="true">https://dcdc.network/blog/building-digital-competence-through-dialogue-sint-maarten/</guid>
+      <pubDate>Thu, 29 Oct 2026 12:00:00 +0000</pubDate>
+      <dc:creator>Raymond Jessurun</dc:creator>
+      <category>Network news</category>
+      <description>Raymond Jessurun on the DCDC Network&apos;s working visit to Sint Maarten: what USM, public institutions, heritage organisations, businesses and students said they need to work well with data.</description>
+    </item>
+
+    <item>
+      <title>Carta habri: Stop cu introduccion sin critica di tecnologia di AI den enseñansa superior</title>
+      <link>https://dcdc.network/blog/carta-habri-ai-den-ensenansa-superior/</link>
+      <guid isPermaLink="true">https://dcdc.network/blog/carta-habri-ai-den-ensenansa-superior/</guid>
+      <pubDate>Thu, 29 Oct 2026 12:00:00 +0000</pubDate>
+      <dc:creator>Esther Plomp</dc:creator>
+      <category>Open science</category>
+      <description>A Papiamento translation by Esther Plomp of the open letter &quot;Stop the Uncritical Adoption of AI Technologies in Academia&quot;.</description>
+    </item>
 
     <item>
       <title>Registration open: DCDC Kick-Off Conference, 10 to 12 November, University of Aruba</title>
