@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCDC Network Newsletter, Issue 3 · October 2026</title>
+    <meta name="description" content="Third issue of the DCDC Network newsletter. Sign up for the Kick-Off Conference on 10 to 12 November at the University of Aruba, Nos Baranca, Nos Democracia, three new blog posts, funding calls and online trainings.">
+    <link rel="canonical" href="https://dcdc.network/newsletter/issue-3/">
+    <link rel="alternate" type="application/rss+xml" title="DCDC Network feed" href="/feed.xml">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:       #091f38;
+            --teal:       #2e8894;
+            --purple:     #2e3192;
+            --blue:       #1a66b1;
+            --light-teal: #e8f5f7;
+            --light-bg:   #f7fafb;
+            --text:       #2d3748;
+            --muted:      #4a5568;
+            --border:     #e2e8f0;
+            --gold:       #d4a017;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.65;
+            color: var(--text);
+            background: var(--light-bg);
+            padding: 24px 12px;
+        }
+
+        .newsletter {
+            max-width: 720px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 6px 32px rgba(9,31,56,0.08);
+        }
+
+        /* Masthead */
+        .masthead {
+            background: var(--navy);
+            color: #fff;
+            padding: 36px 32px 28px;
+            text-align: center;
+        }
+        .masthead img { height: 104px; width: auto; display: block; margin: 0 auto 18px; }
+        .masthead .issue-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            color: #7dd3dc;
+            background: rgba(125, 211, 220, 0.12);
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+        }
+        .masthead h1 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        .masthead .date {
+            color: #94a3b8;
+            font-size: 0.92rem;
+        }
+
+        /* Section frame */
+        .section {
+            padding: 36px 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        .section:last-of-type { border-bottom: none; }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--teal);
+            background: var(--light-teal);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            color: var(--navy);
+            margin-bottom: 14px;
+            line-height: 1.3;
+            font-weight: 600;
+        }
+        h3 {
+            font-size: 1.05rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        p { margin-bottom: 14px; color: var(--muted); }
+        p:last-child { margin-bottom: 0; }
+
+        a { color: var(--teal); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Editor's letter */
+        .from-the-network p {
+            font-size: 1rem;
+            color: var(--text);
+        }
+        .signoff {
+            margin-top: 18px;
+            font-style: italic;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        /* Headline call box (navy, reused for the lead call) */
+        .call-box {
+            background: var(--navy);
+            color: #fff;
+            border-radius: 10px;
+            padding: 28px 30px;
+        }
+        .call-box .eyebrow { background: rgba(125, 211, 220, 0.12); color: #7dd3dc; }
+        .call-box h2 { color: #fff; margin-bottom: 12px; }
+        .call-box p { color: #cbd5e0; font-size: 0.95rem; }
+        .deadline-pill {
+            display: inline-block;
+            background: rgba(212, 160, 23, 0.18);
+            color: #f5c542;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+            letter-spacing: 0.4px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--teal);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+            margin-top: 4px;
+        }
+        .btn:hover { background: #236e79; text-decoration: none; }
+        .btn-outline {
+            display: inline-block;
+            border: 1.5px solid var(--teal);
+            color: var(--teal);
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Featured / spotlight member card */
+        .feature-member {
+            background: linear-gradient(180deg, #fff 0%, var(--light-teal) 100%);
+        }
+        .member-card {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 24px;
+            align-items: start;
+            margin-top: 8px;
+        }
+        .member-card img {
+            width: 160px;
+            height: 160px;
+            border-radius: 10px;
+            object-fit: cover;
+            display: block;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 12px rgba(9,31,56,0.12);
+        }
+        .member-name { font-size: 1.2rem; color: var(--navy); font-weight: 600; margin-bottom: 2px; }
+        .member-role { color: var(--teal); font-size: 0.92rem; font-weight: 500; margin-bottom: 2px; }
+        .member-affiliation { color: var(--muted); font-size: 0.88rem; margin-bottom: 12px; }
+        .member-bio { font-size: 0.95rem; color: var(--text); line-height: 1.7; margin-bottom: 12px; }
+        .member-contact a { font-size: 0.9rem; color: var(--navy); font-weight: 500; }
+
+
+        /* Stories grid */
+        .story {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 20px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 18px;
+            background: #fff;
+        }
+        .story:last-child { margin-bottom: 0; }
+        .story img { width: 100%; height: 100%; min-height: 140px; object-fit: cover; object-position: center; display: block; }
+        .story-body { padding: 18px 20px 18px 0; }
+        .story .post-meta { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; flex-wrap: wrap; }
+        .tag {
+            display: inline-block;
+            background: var(--light-teal);
+            color: var(--teal);
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        .post-date { font-size: 0.8rem; color: var(--muted); }
+        .story h3 { font-size: 1.02rem; margin-bottom: 6px; line-height: 1.35; }
+        .story p { font-size: 0.9rem; line-height: 1.6; margin-bottom: 10px; }
+        .read-more { font-size: 0.86rem; font-weight: 600; color: var(--teal); }
+
+        /* Calls & opportunities */
+        .opportunity {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 18px;
+            align-items: center;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            background: #fff;
+        }
+        .opportunity:last-child { margin-bottom: 0; }
+        .opp-deadline { text-align: center; background: var(--light-teal); border-radius: 6px; padding: 8px 4px; }
+        .opp-deadline .day { display: block; font-size: 1.4rem; font-weight: 700; color: var(--navy); line-height: 1; }
+        .opp-deadline .month { display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--teal); letter-spacing: 0.6px; margin-top: 2px; }
+        .opp-body h3 { font-size: 0.98rem; margin-bottom: 4px; }
+        .opp-body p { font-size: 0.85rem; line-height: 1.55; margin-bottom: 0; }
+        .opp-body .opp-meta { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; }
+        .opp-cta { font-size: 0.84rem; font-weight: 600; color: var(--teal); white-space: nowrap; }
+
+        .video-embed { margin: 26px 0 8px; }
+        .video-embed .frame {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--navy);
+        }
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .video-embed figcaption {
+            font-size: 0.8rem;
+            color: #718096;
+            line-height: 1.5;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 600px) {
+            .opportunity { grid-template-columns: 70px 1fr; }
+            .opp-cta { grid-column: 1 / -1; padding-top: 4px; }
+        }
+
+        /* Pull quote inside the feature */
+        .pullquote {
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--navy);
+            border-left: 3px solid var(--teal);
+            padding: 4px 0 4px 20px;
+            margin: 26px 0 30px;
+        }
+
+        /* Small update note */
+        .note-card {
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--teal);
+            border-radius: 8px;
+            padding: 18px 22px;
+            background: #fff;
+            margin-top: 8px;
+        }
+        .note-card p { font-size: 0.92rem; line-height: 1.65; }
+
+        /* Call for contributions */
+        .submit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 14px; }
+        .submit-card { border: 1px solid var(--border); border-radius: 10px; padding: 22px 22px 24px; background: #fff; }
+        .submit-card h3 { font-size: 0.98rem; margin-bottom: 8px; }
+        .submit-card p { font-size: 0.88rem; line-height: 1.6; margin-bottom: 14px; }
+
+        /* Feature */
+        .feature-article { background: #fff; }
+
+        /* Footer */
+        footer { background: var(--navy); color: #cbd5e0; padding: 32px 32px 28px; font-size: 0.88rem; }
+        footer .coordinators { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 22px; }
+        footer .coord-block strong { color: #fff; display: block; margin-bottom: 2px; font-size: 0.85rem; }
+        footer .coord-block a { color: #7dd3dc; font-size: 0.82rem; }
+        footer .funding { border-top: 1px solid #1e3a5a; padding-top: 18px; text-align: center; font-size: 0.8rem; color: #94a3b8; }
+        footer .funding img { height: 32px; margin-top: 10px; opacity: 0.85; }
+        .unsubscribe { text-align: center; font-size: 0.78rem; color: #94a3b8; margin-top: 14px; }
+        .unsubscribe a { color: #7dd3dc; }
+
+        @media (max-width: 600px) {
+            .section { padding: 28px 22px; }
+            .masthead { padding: 28px 22px 22px; }
+            .member-card { grid-template-columns: 1fr; }
+            .member-card img { width: 140px; height: 140px; margin: 0 auto; }
+            .story { grid-template-columns: 1fr; }
+            .story img { height: 180px; min-height: unset; }
+            .story-body { padding: 0 18px 18px; }
+            .submit-grid { grid-template-columns: 1fr; }
+            footer .coordinators { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="newsletter">
+        <!-- Masthead -->
+        <div class="masthead">
+            <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/Dark_BG_DCDC_Network_logo.png" alt="DCDC Network">
+            <span class="issue-label">Issue 3 · October 2026</span>
+            <h1>Kicking off the Network</h1>
+            <p class="date">Dutch Caribbean Digital Competence Network</p>
+        </div>
+
+        <!-- From the network -->
+        <section class="section from-the-network">
+            <span class="eyebrow">From the network</span>
+            <h2>What is in this issue</h2>
+            <p>With this third issue of the DCDC Network newsletter we invite you to join us at the Kick-Off Conference! It is followed by a public event on the importance of a democratic society: Nos Baranca, Nos Democracia. We hope to see you there!</p>
+            <p class="signoff">The DCDC Core Team</p>
+        </section>
+
+        <!-- Kick-Off Conference -->
+        <section class="section">
+            <div class="call-box">
+                <span class="deadline-pill">★ Sign up before 3 November</span>
+                <span class="eyebrow">Kick-Off Conference</span>
+                <h2>10 to 12 November, University of Aruba</h2>
+                <p>With this kick-off, the DCDC Network hopes to connect researchers, institutions and professionals across the Dutch Caribbean, from Aruba, Cura&ccedil;ao and St. Martin to Bonaire, Sint Eustatius and Saba, who share a commitment to open data, collaborative research and building digital capacity in our region. The kick-off will structure what the Network focuses on in the coming period. Anyone interested in increasing data skills and open science is very welcome to join us, for all of it or part of it.</p>
+                <p><strong>Tuesday 10 November, 6 to 9 PM.</strong> Public opening evening. Opening remarks by Gerlien Croes, Minister of Kingdom Relations, Education, Youth, Innovation and Sports, a keynote by Hadeikaye Peterson, and talks on open data and privacy by Sandy Odor and on data sharing between government organisations by Jeremy Erasmus.</p>
+                <p><strong>Wednesday 11 November, 9:30 AM to 5 PM, followed by dinner.</strong> Workshops and input sessions: what training the Network should offer, making tools and research more accessible, open science in your organisation, family history, making existing data findable and reusable, and a smaller side workshop on Wikidata.</p>
+                <p><strong>Thursday 12 November, 9:30 AM to 3:30 PM.</strong> Continuation of the workshops and practical activities, including a session on electoral data, ending with the preliminary training plan.</p>
+                <a href="https://forms.gle/7ab4SuYV1vaBw9NG7" class="btn">Sign up &rarr;</a>
+                <p style="margin-top:14px;">The <a href="https://dcdc.network/kickoff/" style="color:#7dd3dc;">full programme</a> is on the website, and more sessions will be added there.</p>
+            </div>
+        </section>
+
+        <!-- Nos Baranca -->
+        <section class="section">
+            <span class="eyebrow">After the kick-off</span>
+            <h2>Nos Baranca, Nos Democracia</h2>
+            <p>After the kick-off you are invited to an evening on the importance of democratic societies.</p>
+            <p><strong>Thursday 12 November, 6 to 9 PM, Casibari Rock Formation.</strong> The University of Aruba presents Nos Baranca, Nos Democracia, a public evening of talks on democratic representation, the resilience of the Aruban people and 40 years of Status Aparte, with local arts and culture, poetry, spoken word and theater.</p>
+            <figure style="margin:22px 0;">
+                <img src="/nos-baranca-flyer.jpg" alt="Flyer: The University of Aruba presents Nos Baranca, Nos Democracia, Casibari Rock Formation, Thursday 12 November, 6 to 9 PM." style="width:100%; max-width:420px; height:auto; border-radius:8px; display:block; margin:0 auto;">
+            </figure>
+        </section>
+
+        <!-- Database Cultural -->
+        <section class="section">
+            <span class="eyebrow">Also in November</span>
+            <h2>Database Cultural Aruba</h2>
+            <p>On 7 November you can attend the Database Cultural Aruba event, from 10 AM to 12 PM at the JFK Education Center (JFK Cafe). They will present the latest news on the development of this database and its policy implications. Email <a href="mailto:data@cultura.aw">data@cultura.aw</a> to register!</p>
+        </section>
+
+        <!-- Recent stories -->
+        <section class="section">
+            <span class="eyebrow">Recent stories</span>
+            <h2>From the blog</h2>
+
+            <a href="https://dcdc.network/blog/rda-plenary-27-caribbean-perspective/" class="story" style="text-decoration:none; color:inherit;">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/rda27-physical-samples-panel.jpg" alt="Esther Plomp with the chairs and speakers of the Physical Samples Interest Group session">
+                <div class="story-body">
+                    <div class="post-meta">
+                        <span class="tag">Conference</span>
+                        <span class="post-date">October 2026</span>
+                    </div>
+                    <h3>Extending the DCDC Network to the Research Data Alliance: a conference perspective</h3>
+                    <p>Esther Plomp, Aruba&rsquo;s Local Coordinator, on the lessons and experiences from the Research Data Alliance plenary in London in October 2026, where she presented a poster on the Network.</p>
+                    <span class="read-more">Read the post &rarr;</span>
+                </div>
+            </a>
+
+            <a href="https://dcdc.network/blog/carta-habri-ai-den-ensenansa-superior/" class="story" style="text-decoration:none; color:inherit;">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/blog-2026-10-carta-habri-card.jpg" style="object-fit:contain; background:#091f38;" alt="Carta habri: Stop cu introduccion sin critica di tecnologia di AI den ense&ntilde;ansa superior">
+                <div class="story-body">
+                    <div class="post-meta">
+                        <span class="tag">Open science</span>
+                        <span class="post-date">October 2026</span>
+                    </div>
+                    <h3>Carta habri: Stop cu introduccion sin critica di tecnologia di AI den ense&ntilde;ansa superior</h3>
+                    <p>A Papiamento translation of the open letter calling on academics to &ldquo;Stop the Uncritical Adoption of AI Technologies in Academia&rdquo;.</p>
+                    <span class="read-more">Read the post &rarr;</span>
+                </div>
+            </a>
+
+            <a href="https://dcdc.network/blog/building-digital-competence-through-dialogue-st-martin/" class="story" style="text-decoration:none; color:inherit;">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/blog-2026-10-st-martin-raymond-usm.jpg" alt="Raymond Jessurun at the University of St. Martin">
+                <div class="story-body">
+                    <div class="post-meta">
+                        <span class="tag">Network news</span>
+                        <span class="post-date">October 2026</span>
+                    </div>
+                    <h3>Building digital competence through dialogue in St. Martin</h3>
+                    <p>Raymond Jessurun, our St. Martin coordinator, on the lessons from the DCDC Network administrator&rsquo;s working visit to St. Martin.</p>
+                    <span class="read-more">Read the post &rarr;</span>
+                </div>
+            </a>
+        </section>
+
+        <!-- Funding -->
+        <section class="section">
+            <span class="eyebrow">Calls &amp; opportunities</span>
+            <h2>Funding opportunities</h2>
+
+            <a href="https://www.staff.universiteitleiden.nl/announcements/2026/10/call-luf-grant-for-a-phd-position-for-a-candidate-from-sint-maarten-sint-eustatius-or-saba" class="opportunity" style="text-decoration:none; color:inherit;">
+                <div class="opp-deadline">
+                    <span class="day">31</span>
+                    <span class="month">Mar</span>
+                </div>
+                <div class="opp-body">
+                    <div class="opp-meta">Funding · Pre-proposals 1 to 31 March 2027 · Leiden University Fund</div>
+                    <h3>Co-funding for a PhD position at Leiden University</h3>
+                    <p>A grant of &euro;250,000 for the salary costs of a PhD position at Leiden University, for a student or PhD candidate from Sint Maarten, Sint Eustatius or Saba.</p>
+                </div>
+                <span class="opp-cta">Learn more &rarr;</span>
+            </a>
+
+            <a href="https://www.openscience.nl/en/news/first-round-of-the-fair-research-outputs-call-now-open" class="opportunity" style="text-decoration:none; color:inherit;">
+                <div class="opp-deadline">
+                    <span class="day">23</span>
+                    <span class="month">Feb</span>
+                </div>
+                <div class="opp-body">
+                    <div class="opp-meta">Funding · Rolling until 23 February 2027 · Open Science NL</div>
+                    <h3>FAIR Research Outputs</h3>
+                    <p>Up to &euro;50,000 to make research outputs FAIR (Findable, Accessible, Interoperable and Reusable) and open. The budget is first come, first served: at the time of writing only the Natural and Engineering Sciences category still has funds. Check the call page before you start.</p>
+                </div>
+                <span class="opp-cta">Learn more &rarr;</span>
+            </a>
+        </section>
+
+        <!-- Online trainings -->
+        <section class="section">
+            <span class="eyebrow">Online trainings</span>
+            <h2>Two you can still join</h2>
+
+            <a href="https://www.eventbrite.com/cc/research-software-camp-2026-4881501/" class="opportunity" style="text-decoration:none; color:inherit;">
+                <div class="opp-deadline">
+                    <span class="day">6</span>
+                    <span class="month">Nov</span>
+                </div>
+                <div class="opp-body">
+                    <div class="opp-meta">Online · Until 6 November 2026 · Institute for Research Software</div>
+                    <h3>Research Software Camp</h3>
+                    <p>A camp on coding literacy, running from 26 October to 6 November. Register for individual events through Eventbrite.</p>
+                </div>
+                <span class="opp-cta">Register &rarr;</span>
+            </a>
+
+            <a href="https://events.digital-research.academy/event/146/" class="opportunity" style="text-decoration:none; color:inherit;">
+                <div class="opp-deadline">
+                    <span class="day">6</span>
+                    <span class="month">Nov</span>
+                </div>
+                <div class="opp-body">
+                    <div class="opp-meta">Online, free · 6 November 2026, 5 to 6:30 AM Aruba time · Digital Research Academy</div>
+                    <h3>Building R packages for maintaining data</h3>
+                    <p>How R packages can help you document, validate, track and share data more effectively. Basic R knowledge required.</p>
+                </div>
+                <span class="opp-cta">Register &rarr;</span>
+            </a>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="coordinators">
+                <div class="coord-block">
+                    <strong>Aruba</strong>
+                    Esther Plomp<br>
+                    <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a>
+                </div>
+                <div class="coord-block">
+                    <strong>Curaçao</strong>
+                    Marjorie Alfonso<br>
+                    <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a>
+                </div>
+                <div class="coord-block">
+                    <strong>St. Martin</strong>
+                    Raymond Jessurun<br>
+                    <a href="mailto:raymond.jessurun@usm.sx">raymond.jessurun@usm.sx</a>
+                </div>
+            </div>
+            <p style="text-align:center; margin-bottom:6px;"><strong style="color:#fff;">Network Administrator:</strong> <a href="mailto:rendell.dekort@ua.aw" style="color:#7dd3dc;">rendell.dekort@ua.aw</a></p>
+            <p style="text-align:center;"><a href="https://dcdc.network" style="color:#7dd3dc;">dcdc.network</a> · <a href="https://www.linkedin.com/company/112355986/" style="color:#7dd3dc;">LinkedIn</a> · <a href="https://www.instagram.com/dcdcnetwork/" style="color:#7dd3dc;">Instagram</a></p>
+            <div class="funding">
+                <p>The DCDC Network brings together the University of Aruba, the University of Cura&ccedil;ao and the University of St. Martin, and is funded by NWO through the Open Science NL program.</p>
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/openscience_donkerblauw.png" alt="Open Science NL">
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

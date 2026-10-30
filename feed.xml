@@ -8,13 +8,23 @@
     <copyright>The DCDC Network. Content licensed CC BY 4.0 unless otherwise noted.</copyright>
     <managingEditor>rendell.dekort@ua.aw (Rendell de Kort)</managingEditor>
     <webMaster>rendell.dekort@ua.aw (Rendell de Kort)</webMaster>
-    <lastBuildDate>Fri, 30 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 16:00:00 +0000</lastBuildDate>
     <atom:link href="https://dcdc.network/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png</url>
       <title>DCDC Network</title>
       <link>https://dcdc.network/</link>
     </image>
+
+    <item>
+      <title>DCDC Network Newsletter, Issue 3</title>
+      <link>https://dcdc.network/newsletter/issue-3/</link>
+      <guid isPermaLink="true">https://dcdc.network/newsletter/issue-3/</guid>
+      <pubDate>Fri, 30 Oct 2026 16:00:00 +0000</pubDate>
+      <dc:creator>The DCDC Core Team</dc:creator>
+      <category>Newsletter</category>
+      <description>Sign up for the Kick-Off Conference on 10 to 12 November at the University of Aruba, Nos Baranca, Nos Democracia on 12 November, three new blog posts, two funding calls and two online trainings.</description>
+    </item>
 
     <item>
       <title>Extending the DCDC Network to the Research Data Alliance: a conference perspective</title>
