@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extending the DCDC Network to the Research Data Alliance: a conference perspective | DCDC Network</title>
+    <meta name="description" content="Esther Plomp on presenting the DCDC Network at the Research Data Alliance 27th Plenary in London, October 2026.">
+    <meta property="og:title" content="Extending the DCDC Network to the Research Data Alliance: a conference perspective">
+    <meta property="og:description" content="Esther Plomp on presenting the DCDC Network at the Research Data Alliance 27th Plenary in London, October 2026.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/rda27-poster.jpg">
+    <meta property="og:url" content="https://dcdc.network/blog/rda-plenary-27-caribbean-perspective/">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:       #091f38;
+            --teal:       #2e8894;
+            --purple:     #2e3192;
+            --light-teal: #e8f5f7;
+            --text:       #2d3748;
+            --muted:      #4a5568;
+            --border:     #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* ── Nav ── */
+        .site-nav {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+        }
+        .site-nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo img { height: 36px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 24px; list-style: none; }
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--navy); }
+        .nav-links a.active {
+            color: var(--navy);
+            border-bottom: 2px solid var(--teal);
+            padding-bottom: 2px;
+        }
+
+        /* ── Breadcrumb ── */
+        .breadcrumb { padding: 16px 0 0; font-size: 0.85rem; color: #718096; }
+        .breadcrumb a { color: var(--muted); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb .sep { margin: 0 6px; }
+
+        /* ── Article header ── */
+        .article-header { padding: 32px 0 0; max-width: 720px; }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            display: inline-block;
+            background: var(--light-teal);
+            color: var(--teal);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+        .post-date { font-size: 0.85rem; color: var(--muted); }
+
+        .article-header h1 {
+            font-size: 2rem;
+            color: var(--navy);
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+        .article-header .lead {
+            font-size: 1.1rem;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 32px;
+        }
+
+        /* ── Hero image ── */
+        .hero-image {
+            width: 100%;
+            border-radius: 10px;
+            margin: 8px 0 40px;
+            display: block;
+            border: 1px solid var(--border);
+        }
+        .image-caption {
+            font-size: 0.82rem;
+            color: #94a3b8;
+            text-align: center;
+            margin-top: -32px;
+            margin-bottom: 40px;
+        }
+
+        /* ── Article body ── */
+        .article-body {
+            max-width: 720px;
+            padding-bottom: 56px;
+        }
+        .article-body h2 {
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin: 40px 0 14px;
+        }
+        .article-body p {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+        .article-body p:last-child { margin-bottom: 0; }
+
+        /* ── Pull quote ── */
+        .pull-quote {
+            border-left: 4px solid var(--teal);
+            background: var(--light-teal);
+            padding: 20px 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 32px 0;
+        }
+        .pull-quote p {
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .pull-quote cite {
+            font-size: 0.85rem;
+            color: var(--teal);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* ── About box ── */
+        .about-box {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 40px 0;
+        }
+        .about-box h3 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--teal);
+            margin-bottom: 10px;
+        }
+        .about-box p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        .about-box p:last-child { margin-bottom: 0; }
+
+        /* ── CTA ── */
+        .post-cta {
+            background: var(--navy);
+            border-radius: 10px;
+            padding: 32px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .post-cta p {
+            color: #cbd5e0;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--teal);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #236e79; }
+
+        /* ── Back link ── */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        /* ── Footer ── */
+        footer { background: var(--navy); color: #e2e8f0; padding: 40px 0; margin-top: 48px; }
+        footer .container { text-align: center; }
+        footer h3 { font-size: 1.05rem; margin-bottom: 14px; color: white; }
+        footer p  { margin-bottom: 7px; font-size: 0.92rem; }
+        footer a  { color: #7dd3dc; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .funding {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid #1e3a5a;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 600px) {
+            .article-header h1 { font-size: 1.5rem; }
+            .nav-logo { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav">
+        <div class="container">
+            <a href="/" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/DCDC_Logo.png" alt="DCDC Network">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/training/">Training</a></li>
+                <li><a href="/team/">Team</a></li>
+                <li><a href="/about/fair-and-reproducibility/">FAIR</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/tools/">Tools</a></li>
+                <li><a href="/agenda/">Agenda</a></li>
+                <li><a href="/blog/" class="active">Blog</a></li>
+                <li><a href="/newsletter/#subscribe" style="background:#2e8894;color:#fff;padding:6px 14px;border-radius:5px;">Subscribe</a></li>
+                <li><a href="mailto:rendell.dekort@ua.aw">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="breadcrumb">
+            <a href="/">Home</a><span class="sep">/</span>
+            <a href="/blog/">Blog</a><span class="sep">/</span>
+            Extending the DCDC Network to the Research Data Alliance: a conference perspective
+        </div>
+
+        <div class="article-header">
+            <div class="post-meta">
+                <span class="tag">Conference</span>
+                <span class="post-date">October 2026</span>
+                <span class="post-date">By Esther Plomp</span>
+            </div>
+            <h1>Extending the DCDC Network to the Research Data Alliance: a conference perspective</h1>
+            <p class="lead">From 5 to 9 October, I was in London, UK, to attend <a href="https://www.rd-alliance.org/plenaries/p27/">the Research Data Alliance (RDA) 27th Plenary</a>, presenting a poster on the Dutch Caribbean Digital Competence Network (DCDC-Network)!</p>
+        </div>
+
+        <img
+            src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/rda27-poster.jpg"
+            alt="The DCDC-Network poster for the Research Data Alliance 27th Plenary"
+            class="hero-image"
+        >
+        <p class="image-caption">The DCDC-Network poster created for the Research Data Alliance Conference, providing a short summary of the Network&rsquo;s onboarding survey results. <a href="https://doi.org/10.5281/zenodo.22924391">The poster on Zenodo</a>.</p>
+
+        <div class="article-body">
+
+            <div class="about-box">
+                <h3>About the DCDC Network</h3>
+                <p>The Dutch Caribbean Digital Competence (DCDC) Network was established in 2025 with funding from Open Science NL. It connects the Universities of Aruba, Curaçao, and St. Martin, and Instituto Pedagogico Arubano, with a shared mission: to make research data more reusable, accessible, and transparent across the Dutch Caribbean.</p>
+                <p>The current data landscape in our region is fragmented, which makes research collaboration and validation harder than it needs to be. The Network addresses this through peer-to-peer exchange, a training program, and strategic partnerships between institutions.</p>
+            </div>
+
+            <p>The Plenary had several co-located events, of which I attended one on the 5th of October, the Ethical Data Initiative Stakeholder Forum titled &ldquo;<a href="https://ethicaldatainitiative.org/2026/08/11/bringing-ethics-to-the-global-research-commons-the-edi-stakeholder-forum-at-the-rda-p27/">Framing the Future of the Global Research Commons</a>&rdquo;, with two panels on &ldquo;Why research commons and for whom? The governance of data sharing&rdquo; and &ldquo;The practice of data as commons: Reconciling Research Data Management Principles&rdquo;. Particularly the second panel held interesting considerations of the practical application of the CARE principles. The CARE principles, described in the publication by <a href="https://doi.org/10.5334/dsj-2020-043">Carroll et al. (2020)</a>, were developed to advance innovation, governance, and self-determination among Indigenous Peoples. Are we diluting the CARE principles if they are applied to communities that are not Indigenous? Is the application of the CARE principles even possible when the community under study is not a community with a clear boundary? My <a href="https://doi.org/10.5281/zenodo.20801400">research study focusing on The Turing Way</a> could follow the CARE principles (because I&rsquo;m a member of the community and the study has been done in careful consultation with the community), but stating that it follows the CARE principles may still dilute the core values of CARE principles as The Turing Way is not an Indigenous community. More careful consideration of the practical application of the CARE principles, and an update of the recently added <a href="https://book.the-turing-way.org/reproducible-research/rdm/rdm-care/">CARE principle page to The Turing Way</a>, might be needed.</p>
+
+            <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/rda27-esther-poster.jpg" alt="Esther Plomp in front of the DCDC-Network poster" class="hero-image" loading="lazy">
+            <p class="image-caption">Esther posing in front of the DCDC-Network poster.</p>
+
+            <p>I met up with Tycho Hofstra from the <a href="https://ghostcollective.github.io/">GHOST collective</a>, and was promised a copy of the <a href="https://github.com/ghostCollective/OpenScienceAgainstHumanity">Open Science Against Humanity</a> game to bring back to Aruba! This game aims to raise awareness for Open Science and Open Science practices in a more playful way.</p>
+
+            <p>Nicole Emmenegger invited me to the assessment committee of the <a href="https://tdcc.nl/ssh/projects/tdcc-ssh-challenge-call-2026/">TDCC-SSH calls</a> to provide a Dutch Caribbean perspective in the evaluation of the proposals aimed to address challenges in the Social Sciences and Humanities domains related to FAIR data (Findable, Accessible, Interoperable and Reusable).</p>
+
+            <p>I managed to score some cool <a href="https://casdar.ac.uk/">CaSDaR</a> stickers, and meet Samantha Pearman-Kanza and Louise Saul who are leading this initiative/network to empower Data Stewards with career paths and recognition. We exchanged some thoughts on career progression for Data Stewards and how unequal career progression may also relate to gender.</p>
+
+            <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/rda27-stickers.jpg" alt="Stickers collected at the RDA Plenary" class="hero-image" loading="lazy">
+            <p class="image-caption">Collected stickers during the RDA, from <a href="https://www.raid.org/">RaID</a> (persistent identifiers for research projects), CaSDaR (the cat stickers), TDCC-SSH, and a sticker about Metadata.</p>
+
+            <p>It was great to see interest into the DCDC-Network and input from the Caribbean region from the Professionalising Data Stewardship Interest Group! Liise Lehtsalu, one of the group&rsquo;s chairs, was particularly keen to see how we can make existing groups in the RDA more accessible to the Caribbean Region. We (Curtis Sharma, Adira Daniel, Ayishih Bellew, Michelle Harricharan and myself) are moving towards this by organizing the RDA Birds of a Feather session in the near future: Stronger Together: Building a Caribbean Research Data Community. This session provides a pathway to join the RDA for Caribbean based data professionals.</p>
+
+            <p>During the plenary sessions the need for strong research communities was stressed (such as the DCDC-Network!). The need for equity in the research landscape was also repeatedly indicated, noting that capacity is not an equal playing field, raising the question: What does equity mean when people have access to different resources? A question we struggle with daily in the DCDC-Network.</p>
+
+            <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/rda27-physical-samples-intro.jpg" alt="Esther Plomp introducing the Physical Samples Interest Group session with Lesley Wyborn" class="hero-image" loading="lazy">
+            <p class="image-caption">Esther introducing the session of the Physical Samples Interest Group, together with Lesley Wyborn.</p>
+
+            <p>I co-led the session of the <a href="https://www.rd-alliance.org/groups/physical-samples-and-collections-research-data-ecosystem-ig/plenary-participation/?application_id=236011">Interest Group sessions on Physical Samples</a>, together with Lesley Wyborn. We discussed the latest updates regarding persistent identifiers and metadata for physical samples, and hosted a successful live demo of <a href="http://data.htmdec.org">a lab that has implemented best practices around physical sample management successfully</a> under the coordination of David Elbert.</p>
+
+            <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/rda27-physical-samples-panel.jpg" alt="Chairs and speakers of the Physical Samples Interest Group session" class="hero-image" loading="lazy">
+            <p class="image-caption">The chairs (Esther Plomp, Lesley Wyborn) and speakers (David Elbert, Rossella Aversa and Simon Hodson) of the Physical Sample Interest Group Session.</p>
+
+            <p>During the Reproducibility Interest Group session I found Carole Goble&rsquo;s point interesting: concepts such as Reproducibility may no longer be helpful to advance discussions. Carole pointed out that researchers are currently talking more about provenance instead of reproducibility, as verification/transparency is more important than reproducibility (generating the same results as the original study). Provenance is perhaps a concept that humanities scholars can also relate more to, as repeating or generalizing results is generally not the aim of this type of research. Meznah Aloqalaa shared her experiences around computational reproducibility during this session, which made me visit <a href="https://zenodo.org/records/23104479">her poster</a>, where we discussed how she managed to get ~300 responses from researchers on a survey she set out to ask about computational reproducibility challenges!</p>
+
+            <p>You can find summarizing blogposts of the RDA Plenary 27 on the RDA website (<a href="https://www.rd-alliance.org/news/welcome-to-the-rda-27th-plenary-meeting-in-london-uk-rda-p27-day-1-highlights/">day 1</a>, <a href="https://www.rd-alliance.org/news/rda-27th-plenary-meeting-in-london-uk-rda-p27-day-2-highlights/">day 2</a>, <a href="https://www.rd-alliance.org/news/rda-27th-plenary-meeting-in-london-uk-rda-p27-day-3-highlights/">day 3</a>), or sign up to <a href="https://www.rd-alliance.org/register/">join the RDA</a> to stay informed! From my side I hope to welcome you for our upcoming online Birds of a Feather session on Stronger Together: Building a Caribbean Research Data Community, to learn more about how international networks such as the Research Data Alliance can be of help to data professionals based in the Caribbean.</p>
+
+            <a href="/blog/" class="back-link">&#8592; Back to blog</a>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <h3>Contact</h3>
+            <p>For questions about the DCDC Network, reach out to your local coordinator:</p>
+            <p><strong>Aruba:</strong> <a href="mailto:esther.plomp@ua.aw">esther.plomp@ua.aw</a></p>
+            <p><strong>Curaçao:</strong> <a href="mailto:marjorie.alfonso@uoc.cw">marjorie.alfonso@uoc.cw</a></p>
+            <p><strong>St. Martin:</strong> <a href="mailto:raymond.Jessurun@usm.sx">raymond.Jessurun@usm.sx</a></p>
+            <p style="margin-top: 14px;"><strong>Network Administrator:</strong> <a href="mailto:rendell.dekort@ua.aw">rendell.dekort@ua.aw</a></p>
+            <div style="margin-top: 22px; display: flex; gap: 22px; justify-content: center; align-items: center; flex-wrap: wrap;">
+                <a href="https://www.linkedin.com/company/112355986/" target="_blank" rel="noopener" aria-label="DCDC Network on LinkedIn" style="display: inline-flex; align-items: center; gap: 8px; color: #7dd3dc; text-decoration: none; font-size: 0.9rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.86 3.38-1.86 3.61 0 4.28 2.38 4.28 5.47v6.28zM5.34 7.43a2.07 2.07 0 01-2.07-2.07 2.07 2.07 0 112.07 2.07zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://www.instagram.com/dcdcnetwork/" target="_blank" rel="noopener" aria-label="DCDC Network on Instagram" style="display: inline-flex; align-items: center; gap: 8px; color: #7dd3dc; text-decoration: none; font-size: 0.9rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.26.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.26.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 01-1.38-.9 3.72 3.72 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.88 5.88 0 00-2.13 1.38A5.88 5.88 0 00.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.8.73 1.47 1.38 2.13a5.88 5.88 0 002.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.88 5.88 0 002.13-1.38 5.88 5.88 0 001.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 00-1.38-2.13A5.88 5.88 0 0019.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1012 18.16 6.16 6.16 0 0012 5.84zm0 10.16A4 4 0 1112 8a4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+                    Instagram
+                </a>
+            </div>
+            <div class="funding">
+                <p>The DCDC Network is funded by NWO through the Open Science NL program.</p>
+                <img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/openscience_donkerblauw.png" alt="Open Science NL" style="height:40px;width:auto;margin-top:14px;opacity:0.85;">
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
