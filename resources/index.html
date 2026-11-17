@@ -151,6 +151,20 @@
             .resource-card { padding: 22px; }
             .nav-logo { display: none; }
         }
+    
+        /* Photo bands (kick-off photos, Nov 2026) */
+        body { overflow-x: clip; }
+        .photo-band { width: 100vw; margin: 36px 0 40px calc(50% - 50vw); }
+        .photo-band img { display: block; width: 100%; height: clamp(240px, 40vw, 540px); object-fit: cover; }
+        .photo-band figcaption, .photo-trio figcaption, .photo-grid-cap { max-width: 900px; margin: 8px auto 0; padding: 0 24px; font-size: 0.78rem; color: #4a5568; }
+        .photo-trio { width: min(1200px, calc(100vw - 32px)); margin: 40px 0 40px calc(50% - min(600px, 50vw - 16px)); }
+        .photo-trio .tiles { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 8px; height: clamp(320px, 44vw, 560px); }
+        .photo-trio img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 6px; }
+        .photo-trio img:first-child { grid-row: 1 / 3; }
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; margin: 16px 0 6px; }
+        .photo-grid img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; border-radius: 6px; }
+        .photo-grid-cap { padding: 0; margin: 0 0 36px; }
+        @media (max-width: 600px) { .photo-trio .tiles { grid-template-columns: 1fr 1fr; grid-template-rows: 2fr 1fr; } .photo-trio img:first-child { grid-row: auto; grid-column: 1 / 3; } }
     </style>
 </head>
 <body>
@@ -186,6 +200,9 @@
             <h1>Resources</h1>
             <p class="lead">Short, openly licensed guides from the DCDC Network on managing and sharing research data. Everything here is free to read, download, and reuse across the islands, with a persistent identifier so it stays findable and citable.</p>
         </div>
+
+<figure class="photo-band"><img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/kickoff-photo-ek107087.jpg" alt="Stacks of How to Archive Better booklets on a workshop table" loading="lazy" style="object-position:50% 50%"><figcaption>DCDC Kick-Off Conference, University of Aruba, 11 November 2026. Photo: Edrick Krozendijk, Edrxck Productions.</figcaption></figure>
+
 
         <div class="resource-list">
 

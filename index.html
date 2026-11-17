@@ -392,6 +392,20 @@
             .about, .training-highlight { padding: 24px; }
             .nav-logo { display: none; }
         }
+    
+        /* Photo bands (kick-off photos, Nov 2026) */
+        body { overflow-x: clip; }
+        .photo-band { width: 100vw; margin: 36px 0 40px calc(50% - 50vw); }
+        .photo-band img { display: block; width: 100%; height: clamp(240px, 40vw, 540px); object-fit: cover; }
+        .photo-band figcaption, .photo-trio figcaption, .photo-grid-cap { max-width: 900px; margin: 8px auto 0; padding: 0 24px; font-size: 0.78rem; color: #4a5568; }
+        .photo-trio { width: min(1200px, calc(100vw - 32px)); margin: 40px 0 40px calc(50% - min(600px, 50vw - 16px)); }
+        .photo-trio .tiles { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 8px; height: clamp(320px, 44vw, 560px); }
+        .photo-trio img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 6px; }
+        .photo-trio img:first-child { grid-row: 1 / 3; }
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; margin: 16px 0 6px; }
+        .photo-grid img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; border-radius: 6px; }
+        .photo-grid-cap { padding: 0; margin: 0 0 36px; }
+        @media (max-width: 600px) { .photo-trio .tiles { grid-template-columns: 1fr 1fr; grid-template-rows: 2fr 1fr; } .photo-trio img:first-child { grid-row: auto; grid-column: 1 / 3; } }
     </style>
 </head>
 <body>
@@ -434,6 +448,8 @@
         </div>
     </header>
 
+<figure class="photo-band"><img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/kickoff-photo-ek202098.jpg" alt="Participants around a table covered in sticky notes during a kick-off workshop" style="object-position:50% 45%"><figcaption>DCDC Kick-Off Conference, University of Aruba, 11 November 2026. Photo: Edrick Krozendijk, Edrxck Productions.</figcaption></figure>
+
     <main>
         <div class="container">
 
@@ -449,10 +465,10 @@
             </section>
 
             <section class="training-highlight">
-                <span class="training-badge">Registration open</span>
-                <h2>DCDC Kick-Off Conference, 10 to 12 November 2026</h2>
-                <p>The network meets at the University of Aruba: a public opening evening on Tuesday 10 November with Minister Gerlien Croes and a keynote by Hadeikaye Peterson, then two days of workshops on 11 and 12 November. Join for all of it or part of it. Sign up before 3 November.</p>
-                <a href="https://forms.gle/7ab4SuYV1vaBw9NG7" class="btn">Sign up</a> <a href="/kickoff/" class="btn-outline">Programme</a>
+                <span class="training-badge">Kick-Off Conference</span>
+                <h2>The network met in Aruba, 10 to 12 November 2026</h2>
+                <p>A public opening evening on Tuesday 10 November with Minister Gerlien Croes and a keynote by Hadeikaye Peterson, then two days of workshops at the University of Aruba on what the islands need from the network.</p>
+                <a href="/kickoff/#photos" class="btn-outline">Photos and programme</a>
             </section>
 
             <section class="islands-block">
@@ -516,6 +532,8 @@
                 </ul>
                 <p>Whether you're deeply experienced in open science or just beginning to explore these topics, you're welcome here.</p>
             </section>
+
+            <figure class="photo-trio"><div class="tiles"><img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/kickoff-photo-ek107368.jpg" alt="A workshop room at the University of Aruba, participants at laptops while a facilitator speaks" loading="lazy"><img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/kickoff-photo-ek107086.jpg" alt="Wooden and printed DCDC Kick-Off Conference puzzle gifts on a table" loading="lazy"><img src="https://raw.githubusercontent.com/University-of-Aruba/dcdc.network/main/kickoff-photo-ek107340.jpg" alt="A participant writing on a large sheet during group work" loading="lazy" style="object-position:50% 70%"></div><figcaption>DCDC Kick-Off Conference, University of Aruba, 11 November 2026. Photo: Edrick Krozendijk, Edrxck Productions.</figcaption></figure>
 
             <section class="training-highlight">
                 <span class="training-badge">Training</span>
